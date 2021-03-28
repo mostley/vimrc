@@ -20,9 +20,7 @@ let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
 let g:compe.source.vsnip = v:true
 
-" set completeopt=menuone,noinsert,noselect
-" set completeopt=menu,menuone,noinsert,noselect
-set completeopt=menuone,noselect
+set completeopt=menuone,noselect,noinsert
 " let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 inoremap <silent><expr> <C-Space> compe#complete()
