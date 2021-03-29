@@ -1,4 +1,5 @@
 let mapleader = " "
+let g:vimsyn_embed= 'lPr'
 
 call plug#begin('~/.config/plugged')
 
@@ -21,8 +22,12 @@ Plug 'szw/vim-maximizer'
 " Git stuff
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+Plug 'lewis6991/gitsigns.nvim'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()} }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-abolish'
 Plug 'theprimeagen/vim-be-good'
 Plug 'AndrewRadev/switch.vim'
 Plug 'tpope/vim-commentary'
