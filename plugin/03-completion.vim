@@ -21,7 +21,7 @@ let g:compe.source.nvim_lua = v:true
 let g:compe.source.vsnip = v:true
 
 set completeopt=menuone,noselect,noinsert
-" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')

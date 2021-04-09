@@ -1,6 +1,9 @@
 "  greatest remap ever
 vnoremap <leader>p "_dP
 
+" delete without copy
+vnoremap <leader>d "_d
+
 " next greatest remap ever : asbjornHaland
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
@@ -17,6 +20,7 @@ endfun
 augroup TRIM_WHITESPACE
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
+    autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
 augroup END
 
 " move line(s) in visual mode
@@ -43,3 +47,8 @@ nnoremap <leader><leader>x :call <SID>save_and_exec()<CR>
 
 " replace
 nnoremap <c-w><c-r> :%s/<c-r><c-w>//g<left><left>
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END

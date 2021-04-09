@@ -8,10 +8,7 @@ nnoremap <leader>l :wincmd l<CR>
 
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
-
-" nnoremap <leader>pv :Ex<CR>
-" nnoremap <leader>pv :Sex!<CR>
-nnoremap <leader>pv :30Lex %:h<CR>
+nnoremap <Leader>rp :resize 100<CR>
 
 nnoremap <Leader>! :e ~/.config/nvim/init.vim<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
