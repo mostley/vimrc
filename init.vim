@@ -11,16 +11,20 @@ call plug#begin('~/.config/plugged')
 Plug 'neovim/nvim-lspconfig'
 " Plug 'nvim-lua/completion-nvim'
 Plug 'hrsh7th/nvim-compe'
-Plug 'tjdevries/nlua.nvim'
-Plug 'tjdevries/lsp_extensions.nvim'
+Plug 'glepnir/lspsaga.nvim'
+" Plug 'simrat39/symbols-outline.nvim'
+" Plug 'tjdevries/nlua.nvim'
+" Plug 'tjdevries/lsp_extensions.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'FuDesign2008/vim-lsp-vue'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'FuDesign2008/vim-lsp-vue'
+Plug 'tikhomirov/vim-glsl'
 
 " TreeSitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " Plug 'nvim-treesitter/playground'
+Plug 'Konfekt/FastFold'
 
 " Debugger Plugins
 Plug 'puremourning/vimspector'

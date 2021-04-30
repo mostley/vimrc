@@ -1,24 +1,29 @@
 lua << EOF
 local actions = require('telescope.actions')
 
-require('telescope').setup{
-  file_sorter = require('telescope.sorters').get_fzy_sorter,
-  prompt_prefix = ' >',
-  color_devicons = true,
-
-  file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
-  grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
-  qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
-
+require('telescope').setup {
   defaults = {
+    file_sorter = require('telescope.sorters').get_fzy_sorter,
+    prompt_prefix = ' >',
+    color_devicons = true,
+    file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+
     mappings = {
       i = {
         ["<C-c>"] = false,
-        ["<esc>"] = actions.close
+        ["<C-x>"] = false,
+        ["<esc>"] = actions.close,
+        ["<C-q>"] = actions.send_to_qflist,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
       },
       n = {
         ["<esc>"] = actions.close,
-        ["<C-c>"] = actions.close
+        ["<C-c>"] = actions.close,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
       }
     }
   },
