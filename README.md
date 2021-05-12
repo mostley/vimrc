@@ -21,6 +21,8 @@ npm install -g tree-sitter-cli
 
 npm install -g diagnostic-languageserver
 
+brew install efm-langserver
+
 execute installs:
 * :PlugInstall
 * :TSInstall typescript python vue lua json html css bash

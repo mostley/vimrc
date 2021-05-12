@@ -3,7 +3,7 @@ lua require("my_lua_extensions")
 " project search
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string()<CR>
 
-nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+" nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
 
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>

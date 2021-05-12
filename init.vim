@@ -11,7 +11,7 @@ call plug#begin('~/.config/plugged')
 Plug 'neovim/nvim-lspconfig'
 " Plug 'nvim-lua/completion-nvim'
 Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim'
+" Plug 'glepnir/lspsaga.nvim'
 " Plug 'simrat39/symbols-outline.nvim'
 " Plug 'tjdevries/nlua.nvim'
 " Plug 'tjdevries/lsp_extensions.nvim'
@@ -27,7 +27,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'Konfekt/FastFold'
 
 " Debugger Plugins
-Plug 'puremourning/vimspector'
+" Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 
 " Git stuff
@@ -49,8 +49,8 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'kassio/neoterm'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'

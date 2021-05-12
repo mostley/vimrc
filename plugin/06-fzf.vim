@@ -5,4 +5,4 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
 
 nnoremap <silent> <Leader>ag :Ag<CR>
 nnoremap <silent> <Leader>rg :Rg<CR>
-" nnoremap <C-p> :GFiles<Cr>
+nnoremap <C-p> :GFiles<Cr>
