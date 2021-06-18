@@ -13,6 +13,17 @@ npm install -g typescript typescript-language-server pyright
 npm install -g vls
 pip install python-language-server
 
+lua language server (https://www.chrisatmachine.com/Neovim/28-neovim-lua-development/):
+brew install ninja
+cd .config/nvim
+git clone https://github.com/sumneko/lua-language-server
+cd lua-language-server
+git submodule update --init --recursive
+cd 3rd/luamake
+ninja -f ninja/macos.ninja
+cd ../..
+./3rd/luamake/luamake rebuild
+
 required for nodjs code:
 npm install -g neovim
 

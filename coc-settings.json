@@ -1,8 +1,0 @@
-{
-    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript", "typescript", "vue", "python"],
-    "vetur.format.defaultFormatter.ts": "prettier",
-    "vetur.format.defaultFormatter.js": "prettier",
-    "codeLens.enable": false,
-    "python.pythonPath": "python",
-    "suggest.enablePreview": true
-}
