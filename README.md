@@ -11,6 +11,7 @@ install vim plug: https://github.com/junegunn/vim-plug
 requires the following language server options:
 npm install -g typescript typescript-language-server pyright
 npm install -g vls
+pip install python-language-server
 
 required for nodjs code:
 npm install -g neovim
