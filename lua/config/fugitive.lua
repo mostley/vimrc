@@ -40,8 +40,3 @@ require('gitsigns').setup {
   },
 }
 
-utils.cmd [[
-let g:fugitive_gitlab_domains = ['https://gitlab.understand.ai']
-let g:fugitive_pty = 0
-]]
-
