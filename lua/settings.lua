@@ -4,6 +4,9 @@ local cmd = vim.cmd
 local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
+local apply_options = utils.apply_options
+local apply_globals = utils.apply_globals
+
 local indent = 2
 
 cmd 'syntax enable'
@@ -28,35 +31,78 @@ wo.relativenumber = true
 wo.scrolloff = 8
 wo.cursorline = true
 
+apply_globals({
+    -- Map leader to space
+    mapleader = ' ',
+    maplocalleader = ','
+})
+
+apply_options({
+    exrc = true,
+    guicursor = '',
+    errorbells = false,
+    wrap = false,
+    swapfile = false,
+    mouse = 'a',
+    backup = false,
+    undodir = '~/.config/nvim/undodir',
+    undofile = true,
+    hlsearch = false,
+    incsearch = true,
+    showmode = false,
+    signcolumn = 'yes',
+    list = true,
+    listchars = 'tab:░░,trail:·',
+    completeopt = 'menuone,noinsert,noselect',
+    fillchars = { eob = '~' },
+    colorcolumn = '120',
+    -- shortmess  =  vim.opt.shortmess .. c,
+    expandtab = true,
+    smarttab = true,
+    shiftround = true,
+    autoindent = true,
+    smartindent = true,
+    smartcase = true,
+    path = vim.opt.path + { '**' },
+    wildmode = 'longest,list,full',
+    wildmenu = true,
+    wildignore = vim.opt.wildignore + {
+        '*/.git/*',
+        '*/.hg/*',
+        '*/.svn/*.',
+        '*/.vscode/*.',
+        '*/.DS_Store',
+        '*/dist*/*',
+        '*/target/*',
+        '*/builds/*',
+        '*/build/*',
+        'tags',
+        '*/lib/*',
+        '*/flow-typed/*',
+        '*/node_modules/*',
+        '*.png',
+        '*.PNG',
+        '*.jpg',
+        '*.jpeg',
+        '*.JPG',
+        '*.JPEG',
+        '*.pdf',
+        '*.exe',
+        '*.o',
+        '*.obj',
+        '*.dll',
+        '*.DS_Store',
+        '*.ttf',
+        '*.otf',
+        '*.woff',
+        '*.woff2',
+        '*.eot'
+    },
+})
+
 cmd [[
-set exrc
-set guicursor=
-set noerrorbells
-set nowrap
-set noswapfile
-set nobackup
-set undodir=~/.config/nvim/undodir
-set undofile
-set nohlsearch
-set incsearch
-set noshowmode
-set signcolumn=yes
-set colorcolumn=120
-set shortmess+=c
-set expandtab smarttab shiftround autoindent smartindent smartcase
-set path+=**
-set wildmode=longest,list,full
-set wildmenu
-set wildignore+=*.pyc
-set wildignore+=*_build/*
-set wildignore+=**/coverage/*
-set wildignore+=**/node_modules/*
-set wildignore+=**/android/*
-set wildignore+=**/ios/*
-set wildignore+=**/.git/*
 highlight ColorColum ctermbg=0 guibg=lightgrey
 highlight Normal guibg=None
-set mouse=a
 let g:gruvbox_contrast_dark = 'hard'
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -69,20 +115,6 @@ let g:gruvbox_guisp_fallback = 'bg'
 -- Highlight on yank
 -- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 cmd 'au TextYankPost * silent! lua vim.highlight.on_yank()'
-
--- Auto format
--- vim.api.nvim_exec([[
--- let g:neoformat_enabled_python = ['autopep8']
--- let g:neoformat_enabled_typescript = ['prettier']
--- let g:neoformat_enabled_javascript= ['prettier']
--- let g:neoformat_enabled_json= ['prettier']
--- let g:neoformat_enabled_yaml= ['prettier']
-
--- augroup auto_fmt
---     autocmd!
---     autocmd BufWritePre *.py,*.lua,*.ts,*.vue try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
--- aug END
--- ]], false)
 
 vim.api.nvim_exec([[
 augroup auto_spellcheck

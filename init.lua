@@ -1,7 +1,3 @@
--- Map leader to space
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
-
 local fn = vim.fn
 local execute = vim.api.nvim_command
 

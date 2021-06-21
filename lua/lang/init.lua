@@ -57,7 +57,7 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_exec([[
             augroup auto_fmt
                 autocmd!
-                autocmd BufWritePre *.py,*.lua,*.ts,*.vue try | undojoin | | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+                autocmd BufWritePre *.py,*.lua,*.ts,*.vue try | undojoin |  | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
             aug END
         ]], false)
     end
@@ -100,6 +100,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true;
 local prettier_d = {
   formatCommand = 'prettierd ${INPUT}',
   formatStdin = true,
+  env = {
+    'PRETTIERD_DEFAULT_CONFIG=/Users/svenhecht/.config/nvim/utils/linter-config/.prettierrc.json',
+  },
 }
 local eslint_d = {
     lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
@@ -122,10 +125,11 @@ nvim_lsp.efm.setup {
     settings = {
         rootMarkers = {".git/"},
         languages = {
-            typtypescript = {eslint_d},
-            javascript = {eslint_d},
-            typescriptreact = {eslint_d},
-            javascriptreact = {eslint_d},
+            vue = {eslint_d, prettier_d},
+            typescript = {eslint_d, prettier_d},
+            javascript = {eslint_d, prettier_d},
+            typescriptreact = {eslint_d, prettier_d},
+            javascriptreact = {eslint_d, prettier_d},
             lua = {luaFormat},
             yaml = {yaml},
             escript = {eslint_d, prettier_d}
@@ -214,13 +218,13 @@ vim.g.symbols_outline = {
 }
 
 -- LSP Enable diagnostics
--- vim.lsp.handlers["textDocument/publishDiagnostics"] =
---     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
---         virtual_text = false,
---         underline = true,
---         signs = true,
---         update_in_insert = false
---     })
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false,
+        underline = true,
+        signs = true,
+        update_in_insert = false
+    })
 
 -- Send diagnostics to quickfix list
 do

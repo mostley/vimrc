@@ -27,7 +27,6 @@ return require('packer').startup(function(use)
         config = function() require('gitsigns').setup() end
     }
     use {'unblevable/quick-scope'}
-    use {'jiangmiao/auto-pairs'}
     use {
         "folke/which-key.nvim",
         config = function() require("which-key").setup {} end
