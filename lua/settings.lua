@@ -21,7 +21,7 @@ o.ignorecase = true
 o.scrolloff = 8
 -- o.splitbelow = true
 o.splitright = true
-o.clipboard = 'unnamed,unnamedplus'
+-- o.clipboard = 'unnamed,unnamedplus'
 o.timeoutlen = 500
 o.updatetime = 300
 o.inccommand = "split"
@@ -38,6 +38,8 @@ apply_globals({
 })
 
 apply_options({
+    encoding = 'utf-8',
+    fileencodings = 'utf-8',
     exrc = true,
     guicursor = '',
     errorbells = false,
@@ -45,18 +47,16 @@ apply_options({
     swapfile = false,
     mouse = 'a',
     backup = false,
-    undodir = '~/.config/nvim/undodir',
+    undodir = '/Users/svenhecht/.config/nvim/undodir',
     undofile = true,
     hlsearch = false,
     incsearch = true,
     showmode = false,
     signcolumn = 'yes',
     list = true,
-    listchars = 'tab:░░,trail:·',
-    completeopt = 'menuone,noinsert,noselect',
+    -- listchars = 'tab:░░,trail:·,space:·',
     fillchars = { eob = '~' },
     colorcolumn = '120',
-    -- shortmess  =  vim.opt.shortmess .. c,
     expandtab = true,
     smarttab = true,
     shiftround = true,

@@ -6,6 +6,9 @@ require('telescope').load_extension('fzf')
 
 require('telescope').setup {
     defaults = {
+      prompt_prefix = " ",
+      selection_caret = " ",
+      color_devicons = true,
       mappings = {
         i = {
           ["<C-c>"] = false,

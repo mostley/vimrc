@@ -13,6 +13,7 @@ npm install -g typescript typescript-language-server pyright
 npm install -g vls
 pip install python-language-server
 npm install -g @fsouza/prettierd
+npm i -g vscode-langservers-extracted
 
 lua language server (https://www.chrisatmachine.com/Neovim/28-neovim-lua-development/):
 brew install ninja

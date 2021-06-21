@@ -26,6 +26,11 @@ return require('packer').startup(function(use)
         'lewis6991/gitsigns.nvim',
         config = function() require('gitsigns').setup() end
     }
+    use {'akinsho/nvim-bufferline.lua'}
+    use {
+        'mhartington/formatter.nvim',
+        config = function() require('config.formatter') end
+    }
     use {'unblevable/quick-scope'}
     use {
         "folke/which-key.nvim",
@@ -34,10 +39,13 @@ return require('packer').startup(function(use)
     use {'kevinhwang91/rnvimr'}
 
     -- Color scheme
+    use {"norcalli/nvim-colorizer.lua"}
+    use {"siduck76/nvim-base16.lua"}
     use {'kyazdani42/nvim-web-devicons'}
-    -- use {'sainnhe/gruvbox-material'}
+    use {'Yggdroot/indentLine'}
+    use {'lukas-reineke/indent-blankline.nvim'}
     use {'gruvbox-community/gruvbox'}
-    -- use {'NLKNguyen/papercolor-theme'}
+    use {'karb94/neoscroll.nvim'}
 
     -- Testing
     use {
@@ -81,6 +89,7 @@ return require('packer').startup(function(use)
         "folke/trouble.nvim",
         config = function() require("trouble").setup {} end
     }
+    use 'folke/lsp-colors.nvim'
     use {'hrsh7th/vim-vsnip'}
     use {'rafamadriz/friendly-snippets'}
     use {'cstrap/python-snippets'}
@@ -92,7 +101,17 @@ return require('packer').startup(function(use)
     use {'simrat39/symbols-outline.nvim'}
 
     -- Better syntax
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        requires = {
+            'nvim-treesitter/nvim-treesitter-refactor',
+            {
+                'nvim-treesitter/completion-treesitter',
+                run = function() vim.cmd [[TSUpdate]] end
+            }
+        },
+        config = function() require('config.treesitter') end
+    }
     -- use {'nvim-treesitter/playground'}
 
     -- Dashboard
@@ -104,7 +123,10 @@ return require('packer').startup(function(use)
         branch = 'main',
         config = function() require 'statusline' end
     }
-    -- use { 'romgrk/barbar.nvim' }
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require('nvim-autopairs').setup() end
+    }
 
     -- Debugging
     use {'puremourning/vimspector'}

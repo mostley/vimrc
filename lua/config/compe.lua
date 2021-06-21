@@ -25,11 +25,13 @@ require'compe'.setup {
         vsnip = true,
         nvim_lsp = true,
         nvim_lua = true,
-        spell = true,
+        spell = false,
         tags = true,
         snippets_nvim = true,
         treesitter = true,
-        vim_dadbod_completion = true
+        vim_dadbod_completion = true,
+        buffer = {kind = "﬘", true},
+        vsnip = {kind = "﬌"}, --replace to what sign you prefer
     }
 }
 
@@ -74,3 +76,15 @@ utils.map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 utils.map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 utils.map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 utils.map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+function _G.completions()
+    local npairs = require("nvim-autopairs")
+    if vim.fn.pumvisible() == 1 then
+        if vim.fn.complete_info()["selected"] ~= -1 then
+            return vim.fn["compe#confirm"]("<CR>")
+        end
+    end
+    return npairs.check_break_line_char()
+end
+
+utils.map("i", "<CR>", "v:lua.completions()", {expr = true})
