@@ -71,18 +71,18 @@ let g:gruvbox_guisp_fallback = 'bg'
 cmd 'au TextYankPost * silent! lua vim.highlight.on_yank()'
 
 -- Auto format
-vim.api.nvim_exec([[
-let g:neoformat_enabled_python = ['autopep8']
-let g:neoformat_enabled_typescript = ['prettier']
-let g:neoformat_enabled_javascript= ['prettier']
-let g:neoformat_enabled_json= ['prettier']
-let g:neoformat_enabled_yaml= ['prettier']
+-- vim.api.nvim_exec([[
+-- let g:neoformat_enabled_python = ['autopep8']
+-- let g:neoformat_enabled_typescript = ['prettier']
+-- let g:neoformat_enabled_javascript= ['prettier']
+-- let g:neoformat_enabled_json= ['prettier']
+-- let g:neoformat_enabled_yaml= ['prettier']
 
-augroup auto_fmt
-    autocmd!
-    autocmd BufWritePre *.py,*.lua,*.ts,*.vue try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-aug END
-]], false)
+-- augroup auto_fmt
+--     autocmd!
+--     autocmd BufWritePre *.py,*.lua,*.ts,*.vue try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+-- aug END
+-- ]], false)
 
 vim.api.nvim_exec([[
 augroup auto_spellcheck
