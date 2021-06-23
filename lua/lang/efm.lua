@@ -1,9 +1,23 @@
 local nvim_lsp = require('lspconfig')
 local on_attach = require('lang.on_attach')
 
-local efm_config = os.getenv('HOME') .. '/.config/nvim/lua/lsp/efm/config.yaml'
-local efm_log_dir = '/tmp/'
 local efm_root_markers = { 'package.json', '.git/', '.zshrc' }
+
+local function eslint_config_exists()
+  local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
+
+  if not vim.tbl_isempty(eslintrc) then
+    return true
+  end
+
+  if vim.fn.filereadable("package.json") then
+    if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
+      return true
+    end
+  end
+
+  return false
+end
 
 local prettier = {
   formatCommand = 'prettierd ${INPUT}',
@@ -48,20 +62,29 @@ local efm_languages = {
   html = { prettier }
 }
 
-
 local function setup(capabilities)
   nvim_lsp.efm.setup {
-      filetype = {
+      filetypes = {
           "javascript",
           "typescript",
           "typescriptreact",
           "javascriptreact",
+          "vue",
           "lua",
           "yaml"
       },
       capabilities = capabilities,
-      on_attach = on_attach,
-      root_dir = nvim_lsp.util.root_pattern(unpack(efm_root_markers)),
+      on_attach = function(client)
+        client.resolved_capabilities.document_formatting = true
+        client.resolved_capabilities.goto_definition = false
+        on_attach(client)
+      end,
+      root_dir = function()
+        if not eslint_config_exists() then
+          return nil
+        end
+        return vim.fn.getcwd()
+      end,
       init_options = { documentFormatting = true, codeAction = true },
       settings = {
           rootMarkers = efm_root_markers,

@@ -42,8 +42,7 @@ return require('packer').startup(function(use)
     use {"norcalli/nvim-colorizer.lua"}
     use {"siduck76/nvim-base16.lua"}
     use {'kyazdani42/nvim-web-devicons'}
-    use {'Yggdroot/indentLine'}
-    use {'lukas-reineke/indent-blankline.nvim'}
+    use {'lukas-reineke/indent-blankline.nvim', branch = "lua"}
     use {'gruvbox-community/gruvbox'}
     use {'karb94/neoscroll.nvim'}
 

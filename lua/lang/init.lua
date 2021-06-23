@@ -1,54 +1,4 @@
 USER = vim.fn.expand('$USER')
-local fn = vim.fn
-
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
--- Code actions
-capabilities.textDocument.codeAction = {
-    dynamicRegistration = true,
-    codeActionLiteralSupport = {
-        codeActionKind = {
-            valueSet = (function()
-                local res = vim.tbl_values(vim.lsp.protocol.CodeActionKind)
-                table.sort(res)
-                return res
-            end)()
-        }
-    }
-}
-
-capabilities.textDocument.completion.completionItem.snippetSupport = true;
-
--- Language specific key mappings
-require('lang.keymappings')
-
-require('lang.lua')(capabilities)
-require('lang.efm')(capabilities)
-require('lang.pyright')(capabilities)
-require('lang.tsserver')(capabilities)
-require('lang.vimls')(capabilities)
-require('lang.vuels')(capabilities)
-require('lang.html')(capabilities)
-require('lang.bash')()
-require('lang.css')()
-
--- symbols-outline.nvim
-vim.g.symbols_outline = {
-    highlight_hovered_item = true,
-    show_guides = true,
-    auto_preview = false, -- experimental
-    position = 'right',
-    keymaps = {
-        close = "<Esc>",
-        goto_location = "<Cr>",
-        focus_location = "o",
-        hover_symbol = "<C-space>",
-        rename_symbol = "r",
-        code_actions = "a"
-    },
-    lsp_blacklist = {}
-}
 
 -- LSP Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
@@ -81,7 +31,58 @@ do
     end
 end
 
+vim.cmd [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+vim.cmd [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
+
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
 vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
 vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- Code actions
+capabilities.textDocument.codeAction = {
+    dynamicRegistration = true,
+    codeActionLiteralSupport = {
+        codeActionKind = {
+            valueSet = (function()
+                local res = vim.tbl_values(vim.lsp.protocol.CodeActionKind)
+                table.sort(res)
+                return res
+            end)()
+        }
+    }
+}
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true;
+
+-- Language specific key mappings
+require('lang.keymappings')
+
+require('lang.lua')(capabilities)
+require('lang.pyright')(capabilities)
+require('lang.tsserver')(capabilities)
+require('lang.efm')(capabilities)
+require('lang.vimls')(capabilities)
+require('lang.vuels')(capabilities)
+require('lang.html')(capabilities)
+require('lang.bash')()
+require('lang.css')()
+
+-- symbols-outline.nvim
+vim.g.symbols_outline = {
+    highlight_hovered_item = true,
+    show_guides = true,
+    auto_preview = false, -- experimental
+    position = 'right',
+    keymaps = {
+        close = "<Esc>",
+        goto_location = "<Cr>",
+        focus_location = "o",
+        hover_symbol = "<C-space>",
+        rename_symbol = "r",
+        code_actions = "a"
+    },
+    lsp_blacklist = {}
+}
+

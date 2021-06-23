@@ -5,16 +5,12 @@ require('config.fugitive')
 require('config.gitsigns')
 require('config.top-bufferline')
 require('config.devicon')
+require('config.file-icons')
 require('config.project')
 require('config.telescope')
 require('config.formatter')
-
--- nvim-compe
+require('config.vimspector')
 require('config.compe')
-
--- lspkind-nvim
 require('config.lspkind')
-
--- treesitter
 require('config.treesitter')
 

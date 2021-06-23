@@ -17,7 +17,7 @@ nnoremap <silent><leader>csh :Lspsaga signature_help<CR>
 
 nnoremap <silent><leader>crn :Lspsaga rename<CR>
 
-nnoremap <silent><leader>cpd:Lspsaga preview_definition<CR>
+nnoremap <silent><leader>cpd :Lspsaga preview_definition<CR>
 
 nnoremap <silent> <leader>cld :Lspsaga show_line_diagnostics<CR>
 
