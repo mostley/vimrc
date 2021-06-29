@@ -133,11 +133,11 @@ augroup auto_term
 augroup END
 ]], false)
 
-vim.api.nvim_exec([[
-    fun! TrimWhitespace()
-        let l:save = winsaveview()
-        keeppatterns %s/\s\+$//e
-        call winrestview(l:save)
-    endfun
-    autocmd FileType go,rust,html,typescript,javascript,python autocmd BufWritePre <buffer> call TrimWhitespace()
-]], false)
+-- vim.api.nvim_exec([[
+--     fun! TrimWhitespace()
+--         let l:save = winsaveview()
+--         keeppatterns %s/\s\+$//e
+--         call winrestview(l:save)
+--     endfun
+--     autocmd FileType go,rust,html,typescript,javascript,python autocmd BufWritePre <buffer> call TrimWhitespace()
+-- ]], false)

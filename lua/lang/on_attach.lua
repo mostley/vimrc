@@ -44,8 +44,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>ld',  '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '<leader>ll',  '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     -- buf_set_keymap('n', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', '<leader>ac',  '<cmd>lua require\'lspsaga.codeaction\'.code_action()<CR>', opts)
-    buf_set_keymap('v', '<leader>ac',  '<cmd>lua require\'lspsaga.codeaction\'.range_code_action()<CR>', opts)
+    buf_set_keymap('n', '<leader>ac',  "<cmd>lua require'lspsaga.codeaction'.code_action()<CR>", opts)
+    buf_set_keymap('v', '<leader>ac',  "<cmd>lua require'lspsaga.codeaction'.range_code_action()<CR>", opts)
     buf_set_keymap('n', '<leader>lss', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
 
     -- Set some keybinds conditional on server capabilities

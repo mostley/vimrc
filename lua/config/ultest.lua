@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 vim.g.ultest_use_pty = 1
 
 local M = {}
@@ -29,6 +31,14 @@ function M.post()
         end,
     }
     require("ultest").setup({builders = builders})
+
+    vim.cmd [[nmap <leader>tt <Plug>(ultest-run-nearest)]]
+    vim.cmd [[nmap <leader>tf <Plug>(ultest-run-file)]]
+    vim.cmd [[nmap <leader>ts <Plug>(ultest-summary-toggle)]]
+    vim.cmd [[nmap <leader>to <Plug>(ultest-output-jump)]]
+    vim.cmd [[nmap [t <Plug>(ultest-prev-fail)]]
+    vim.cmd [[nmap ]t <Plug>(ultest-next-fail)]]
 end
+
 
 return M
