@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
         config = function() require("which-key").setup {} end
     }
     use {'kevinhwang91/rnvimr'}
+    use { 'tikhomirov/vim-glsl' }
 
     -- Color scheme
     use {"norcalli/nvim-colorizer.lua"}
