@@ -18,6 +18,8 @@ utils.map('n', '<leader>j', ':wincmd j<CR>')
 utils.map('n', '<leader>k', ':wincmd k<CR>')
 utils.map('n', '<leader>l', ':wincmd l<CR>')
 
+utils.map('n', '<C-c>', '<Esc>')
+
 vim.api.nvim_exec([[
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -55,10 +57,29 @@ vnoremap <leader>d "_d
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
+nnoremap Y y$
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+inoremap , ,<c-g>u
+inoremap ; ;<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+inoremap ] ]<c-g>u
+inoremap } }<c-g>u
+inoremap ) )<c-g>u
+
+" add numeric jumps to jump list
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 noremap cp yap<S-}>p
 
 " move line(s) in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 ]], false)

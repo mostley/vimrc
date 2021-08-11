@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     use {'tpope/vim-commentary'}
     use {'tpope/vim-sleuth'}
     use {'tpope/vim-repeat'}
+    use {'tpope/vim-abolish'}
     use {
         'mg979/vim-visual-multi',
         branch = 'master'
@@ -38,12 +39,13 @@ return require('packer').startup(function(use)
     }
     use {'kevinhwang91/rnvimr'}
     use { 'tikhomirov/vim-glsl' }
+    use { 'stevearc/vim-arduino' }
 
     -- Color scheme
     use {"norcalli/nvim-colorizer.lua"}
     use {"siduck76/nvim-base16.lua"}
     use {'kyazdani42/nvim-web-devicons'}
-    use {'lukas-reineke/indent-blankline.nvim', branch = "lua"}
+    use {'lukas-reineke/indent-blankline.nvim'}
     use {'gruvbox-community/gruvbox'}
     use {'karb94/neoscroll.nvim'}
 
@@ -108,7 +110,8 @@ return require('packer').startup(function(use)
             {
                 'nvim-treesitter/completion-treesitter',
                 run = function() vim.cmd [[TSUpdate]] end
-            }
+            },
+            'nvim-treesitter/nvim-treesitter-textobjects'
         },
         config = function() require('config.treesitter') end
     }

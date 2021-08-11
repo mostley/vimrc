@@ -3,7 +3,6 @@ local utils = require('utils')
 local cmd = vim.cmd
 local o = vim.o
 local wo = vim.wo
-local bo = vim.bo
 local apply_options = utils.apply_options
 local apply_globals = utils.apply_globals
 
@@ -12,9 +11,9 @@ local indent = 2
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 
-bo.shiftwidth = indent
-bo.tabstop = indent
-bo.softtabstop = indent
+o.shiftwidth = indent
+o.tabstop = indent
+o.softtabstop = indent
 o.termguicolors = true
 o.hidden = true
 o.ignorecase = true
@@ -26,7 +25,7 @@ o.timeoutlen = 500
 o.updatetime = 300
 o.inccommand = "split"
 o.cmdheight = 2
-wo.number = true
+o.number = true
 wo.relativenumber = true
 wo.scrolloff = 8
 wo.cursorline = true

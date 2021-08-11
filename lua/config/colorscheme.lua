@@ -12,7 +12,7 @@ require('neoscroll.config').set_mappings(t)
 utils.opt('o', 'termguicolors', true)
 -- cmd 'colorscheme gruvbox'
 local base16 = require "base16"
-base16(base16.themes["onedark"], true)
+base16(base16.themes("onedark"), true)
 
 g.indent_blankline_enabled = true
 g.indent_blankline_char = "▏"
