@@ -1,4 +1,5 @@
 local actions = require('telescope.actions')
+local trouble = require("trouble.providers.telescope")
 
 
 require('telescope').load_extension('fzf')
@@ -14,13 +15,14 @@ require('telescope').setup {
           ["<C-c>"] = false,
           ["<C-x>"] = false,
           ["<esc>"] = actions.close,
-          ["<C-q>"] = actions.send_to_qflist,
+          ["<c-t>"] = trouble.smart_open_with_trouble,
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
         },
         n = {
           ["<esc>"] = actions.close,
           ["<C-c>"] = actions.close,
+          ["<c-t>"] = trouble.smart_open_with_trouble,
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
         }

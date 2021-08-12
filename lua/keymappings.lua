@@ -17,6 +17,8 @@ utils.map('n', '<leader>h', ':wincmd h<CR>')
 utils.map('n', '<leader>j', ':wincmd j<CR>')
 utils.map('n', '<leader>k', ':wincmd k<CR>')
 utils.map('n', '<leader>l', ':wincmd l<CR>')
+utils.map('n', '<leader>tn', ':lua require("trouble").next({skip_groups = true, jump = true});<CR>')
+utils.map('n', '<leader>tp', ':lua require("trouble").next({skip_groups = true, jump = true});<CR>')
 
 utils.map('n', '<C-c>', '<Esc>')
 
