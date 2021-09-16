@@ -23,3 +23,5 @@ require('lang')
 
 -- plugin configuration
 require('config')
+
+vim.cmd 'colorscheme gruvbox'

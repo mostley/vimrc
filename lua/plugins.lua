@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
     use {'kyazdani42/nvim-web-devicons'}
     use {'lukas-reineke/indent-blankline.nvim'}
     use {'gruvbox-community/gruvbox'}
+    use {'tomasr/molokai'}
     use {'karb94/neoscroll.nvim'}
 
     -- Testing
@@ -83,7 +84,7 @@ return require('packer').startup(function(use)
     use {'p00f/nvim-ts-rainbow'}
     use {'ray-x/lsp_signature.nvim'}
     use {'szw/vim-maximizer'}
-    -- use {'dyng/ctrlsf.vim'}
+    -- use {'dyng/ctrlsfjvim'}
     -- use {'dbeniamine/cheat.sh-vim'}
     use {'pechorin/any-jump.vim'}
     use {'kevinhwang91/nvim-bqf'}
@@ -149,6 +150,14 @@ return require('packer').startup(function(use)
     -- Project
     use {'nvim-telescope/telescope-project.nvim'}
     use {'airblade/vim-rooter'}
+
+    use {
+      "ThePrimeagen/refactoring.nvim",
+      requires = {
+          {"nvim-lua/plenary.nvim"},
+          {"nvim-treesitter/nvim-treesitter"}
+      }
+  }
 end)
 
 

@@ -1,5 +1,6 @@
 local utils = require('utils')
 local g = vim.g
+local cmd = vim.cmd
 
 require('colorizer').setup()
 require('neoscroll').setup()
@@ -10,9 +11,11 @@ t['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '150', [['sine']]}}
 require('neoscroll.config').set_mappings(t)
 
 utils.opt('o', 'termguicolors', true)
--- cmd 'colorscheme gruvbox'
-local base16 = require "base16"
-base16(base16.themes("onedark"), true)
+cmd 'colorscheme gruvbox'
+-- local base16 = require "base16"
+-- base16(base16.themes("onedark"), true)
+-- base16(base16.themes("dracula"), true)
+-- base16(base16.themes("material-darker"), true)
 
 g.indent_blankline_enabled = true
 g.indent_blankline_char = "▏"

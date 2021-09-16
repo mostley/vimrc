@@ -13,4 +13,5 @@ require('config.vimspector')
 require('config.compe')
 require('config.lspkind')
 require('config.treesitter')
+require('config.refactoring')
 
