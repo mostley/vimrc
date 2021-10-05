@@ -40,7 +40,9 @@ local function setup(capabilities)
                             [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                             [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
                         }
-                    }
+                    },
+                    -- Do not send telemetry data containing a randomized but unique identifier
+                    telemetry = {enable = false}
                 }
             }
         }

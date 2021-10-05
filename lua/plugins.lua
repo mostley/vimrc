@@ -28,10 +28,10 @@ return require('packer').startup(function(use)
         config = function() require('gitsigns').setup() end
     }
     use {'akinsho/nvim-bufferline.lua'}
-    use {
-        'mhartington/formatter.nvim',
-        config = function() require('config.formatter') end
-    }
+    -- use {
+    --     'mhartington/formatter.nvim',
+    --     config = function() require('config.formatter') end
+    -- }
     use {'unblevable/quick-scope'}
     use {
         "folke/which-key.nvim",
@@ -78,9 +78,10 @@ return require('packer').startup(function(use)
     use {'hrsh7th/nvim-compe'}
 
     -- Better LSP experience
-    use {'glepnir/lspsaga.nvim'}
+    -- use {'glepnir/lspsaga.nvim'}
+    -- use {'al3xfischer/lspsaga.nvim'}
     use {'onsails/lspkind-nvim'}
-    use {'sbdchd/neoformat'}
+    -- use {'sbdchd/neoformat'}
     use {'p00f/nvim-ts-rainbow'}
     use {'ray-x/lsp_signature.nvim'}
     use {'szw/vim-maximizer'}

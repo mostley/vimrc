@@ -52,7 +52,7 @@ require('formatter').setup({
     yaml = {
       prettier
     },
-    html = {
+      html = {
       prettier
     }
   }

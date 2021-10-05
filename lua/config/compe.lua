@@ -87,4 +87,4 @@ function _G.completions()
     return npairs.check_break_line_char()
 end
 
-utils.map("i", "<CR>", "v:lua.completions()", {expr = true})
+vim.api.nvim_set_keymap("i", "<CR>", "v:lua.completions()", {expr = true})
