@@ -47,6 +47,15 @@ local yaml = {
   lintCommand = "yamllint -f parsable -",
   lintStdin = true,
 }
+local mypy = {
+  lintCommand = "mypy --show-column-numbers --ignore-missing-imports",
+  lintFormats = {
+    "%f:%l:%c: %trror: %m",
+    "%f:%l:%c: %tarning: %m",
+    "%f:%l:%c: %tote: %m",
+  },
+  lintSource = "mypy",
+}
 
 local efm_languages = {
   escript = { eslint, prettier },
@@ -65,11 +74,12 @@ local efm_languages = {
   graphql = { prettier },
   vue = { prettier, eslint },
   html = { prettier },
+  -- python = { mypy },
 }
 
 local function setup(capabilities)
   nvim_lsp.efm.setup({
-    cmd = { "efm-langserver", "-logfile", "/tmp/efm.log", "-loglevel", "5" },
+    -- cmd = { "efm-langserver", "-logfile", "/tmp/efm.log", "-loglevel", "5" },
     filetypes = {
       "javascript",
       "typescript",
@@ -78,6 +88,7 @@ local function setup(capabilities)
       "vue",
       "lua",
       "yaml",
+      -- "python",
     },
     capabilities = capabilities,
     on_attach = function(client)
