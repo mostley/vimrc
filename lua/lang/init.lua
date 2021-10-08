@@ -93,7 +93,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 require("lang.keymappings")
 
 require("lang.lua")(capabilities)
-require("lang.pyright")(capabilities)
+require("lang.pyls")(capabilities)
 require("lang.tsserver")(capabilities)
 require("lang.efm")(capabilities)
 require("lang.vimls")(capabilities)

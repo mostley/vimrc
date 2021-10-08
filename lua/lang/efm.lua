@@ -114,7 +114,7 @@ vim.api.nvim_exec(
   [[
     augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.lua,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.rs lua vim.lsp.buf.formatting_sync()
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.lua,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.rs,*.py lua vim.lsp.buf.formatting_sync()
     augroup END
   ]],
   true
