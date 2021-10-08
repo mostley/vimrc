@@ -97,6 +97,7 @@ return require("packer").startup(function(use)
   -- Better LSP experience
   -- use({ "glepnir/lspsaga.nvim" })
   use({ "al3xfischer/lspsaga.nvim" })
+  use({ "windwp/lsp-fastaction.nvim" })
   use({ "onsails/lspkind-nvim" })
   use({ "p00f/nvim-ts-rainbow" })
   use({ "ray-x/lsp_signature.nvim" })
@@ -117,6 +118,7 @@ return require("packer").startup(function(use)
   use({ "cstrap/python-snippets" })
   use({ "ylcnfrht/vscode-python-snippet-pack" })
   use({ "xabikos/vscode-javascript" })
+  use({ "windwp/nvim-ts-autotag" })
 
   -- Lua development
   use({ "folke/lua-dev.nvim" })
@@ -126,6 +128,7 @@ return require("packer").startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     requires = {
+      "nvim-treesitter/playground",
       "nvim-treesitter/nvim-treesitter-refactor",
       {
         "nvim-treesitter/completion-treesitter",

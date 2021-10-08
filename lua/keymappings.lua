@@ -1,28 +1,31 @@
-local utils = require('utils')
+local utils = require("utils")
 
-utils.map('n', '<Leader>qf', '<Cmd>copen<CR>')
-utils.map('n', '<Leader>qc', '<Cmd>cclose<CR>')
-utils.map('n', '<Leader>qn', '<Cmd>cnext<CR>')
-utils.map('n', '<Leader>qp', '<Cmd>cprev<CR>')
-utils.map('n', '<Leader>qz', '<Cmd>cex []<CR>')
-utils.map('n', '<Leader>qh', 'q:')
-utils.map('n', '<Leader>qs', 'q/')
+utils.map("n", "<Leader>qf", "<Cmd>copen<CR>")
+utils.map("n", "<Leader>qc", "<Cmd>cclose<CR>")
+utils.map("n", "<Leader>qn", "<Cmd>cnext<CR>")
+utils.map("n", "<Leader>qp", "<Cmd>cprev<CR>")
+utils.map("n", "<Leader>qz", "<Cmd>cex []<CR>")
+utils.map("n", "<Leader>qh", "q:")
+utils.map("n", "<Leader>qs", "q/")
 
-utils.map('t', '<C-w><C-o>', '<C-\\><C-n> :MaximizerToggle!<CR>')
-utils.map('t', '<C-h>', '<C-\\><C-n><C-w>h')
-utils.map('t', '<C-j>', '<C-\\><C-n><C-w>j')
-utils.map('t', '<C-k>', '<C-\\><C-n><C-w>k')
-utils.map('t', '<C-l>', '<C-\\><C-n><C-w>l')
-utils.map('n', '<leader>h', ':wincmd h<CR>')
-utils.map('n', '<leader>j', ':wincmd j<CR>')
-utils.map('n', '<leader>k', ':wincmd k<CR>')
-utils.map('n', '<leader>l', ':wincmd l<CR>')
-utils.map('n', '<leader>tn', ':lua require("trouble").next({skip_groups = true, jump = true});<CR>')
-utils.map('n', '<leader>tp', ':lua require("trouble").next({skip_groups = true, jump = true});<CR>')
+utils.map("t", "<C-w><C-o>", "<C-\\><C-n> :MaximizerToggle!<CR>")
+utils.map("t", "<C-h>", "<C-\\><C-n><C-w>h")
+utils.map("t", "<C-j>", "<C-\\><C-n><C-w>j")
+utils.map("t", "<C-k>", "<C-\\><C-n><C-w>k")
+utils.map("t", "<C-l>", "<C-\\><C-n><C-w>l")
+utils.map("n", "<leader>h", ":wincmd h<CR>")
+utils.map("n", "<leader>j", ":wincmd j<CR>")
+utils.map("n", "<leader>k", ":wincmd k<CR>")
+utils.map("n", "<leader>l", ":wincmd l<CR>")
+utils.map("n", "<leader>tn", ':lua require("trouble").next({skip_groups = true, jump = true});<CR>')
+utils.map("n", "<leader>tp", ':lua require("trouble").next({skip_groups = true, jump = true});<CR>')
 
-utils.map('n', '<C-c>', '<Esc>')
+utils.map("n", "<C-c>", "<Esc>")
+utils.map("i", "<C-c>", "<Esc>")
+utils.map("v", "<C-c>", "<Esc>")
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
@@ -84,4 +87,8 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
-]], false)
+
+]],
+
+  false
+)
