@@ -96,7 +96,7 @@ return require("packer").startup(function(use)
 
   -- Better LSP experience
   -- use({ "glepnir/lspsaga.nvim" })
-  use({ "al3xfischer/lspsaga.nvim" })
+  -- use({ "al3xfischer/lspsaga.nvim" })
   use({ "windwp/lsp-fastaction.nvim" })
   use({ "onsails/lspkind-nvim" })
   use({ "p00f/nvim-ts-rainbow" })
