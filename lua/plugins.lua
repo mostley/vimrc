@@ -105,9 +105,15 @@ return require("packer").startup(function(use)
   -- use {'dyng/ctrlsfjvim'}
   -- use {'dbeniamine/cheat.sh-vim'}
   use({ "pechorin/any-jump.vim" })
-  use({ "kevinhwang91/nvim-bqf" })
+  use({ "kevinhwang91/nvim-bqf", ft = "qf" })
   use({
-    "folke/trouble.nvim",
+    "junegunn/fzf",
+    run = function()
+      vim.fn["fzf#install"]()
+    end,
+  })
+  use({
+    "folke/touble.nvim",
     config = function()
       require("trouble").setup({})
     end,

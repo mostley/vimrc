@@ -36,6 +36,8 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
 
         brew install efm-langserver
 
+        brew install write-good
+
 ## execute installs:
 
 - :TSInstall typescript python vue lua json html css bash

@@ -1,4 +1,3 @@
-
 require("config.dashboard")
 
 require("config.colorscheme")
@@ -30,3 +29,5 @@ require("config.treesitter")
 require("config.refactoring")
 
 require("config.fastaction")
+
+require("config.trouble")
