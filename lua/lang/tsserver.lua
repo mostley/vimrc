@@ -6,6 +6,9 @@ local Query = require("refactoring.query")
 local TreeSitter = require("refactoring.treesitter")
 local Config = require("refactoring.config")
 local utils = require("refactoring.utils")
+local LspDefinition = require("refactoring.lsp")
+local lsp_utils = require("refactoring.lsp_utils")
+local ts_utils = require("nvim-treesitter.ts_utils")
 
 local function refactor_from_action(params)
   local root = Query.get_root(params.bufnr, params.ft)
@@ -38,14 +41,17 @@ local my_codeaction_source = {
   },
   generator = {
     fn = function(params)
+      local node = ts_utils:get_node_at_cursor()
+      if true then -- node:type() ~= "if_statement" then
+        return {}
+      end
+      local children = ts_utils.get_named_children(node)
+
       return {
         {
           title = "invert if",
           action = function()
-            local refactor = refactor_from_action(params)
-            local range = range_from_params(params)
-            -- local extract_node = refactor.root:named_descendant_for_range(range)
-            local extract_node = refactor.root:named_descendant_for_range(range)
+            -- local lsp_definition = LspDefinition:from_cursor(params.bufnr, refactor.query)
             -- child = <function 5>,
             -- child_count = <function 6>,
             -- descendant_for_range = <function 7>,
@@ -68,8 +74,13 @@ local my_codeaction_source = {
 
             -- print("DOING IT!", vim.inspect(params))
             -- print("DOING IT!", vim.inspect(getmetatable(extract_node)))
-            print("DOING IT!", vim.inspect(extract_node:type()))
+            -- print("DOING IT!", vim.inspect(extract_node:type()))
             -- print("DOING IT!", vim.inspect(utils.get_node_text(extract_node)))
+            -- print("DOING IT!", vim.inspect(#children))
+            -- print("DOING IT!", vim.inspect(children[1]:type()), vim.inspect(children[2]:type()))
+            print("DOING IT!", vim.inspect(utils.get_node_text(children[1])))
+            print("DOING IT!", vim.inspect(utils.get_node_text(children[2])))
+            -- print("DOING IT!", vim.inspect(getmetatable(node)))
           end,
         },
       }
