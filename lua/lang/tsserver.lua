@@ -26,12 +26,13 @@ local my_codeaction_source = {
 }
 
 local ts_utils_settings = {
-  -- debug = true,
+  debug = true,
   enable_import_on_completion = false,
 
   eslint_enable_code_actions = true,
   eslint_enable_disable_comments = true,
   eslint_enable_diagnostics = false,
+  eslint_bin = "eslint_d",
   enable_formatting = false,
 
   update_imports_on_move = true,

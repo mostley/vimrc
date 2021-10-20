@@ -32,6 +32,8 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
 
         npm install -g tree-sitter-cli
 
+        npm install -g eslint_d
+
         npm install -g diagnostic-languageserver
 
         brew install efm-langserver
