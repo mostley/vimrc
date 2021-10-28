@@ -89,6 +89,7 @@ local function setup(capabilities)
       "lua",
       "yaml",
       "json",
+      "html",
       -- "python",
     },
     capabilities = capabilities,

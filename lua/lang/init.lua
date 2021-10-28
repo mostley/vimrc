@@ -117,6 +117,7 @@ require("lang.clojure")()
 vim.g.symbols_outline = {
   highlight_hovered_item = true,
   show_guides = true,
+  show_relative_numbers = true,
   auto_preview = false, -- experimental
   position = "right",
   keymaps = {

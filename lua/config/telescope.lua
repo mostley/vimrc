@@ -9,6 +9,7 @@ require("telescope").setup({
     prompt_prefix = " ",
     selection_caret = " ",
     color_devicons = true,
+    path_display = { "smart" },
     mappings = {
       i = {
         ["<C-c>"] = false,
