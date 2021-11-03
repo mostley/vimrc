@@ -1,9 +1,5 @@
 require("config.dashboard")
 
-require("config.colorscheme")
-
-require("config.highlights")
-
 require("config.fugitive")
 
 require("config.gitsigns")
@@ -31,3 +27,7 @@ require("config.refactoring")
 require("config.fastaction")
 
 require("config.trouble")
+
+require("config.colorscheme")
+
+-- require("config.highlights")

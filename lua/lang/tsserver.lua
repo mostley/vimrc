@@ -30,6 +30,50 @@ local function range_from_params(params)
   return params.range.row - 1, params.range.col, params.range.end_row - 1, params.range.end_col
 end
 
+local function invert_if(params, children)
+  return {
+    title = "invert if",
+    action = function()
+      local if_start_line, if_start_column, if_end_line, if_end_column = children[2]:range()
+      local else_children = ts_utils.get_named_children(children[3])
+      local else_start_line, else_start_column, else_end_line, else_end_column = else_children[1]:range()
+      local text_edits = {
+        {
+          range = {
+            start = { line = if_start_line, character = if_start_column },
+            ["end"] = { line = if_end_line, character = if_end_column },
+          },
+          newText = table.concat(utils.get_node_text(else_children[1]), " "),
+        },
+        {
+          range = {
+            start = { line = else_start_line, character = else_start_column },
+            ["end"] = { line = else_end_line, character = else_end_column },
+          },
+          newText = table.concat(utils.get_node_text(children[2]), " "),
+        },
+      }
+      vim.lsp.util.apply_text_edits(text_edits, params.bufnr)
+      vim.lsp.buf.formatting_sync()
+    end,
+  }
+end
+
+local function replace_node_with(params, node, newText)
+  local start_line, start_column, end_line, end_column = node:range()
+  local text_edits = {
+    {
+      range = {
+        start = { line = start_line, character = start_column },
+        ["end"] = { line = end_line, character = end_column },
+      },
+      newText = newText,
+    },
+  }
+  vim.lsp.util.apply_text_edits(text_edits, params.bufnr)
+  vim.lsp.buf.formatting_sync()
+end
+
 local my_codeaction_source = {
   name = "myCodeActions",
   method = null_ls.methods.CODE_ACTION,
@@ -42,48 +86,56 @@ local my_codeaction_source = {
   generator = {
     fn = function(params)
       local node = ts_utils:get_node_at_cursor()
-      if true then -- node:type() ~= "if_statement" then
-        return {}
-      end
       local children = ts_utils.get_named_children(node)
+      local result = {}
 
-      return {
-        {
-          title = "invert if",
+      if node:type() == "if_statement" and #children > 2 then
+        table.insert(result, invert_if(params, children))
+      elseif node:type() == "true" then
+        table.insert(result, {
+          title = "Replace with false",
           action = function()
-            -- local lsp_definition = LspDefinition:from_cursor(params.bufnr, refactor.query)
-            -- child = <function 5>,
-            -- child_count = <function 6>,
-            -- descendant_for_range = <function 7>,
-            -- end_ = <function 8>,
-            -- field = <function 9>,
-            -- has_error = <function 10>,
-            -- id = <function 11>,
-            -- iter_children = <function 12>,
-            -- missing = <function 13>,
-            -- named = <function 14>,
-            -- named_child = <function 15>,
-            -- named_child_count = <function 16>,
-            -- named_descendant_for_range = <function 17>,
-            -- parent = <function 18>,
-            -- range = <function 19>,
-            -- sexpr = <function 20>,
-            -- start = <function 21>,
-            -- symbol = <function 22>,
-            -- type = <function 23>
-
-            -- print("DOING IT!", vim.inspect(params))
-            -- print("DOING IT!", vim.inspect(getmetatable(extract_node)))
-            -- print("DOING IT!", vim.inspect(extract_node:type()))
-            -- print("DOING IT!", vim.inspect(utils.get_node_text(extract_node)))
-            -- print("DOING IT!", vim.inspect(#children))
-            -- print("DOING IT!", vim.inspect(children[1]:type()), vim.inspect(children[2]:type()))
-            print("DOING IT!", vim.inspect(utils.get_node_text(children[1])))
-            print("DOING IT!", vim.inspect(utils.get_node_text(children[2])))
-            -- print("DOING IT!", vim.inspect(getmetatable(node)))
+            replace_node_with(params, node, "false")
           end,
-        },
-      }
+        })
+      elseif node:type() == "false" then
+        table.insert(result, {
+          title = "Replace with true",
+          action = function()
+            replace_node_with(params, node, "true")
+          end,
+        })
+      end
+
+      -- local lsp_definition = LspDefinition:from_cursor(params.bufnr, refactor.query)
+      -- child = <function 5>,
+      -- child_count = <function 6>,
+      -- descendant_for_range = <function 7>,
+      -- end_ = <function 8>,
+      -- field = <function 9>,
+      -- has_error = <function 10>,
+      -- id = <function 11>,
+      -- iter_children = <function 12>,
+      -- missing = <function 13>,
+      -- named = <function 14>,
+      -- named_child = <function 15>,
+      -- named_child_count = <function 16>,
+      -- named_descendant_for_range = <function 17>,
+      -- parent = <function 18>,
+      -- range = <function 19>,
+      -- sexpr = <function 20>,
+      -- start = <function 21>,
+      -- symbol = <function 22>,
+      -- type = <function 23>
+
+      -- print("DOING IT!", vim.inspect(params))
+      -- print("DOING IT!", vim.inspect(getmetatable(extract_node)))
+      -- print("DOING IT!", vim.inspect(extract_node:type()))
+      -- print("DOING IT!", vim.inspect(utils.get_node_text(extract_node)))
+      -- print("DOING IT!", vim.inspect(#children))
+      -- print("DOING IT!", vim.inspect(children[1]:type()), vim.inspect(children[2]:type()))
+      --
+      return result
     end,
   },
 }

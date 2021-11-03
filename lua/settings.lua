@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require("utils")
 
 local cmd = vim.cmd
 local o = vim.o
@@ -8,8 +8,8 @@ local apply_globals = utils.apply_globals
 
 local indent = 2
 
-cmd 'syntax enable'
-cmd 'filetype plugin indent on'
+cmd("syntax enable")
+cmd("filetype plugin indent on")
 
 o.shiftwidth = indent
 o.tabstop = indent
@@ -31,106 +31,100 @@ wo.scrolloff = 8
 wo.cursorline = true
 
 apply_globals({
-    -- Map leader to space
-    mapleader = ' ',
-    maplocalleader = ','
+  -- Map leader to space
+  mapleader = " ",
+  maplocalleader = ",",
 })
 
 apply_options({
-    encoding = 'utf-8',
-    fileencodings = 'utf-8',
-    exrc = true,
-    guicursor = '',
-    errorbells = false,
-    wrap = false,
-    swapfile = false,
-    mouse = 'a',
-    backup = false,
-    undodir = "/Users/svenhecht/.config/nvim/undodir",
-    undofile = true,
-    hlsearch = false,
-    incsearch = true,
-    showmode = false,
-    signcolumn = 'yes',
-    -- list = true,
-    -- listchars = 'tab:░░,trail:·,space:·',
-    fillchars = { eob = '~' },
-    colorcolumn = '120',
-    expandtab = true,
-    smarttab = true,
-    shiftround = true,
-    autoindent = true,
-    smartindent = true,
-    smartcase = true,
-    path = vim.opt.path + { '**' },
-    wildmode = 'longest,list,full',
-    wildmenu = true,
-    wildignore = vim.opt.wildignore + {
-        '*/.git/*',
-        '*/.hg/*',
-        '*/.svn/*.',
-        '*/.vscode/*.',
-        '*/.DS_Store',
-        '*/dist*/*',
-        '*/target/*',
-        '*/builds/*',
-        '*/build/*',
-        'tags',
-        '*/lib/*',
-        '*/flow-typed/*',
-        '*/node_modules/*',
-        '*.png',
-        '*.PNG',
-        '*.jpg',
-        '*.jpeg',
-        '*.JPG',
-        '*.JPEG',
-        '*.pdf',
-        '*.exe',
-        '*.o',
-        '*.obj',
-        '*.dll',
-        '*.DS_Store',
-        '*.ttf',
-        '*.otf',
-        '*.woff',
-        '*.woff2',
-        '*.eot'
-    },
+  encoding = "utf-8",
+  fileencodings = "utf-8",
+  exrc = true,
+  guicursor = "",
+  errorbells = false,
+  wrap = false,
+  swapfile = false,
+  mouse = "a",
+  backup = false,
+  undodir = "/Users/svenhecht/.config/nvim/undodir",
+  undofile = true,
+  hlsearch = false,
+  incsearch = true,
+  showmode = false,
+  signcolumn = "yes",
+  -- list = true,
+  -- listchars = 'tab:░░,trail:·,space:·',
+  fillchars = { eob = "~" },
+  colorcolumn = "120",
+  expandtab = true,
+  smarttab = true,
+  shiftround = true,
+  autoindent = true,
+  smartindent = true,
+  smartcase = true,
+  path = vim.opt.path + { "**" },
+  wildmode = "longest,list,full",
+  wildmenu = true,
+  wildignore = vim.opt.wildignore + {
+    "*/.git/*",
+    "*/.hg/*",
+    "*/.svn/*.",
+    "*/.vscode/*.",
+    "*/.DS_Store",
+    "*/dist*/*",
+    "*/target/*",
+    "*/builds/*",
+    "*/build/*",
+    "tags",
+    "*/lib/*",
+    "*/flow-typed/*",
+    "*/node_modules/*",
+    "*.png",
+    "*.PNG",
+    "*.jpg",
+    "*.jpeg",
+    "*.JPG",
+    "*.JPEG",
+    "*.pdf",
+    "*.exe",
+    "*.o",
+    "*.obj",
+    "*.dll",
+    "*.DS_Store",
+    "*.ttf",
+    "*.otf",
+    "*.woff",
+    "*.woff2",
+    "*.eot",
+  },
 })
-
-cmd [[
-highlight ColorColum ctermbg=0 guibg=lightgrey
-highlight Normal guibg=None
-let g:gruvbox_contrast_dark = 'hard'
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-let g:gruvbox_invert_selection='0'
-let g:gruvbox_guisp_fallback = 'bg'
-]]
 
 -- Highlight on yank
 -- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
-cmd 'au TextYankPost * silent! lua vim.highlight.on_yank()'
+cmd("au TextYankPost * silent! lua vim.highlight.on_yank()")
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 augroup auto_spellcheck
     autocmd!
     autocmd BufNewFile,BufRead *.md setlocal spell
     autocmd BufNewFile,BufRead *.org setfiletype markdown
     autocmd BufNewFile,BufRead *.org setlocal spell
 augroup END
-]], false)
+]],
+  false
+)
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 augroup auto_term
     autocmd!
     autocmd TermOpen * setlocal nonumber norelativenumber
     autocmd TermOpen * startinsert
 augroup END
-]], false)
+]],
+  false
+)
 
 -- vim.api.nvim_exec([[
 --     fun! TrimWhitespace()
