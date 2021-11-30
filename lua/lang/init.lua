@@ -64,7 +64,7 @@ vim.api.nvim_exec(
   [[
     augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.lua,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.rs,*.py,*.clj lua vim.lsp.buf.formatting_sync()
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.lua,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.rs,*.py,*.clj lua vim.lsp.buf.formatting_sync(nil, 5000)
     augroup END
   ]],
   true
@@ -112,6 +112,7 @@ require("lang.html")(capabilities)
 require("lang.bash")()
 require("lang.css")()
 require("lang.clojure")()
+require("lang.ocaml")()
 
 -- symbols-outline.nvim
 vim.g.symbols_outline = {

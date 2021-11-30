@@ -11,11 +11,7 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
 
 ## requires the following language server options
 
-        npm install -g typescript typescript-language-server pyright
-        npm install -g vls
         pip install python-language-server
-        npm install -g @fsouza/prettierd
-        npm i -g vscode-langservers-extracted
 
         lua language server (https://www.chrisatmachine.com/Neovim/28-neovim-lua-development/):
         brew install ninja
@@ -28,13 +24,7 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
         cd ../..
         ./3rd/luamake/luamake rebuild
 
-        npm install -g neovim
-
-        npm install -g tree-sitter-cli
-
-        npm install -g eslint_d
-
-        npm install -g diagnostic-languageserver
+        npm install -g neovim tree-sitter-cli eslint_d diagnostic-languageserver typescript typescript-language-server pyright vls @fsouza/prettierd vscode-langservers-extracted @volar/server bash-language-server vim-language-server
 
         brew install efm-langserver
 

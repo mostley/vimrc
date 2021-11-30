@@ -77,6 +77,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/any-jump.vim"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
+  },
   ["compe-tmux"] = {
     loaded = true,
     path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/compe-tmux"
@@ -84,6 +88,10 @@ _G.packer_plugins = {
   ["completion-treesitter"] = {
     loaded = true,
     path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/completion-treesitter"
+  },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/copilot.vim"
   },
   ["dashboard-nvim"] = {
     loaded = true,
@@ -110,6 +118,11 @@ _G.packer_plugins = {
   gruvbox = {
     loaded = true,
     path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/gruvbox"
+  },
+  harpoon = {
+    config = { "\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.harpoon\frequire\0" },
+    loaded = true,
+    path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/harpoon"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -161,10 +174,6 @@ _G.packer_plugins = {
     needs_bufread = true,
     only_cond = false,
     path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/opt/nvim-bqf"
-  },
-  ["nvim-bufferline.lua"] = {
-    loaded = true,
-    path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -297,6 +306,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["treesitter-boolean.nvim"] = {
+    loaded = true,
+    path = "/Users/svenhecht/.local/share/nvim/site/pack/packer/start/treesitter-boolean.nvim"
+  },
   ["trouble.nvim"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
     loaded = true,
@@ -395,14 +408,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22config.treesitter\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: telescope-frecency.nvim
-time([[Config for telescope-frecency.nvim]], true)
-try_loadstring("\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\rfrecency\19load_extension\14telescope\frequire\0", "config", "telescope-frecency.nvim")
-time([[Config for telescope-frecency.nvim]], false)
 -- Config for: galaxyline.nvim
 time([[Config for galaxyline.nvim]], true)
 try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15statusline\frequire\0", "config", "galaxyline.nvim")
@@ -411,22 +416,34 @@ time([[Config for galaxyline.nvim]], false)
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
--- Config for: vim-ultest
-time([[Config for vim-ultest]], true)
-require('config.ultest').post()
-time([[Config for vim-ultest]], false)
+-- Config for: harpoon
+time([[Config for harpoon]], true)
+try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.harpoon\frequire\0", "config", "harpoon")
+time([[Config for harpoon]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22config.treesitter\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: vim-ultest
+time([[Config for vim-ultest]], true)
+require('config.ultest').post()
+time([[Config for vim-ultest]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
+-- Config for: telescope-frecency.nvim
+time([[Config for telescope-frecency.nvim]], true)
+try_loadstring("\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\rfrecency\19load_extension\14telescope\frequire\0", "config", "telescope-frecency.nvim")
+time([[Config for telescope-frecency.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

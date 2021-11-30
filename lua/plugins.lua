@@ -29,7 +29,7 @@ return require("packer").startup(function(use)
       require("gitsigns").setup()
     end,
   })
-  use({ "akinsho/nvim-bufferline.lua" })
+  use({ "akinsho/bufferline.nvim" })
   use({ "unblevable/quick-scope" })
   use({
     "folke/which-key.nvim",
@@ -149,7 +149,7 @@ return require("packer").startup(function(use)
       require("config.treesitter")
     end,
   })
-  -- use {'nvim-treesitter/playground'}
+  use("~/projects/private/treesitter-boolean.nvim")
 
   -- Dashboard
   use({ "glepnir/dashboard-nvim" })
@@ -195,4 +195,20 @@ return require("packer").startup(function(use)
       { "nvim-treesitter/nvim-treesitter" },
     },
   })
+
+  use({
+    "ThePrimeagen/harpoon",
+    config = function()
+      require("config.harpoon")
+    end,
+  })
+
+  use({ "github/copilot.vim" })
+
+  vim.cmd([[
+    augroup packer_user_config
+      autocmd!
+      autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    augroup end
+  ]])
 end)
