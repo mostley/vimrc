@@ -1,6 +1,5 @@
 local nvim_lsp = require("lspconfig")
 local on_attach = require("lang.on_attach")
-local null_ls = require("null-ls")
 local parsers = require("nvim-treesitter.parsers")
 local Query = require("refactoring.query")
 local TreeSitter = require("refactoring.treesitter")
@@ -76,7 +75,7 @@ end
 
 local my_codeaction_source = {
   name = "myCodeActions",
-  method = null_ls.methods.CODE_ACTION,
+  method = require("null-ls").methods.CODE_ACTION,
   filetypes = {
     "javascript",
     "typescript",
@@ -158,7 +157,8 @@ local ts_utils_settings = {
 }
 
 local function setup(capabilities)
-  null_ls.config({
+  local null_ls = require("null-ls")
+  null_ls.setup({
     sources = {
       null_ls.builtins.diagnostics.write_good,
       null_ls.builtins.formatting.shfmt,
@@ -171,11 +171,6 @@ local function setup(capabilities)
       -- null_ls.builtins.diagnostics.eslint_d
       my_codeaction_source,
     },
-  })
-  nvim_lsp["null-ls"].setup({
-    debug = true,
-    capabilities = capabilities,
-    on_attach = on_attach,
   })
 
   nvim_lsp.tsserver.setup({

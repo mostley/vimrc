@@ -90,7 +90,7 @@ return require("packer").startup(function(use)
   use({
     "hrsh7th/nvim-compe",
     requires = {
-      { "andersevenrud/compe-tmux" },
+      { "andersevenrud/compe-tmux", branch = "compe" },
     },
   })
 
@@ -149,14 +149,14 @@ return require("packer").startup(function(use)
       require("config.treesitter")
     end,
   })
-  use("~/projects/private/treesitter-boolean.nvim")
+  --use("~/projects/private/treesitter-boolean.nvim")
 
   -- Dashboard
   use({ "glepnir/dashboard-nvim" })
 
   -- Status line
   use({
-    "glepnir/galaxyline.nvim",
+    "Peterkmoss/galaxyline.nvim", -- instead of gleipnir/galaxyline.nvim until if's fixed
     branch = "main",
     config = function()
       require("statusline")
