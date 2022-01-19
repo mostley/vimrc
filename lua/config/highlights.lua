@@ -1,6 +1,6 @@
 local cmd = vim.cmd
 
-local colors = require "config/themes/onedark"
+local colors = require("config/themes/onedark")
 
 local white = colors.white
 local darker_black = colors.darker_black
@@ -23,15 +23,15 @@ local purple = colors.purple
 -- for guifg , bg
 
 local function fg(group, color)
-    cmd("hi " .. group .. " guifg=" .. color)
+  cmd("hi " .. group .. " guifg=" .. color)
 end
 
 local function bg(group, color)
-    cmd("hi " .. group .. " guibg=" .. color)
+  cmd("hi " .. group .. " guibg=" .. color)
 end
 
 local function fg_bg(group, fgcol, bgcol)
-    cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
+  cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
 end
 
 -- blankline
@@ -55,7 +55,7 @@ bg("PmenuThumb", nord_blue)
 cmd("hi! StatusLineNC gui=underline guifg=" .. line)
 
 -- line n.o
-cmd "hi clear CursorLine"
+cmd("hi clear CursorLine")
 fg("cursorlinenr", white)
 
 -- git signs ---
@@ -104,7 +104,7 @@ fg_bg("BufferLineBackground", light_grey, black2)
 fg_bg("BufferLineBufferVisible", light_grey, black2)
 fg_bg("BufferLineBufferSelected", white, black)
 
-cmd "hi BufferLineBufferSelected gui=bold"
+cmd("hi BufferLineBufferSelected gui=bold")
 
 -- tabs
 fg_bg("BufferLineTab", light_grey, one_bg3)

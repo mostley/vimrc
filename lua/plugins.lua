@@ -156,7 +156,7 @@ return require("packer").startup(function(use)
 
   -- Status line
   use({
-    "Peterkmoss/galaxyline.nvim", -- instead of gleipnir/galaxyline.nvim until if's fixed
+    "NTBBloodbath/galaxyline.nvim", -- instead of gleipnir/galaxyline.nvim until if's fixed
     branch = "main",
     config = function()
       require("statusline")

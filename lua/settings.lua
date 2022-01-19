@@ -29,6 +29,7 @@ o.number = true
 wo.relativenumber = true
 wo.scrolloff = 8
 wo.cursorline = true
+o.laststatus = 2
 
 apply_globals({
   -- Map leader to space
