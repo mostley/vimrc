@@ -5,14 +5,11 @@ local function setup(capabilities)
   nvim_lsp.pylsp.setup({
     capabilities = capabilities,
     on_attach = on_attach,
-    settings = {
-      pyls = {
-        plugins = {
-          pyls_mypy = { enabled = true },
-          pyls_rope = { enabled = true },
-        },
-      },
-    },
+  })
+
+  nvim_lsp.pyre.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
   })
 end
 

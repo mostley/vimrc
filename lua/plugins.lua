@@ -203,6 +203,10 @@ return require("packer").startup(function(use)
     end,
   })
 
+  use({ "iamcco/markdown-preview.nvim" })
+  use({ "meain/vim-package-info", run = "npm install" })
+
+  use({ "floobits/floobits-neovim" })
   use({ "github/copilot.vim" })
 
   vim.cmd([[
