@@ -1,8 +1,16 @@
 local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
 
+require("telescope-emoji").setup({
+  action = function(emoji)
+    -- argument emoji is a table.
+    -- {name="", value="", cagegory="", description=""}
+    vim.fn.setreg('"', emoji.value)
+    print([[Press p or "*p to paste this emoji]] .. emoji.value)
+  end,
+})
+
 require("telescope").load_extension("fzf")
---require('telescope').load_extension('fzy_native')
 
 require("telescope").setup({
   defaults = {
@@ -48,18 +56,21 @@ require("telescope").setup({
   grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
   qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
   extensions = {
+    file_browser = {
+      theme = "ivy",
+    },
+
     fzf = {
       override_generic_sorter = false,
       override_file_sorter = true,
       case_mode = "smart_case",
     },
   },
-  -- extensions = {
-  --   fzy_native = {
-  --     override_generic_sorter = false,
-  --     override_file_sorter = true,
-  --   }
-  -- }
+  pickers = {
+    find_files = {
+      find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+    },
+  },
 })
 
 local M = {}
@@ -88,32 +99,12 @@ M.git_branches = function()
   })
 end
 
-local function refactor(prompt_bufnr)
-  local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
-  require("telescope.actions").close(prompt_bufnr)
-  require("refactoring").refactor(content.value)
+M.project_files = function()
+  local opts = {} -- define here if you want to define something
+  local ok = pcall(require("telescope.builtin").git_files, opts)
+  if not ok then
+    require("telescope.builtin").find_files(opts)
+  end
 end
-
-M.refactors = function()
-  require("telescope.pickers").new({}, {
-    prompt_title = "refactors",
-    finder = require("telescope.finders").new_table({
-      results = require("refactoring").get_refactors(),
-    }),
-    sorter = require("telescope.config").values.generic_sorter({}),
-    attach_mappings = function(_, map)
-      map("i", "<CR>", refactor)
-      map("n", "<CR>", refactor)
-      return true
-    end,
-  }):find()
-end
-
-vim.api.nvim_set_keymap(
-  "v",
-  "<Leader>rt",
-  [[ <Cmd>lua M.refactors()<CR>]],
-  { noremap = true, silent = true, expr = false }
-)
 
 return M

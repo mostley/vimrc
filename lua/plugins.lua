@@ -62,11 +62,15 @@ return require("packer").startup(function(use)
   use({ "nvim-lua/plenary.nvim" })
   use({ "nvim-lua/popup.nvim" })
   use({ "nvim-telescope/telescope.nvim" })
+  use({ "xiyaowong/telescope-emoji.nvim" })
+  use({ "nvim-telescope/telescope-file-browser.nvim" })
   use({
     "nvim-telescope/telescope-frecency.nvim",
     requires = { "tami5/sql.nvim" },
     config = function()
       require("telescope").load_extension("frecency")
+      require("telescope").load_extension("emoji")
+      require("telescope").load_extension("file_browser")
     end,
   })
   use({ "nvim-telescope/telescope-symbols.nvim" })
