@@ -92,6 +92,7 @@ require("lang.bash")()
 require("lang.css")()
 require("lang.clojure")()
 require("lang.ocaml")()
+require("lang.yaml")()
 
 -- symbols-outline.nvim
 vim.g.symbols_outline = {

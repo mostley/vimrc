@@ -50,6 +50,8 @@ return require("packer").startup(function(use)
   use({ "tomasr/molokai" })
   use({ "karb94/neoscroll.nvim" })
 
+  use({ "glacambre/firenvim" })
+
   -- Testing
   use({
     "rcarriga/vim-ultest",

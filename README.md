@@ -33,3 +33,4 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
 ## execute installs:
 
 - :TSInstall typescript python vue lua json html css bash
+- :call firenvim#install()

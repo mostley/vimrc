@@ -171,6 +171,10 @@ local function setup(capabilities)
       -- null_ls.builtins.diagnostics.eslint_d
       my_codeaction_source,
     },
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 150,
+    },
   })
 
   nvim_lsp.tsserver.setup({
@@ -193,6 +197,10 @@ local function setup(capabilities)
       vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>an", ":TSLspRenameFile<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ai", ":TSLspImportAll<CR>", opts)
     end,
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 150,
+    },
   })
 end
 
