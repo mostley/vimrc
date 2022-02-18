@@ -1,3 +1,6 @@
+local M = {}
+
+M.setup = function()
 require("lsp-fastaction").setup({
   hide_cursor = true,
   action_data = {
@@ -7,3 +10,5 @@ require("lsp-fastaction").setup({
     },
   },
 })
+end
+return M

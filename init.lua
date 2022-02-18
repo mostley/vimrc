@@ -1,25 +1,7 @@
-local fn = vim.fn
-local execute = vim.api.nvim_command
+vim.opt.termguicolors = true
+vim.g.python_host_prog = '/Users/svenhecht/.pyenv/versions/py2nvim/bin/python'
+vim.g.python3_host_prog = '/Users/svenhecht/.pyenv/versions/py3nvim/bin/python'
 
--- Sensible defaults
-require("settings")
+vim.lsp.set_log_level("debug")
 
--- Auto install packer.nvim if not exists
-local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-end
-vim.cmd([[packadd packer.nvim]])
-vim.cmd("autocmd BufWritePost plugins.lua PackerCompile") -- Auto compile when there are changes in plugins.lua
-
--- Install plugins
-require("plugins")
-
--- Key mappings
-require("keymappings")
-
--- LSP
-require("lang")
-
--- plugin configuration
-require("config")
+require("plugins").setup()

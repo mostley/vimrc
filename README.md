@@ -11,7 +11,7 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
 
 ## requires the following language server options
 
-        pip install python-language-server
+        pip install --upgrade python-lsp-server[all] rope pylsp-rope pylsp-mypy pyls-memestra
 
         lua language server (https://www.chrisatmachine.com/Neovim/28-neovim-lua-development/):
         brew install ninja

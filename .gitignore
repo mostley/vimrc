@@ -1,4 +1,5 @@
 undodir/
 .netrwhist
 lua-language-server
-
+.pytest_cache
+myVim.log
