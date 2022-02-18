@@ -239,10 +239,6 @@ local mappings = {
       "<Cmd>FloatermNew nvim ~/workspace/dev/notes/<Cr>",
       "New note",
     },
-    o = { "<Cmd>GkeepOpen<Cr>", "GKeep Open" },
-    c = { "<Cmd>GkeepClose<Cr>", "GKeep Close" },
-    r = { "<Cmd>GkeepRefresh<Cr>", "GKeep Refresh" },
-    s = { "<Cmd>GkeepSync<Cr>", "GKeep Sync" },
     p = { "<Cmd>MarkdownPreview<Cr>", "Preview markdown" },
     z = { "<Cmd>ZenMode<Cr>", "Zen Mode" },
     h = { "<Cmd>Twilight<Cr>", "Twilight" },
@@ -381,7 +377,7 @@ local dap_nvim_dap_mappings = {
 }
 
 function M.register_lsp(client)
-  local wk = require "which-key"
+  local wk = require("which-key")
   wk.register(lsp_mappings, opts)
 
   for _, m in pairs(lsp_mappings_opts) do
@@ -392,40 +388,9 @@ function M.register_lsp(client)
   end
 end
 
-function M.register_dap_vimspector()
-  local wk = require "which-key"
-  wk.register({
-    ["dx"] = {
-      ":lua require('config.whichkey').register_dap_nvim_dap()<CR>",
-      "Switch to nvim-dap",
-    },
-  }, opts)
-  wk.register(dap_vimspector_mappings, opts)
-  vim.g.my_debugger = "v"
-  vim.g.vimspector_enable_mappings = "HUMAN"
-end
-
-function M.register_dap_nvim_dap()
-  local wk = require "which-key"
-  wk.register({
-    ["dx"] = { ":lua require('config.whichkey').register_dap_vimspector()<CR>", "Switch to vimspector" },
-  }, opts)
-  wk.register(dap_nvim_dap_mappings, opts)
-  vim.g.my_debugger = "d"
-  vim.g.vimspector_enable_mappings = ""
-end
-
-function M.register_dap()
-  if vim.g.my_debugger == "v" then
-    M.register_dap_vimspector()
-  else
-    M.register_dap_nvim_dap()
-  end
-end
-
 function M.setup()
-  local wk = require "which-key"
-  wk.setup {}
+  local wk = require("which-key")
+  wk.setup({})
   wk.register(mappings, opts)
   wk.register(vmappings, vopts)
   wk.register(xmappings, xopts)

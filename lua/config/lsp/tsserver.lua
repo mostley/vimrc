@@ -1,14 +1,10 @@
 local lsputils = require("config.lsp.utils")
 
-local nvim_lsp = require("lspconfig")
-local parsers = require("nvim-treesitter.parsers")
 local Query = require("refactoring.query")
 local TreeSitter = require("refactoring.treesitter")
 local Config = require("refactoring.config")
 local utils = require("refactoring.utils")
-local LspDefinition = require("refactoring.lsp")
-local lsp_utils = require("refactoring.lsp_utils")
-local ts_utils = require("nvim-treesitter.ts_utils")
+local tresssitter_utils = require("nvim-treesitter.ts_utils")
 
 local function refactor_from_action(params)
   local root = Query.get_root(params.bufnr, params.ft)
@@ -35,7 +31,7 @@ local function invert_if(params, children)
     title = "invert if",
     action = function()
       local if_start_line, if_start_column, if_end_line, if_end_column = children[2]:range()
-      local else_children = ts_utils.get_named_children(children[3])
+      local else_children = tresssitter_utils.get_named_children(children[3])
       local else_start_line, else_start_column, else_end_line, else_end_column = else_children[1]:range()
       local text_edits = {
         {
@@ -85,8 +81,8 @@ local my_codeaction_source = {
   },
   generator = {
     fn = function(params)
-      local node = ts_utils:get_node_at_cursor()
-      local children = ts_utils.get_named_children(node)
+      local node = tresssitter_utils:get_node_at_cursor()
+      local children = tresssitter_utils.get_named_children(node)
       local result = {}
 
       if node:type() == "if_statement" and #children > 2 then
@@ -239,7 +235,7 @@ function M.lsp_attach(client, bufnr)
   ts_utils.setup_client(client)
 end
 
-function M.config(installed_server)
+function M.config(_)
   return {
     on_attach = M.lsp_attach,
     capabilities = lsputils.get_capabilities(),

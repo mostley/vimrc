@@ -5,7 +5,7 @@ local sumneko_binary = "/Users/svenhecht/.config/nvim/lua-language-server/bin/ma
 
 local lsputils = require("config.lsp.utils")
 
-function M.config(installed_server)
+function M.config(_)
   return {
     library = { vimruntime = true, types = true, plugins = true },
     lspconfig = {
@@ -14,7 +14,6 @@ function M.config(installed_server)
       on_init = lsputils.lsp_init,
       on_exit = lsputils.lsp_exit,
       cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
-      cmd = installed_server._default_options.cmd,
       settings = {
         Lua = {
           runtime = {
