@@ -2,9 +2,9 @@ local M = {}
 
 local lsp_providers = {
   tsserver = true,
-  pylsp = true,
+  -- pylsp = true,
+  pyright = true,
   pyre = true,
-  sumneko_lua = true,
   jsonls = true,
   -- efm = true,
   sumneko_lua = true,

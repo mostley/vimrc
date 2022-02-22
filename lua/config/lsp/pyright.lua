@@ -1,6 +1,6 @@
-local nvim_lsp = require("lspconfig")
-
 local M = {}
+
+-- local lsputils = require "config.lsp.utils"
 
 function M.config(installed_server)
   return {
@@ -20,7 +20,7 @@ function M.autocmds()
     [[
       augroup PYTHON
         autocmd!
-        autocmd BufEnter *.py lua require("config.lsp.pylsp").keymappings()
+        autocmd BufEnter *.py lua require("config.lsp.pyright").keymappings()
       augroup END
     ]],
     false
@@ -42,11 +42,14 @@ function M.keymappings()
     ["r"] = {
       name = "Run",
       r = {
-        ":update<CR>:exec '!python3' shellescape(@%, 1)<CR>",
+        -- ":update<CR>:exec '!python3' shellescape(@%, 1)<CR>",
+        ":update<CR>:TermExec cmd='python %'<CR>",
         "Python run",
       },
-      d = { ":update<CR>:sp term://python3 -m pdb %<CR>", "PDB debug" },
-      w = { ":update<CR>:sp term://nodemon -e py %<CR>", "Nodemon watch" },
+      -- d = { ":update<CR>:sp term://python3 -m pdb %<CR>", "PDB debug" },
+      d = { ":update<CR>:TermExec cmd='python -m pdb %'<CR>", "PDB debug" },
+      -- w = { ":update<CR>:sp term://nodemon -e py %<CR>", "Nodemon watch" },
+      w = { ":update<CR>:TermExec cmd='nodemon -e py %'<CR>", "Nodemon watch" },
       c = { ":PyrightOrganizeImports<CR>", "Organize imports" },
       l = { ":update<CR>:exec '!python3'<CR>", "REPL" },
     },

@@ -10,8 +10,8 @@ local lsp_keymappings = {
     -- ["gr"] = "<Cmd>lua vim.lsp.buf.references()<CR>",
     ["gr"] = "<cmd>lua require'telescope.builtin'.lsp_references()<CR>",
     ["<C-s-k>"] = "<Cmd>lua vim.lsp.buf.signature_help()<CR>",
-    ["gp"] = "<Cmd>lua vim.diagnostic.goto_next()<CR>",
-    ["gn"] = "<Cmd>lua vim.diagnostic.goto_prev()<CR>",
+    ["gp"] = "<Cmd>lua vim.diagnostic.goto_prev()<CR>",
+    ["gn"] = "<Cmd>lua vim.diagnostic.goto_next()<CR>",
     ["<leader>rn"] = "<cmd>lua vim.lsp.buf.rename()<CR>",
     ["<leader>gl"] = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
     ["<leader>sl"] = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",
@@ -22,7 +22,7 @@ local lsp_keymappings = {
   },
   visual_mode = {
     ["<leader>ac"] = "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>",
-  }
+  },
 }
 
 local servers_without_formatting = {

@@ -103,7 +103,6 @@ function M.setup()
     use({ "lukas-reineke/indent-blankline.nvim" })
     use({ "gruvbox-community/gruvbox" })
     use({ "tomasr/molokai" })
-    use({ "projekt0n/github-nvim-theme", opt = true })
     use({
       "karb94/neoscroll.nvim",
       config = function()
@@ -168,7 +167,7 @@ function M.setup()
     use({
       "hrsh7th/nvim-cmp",
       after = "nvim-treesitter",
-      opt = true,
+      -- opt = true,
       requires = {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
