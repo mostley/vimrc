@@ -5,6 +5,7 @@ local packer_bootstrap = false
 local function packer_init()
   local fn = vim.fn
   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
   if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({
       "git",
@@ -14,8 +15,10 @@ local function packer_init()
       "https://github.com/wbthomason/packer.nvim",
       install_path,
     })
-    vim.cmd([[packadd packer.nvim]])
+    print("installed packer")
   end
+
+  vim.cmd([[packadd packer.nvim]])
   vim.cmd("autocmd BufWritePost plugins.lua source <afile> | PackerCompile")
 end
 
@@ -50,13 +53,7 @@ function M.setup()
     use({ "tpope/vim-fugitive" })
     use({ "tpope/vim-surround" })
     -- use({ "tpope/vim-commentary" })
-    use({
-      "numToStr/Comment.nvim",
-      keys = { "gc", "gcc", "gbc" },
-      config = function()
-        require("Comment").setup()
-      end,
-    })
+    use({ "numToStr/Comment.nvim" })
     use({ "tpope/vim-sleuth" })
     use({ "tpope/vim-repeat" })
     use({ "tpope/vim-abolish" })
@@ -66,26 +63,17 @@ function M.setup()
     })
     use({ "wellle/targets.vim" })
     use({ "easymotion/vim-easymotion" })
-    use({
-      "lewis6991/gitsigns.nvim",
-      config = function()
-        require("config.gitsigns").setup()
-      end,
-    })
+    use({ "lewis6991/gitsigns.nvim" })
     -- use({ "akinsho/bufferline.nvim" })
     use({ "unblevable/quick-scope" })
+    use({ "mrjones2014/legendary.nvim" })
+    use({ "folke/which-key.nvim" })
+    use({ "kevinhwang91/rnvimr" })
     use({
-      "folke/which-key.nvim",
-      config = function()
-        require("config.whichkey").setup()
-      end,
-    })
-    use({
-      "kevinhwang91/rnvimr",
-      config = function()
-        vim.g.rnvimr_hide_gitignore = 1
-        vim.g.rnvimr_enable_bw = 1
-      end,
+      "kyazdani42/nvim-tree.lua",
+      requires = {
+        "kyazdani42/nvim-web-devicons", -- optional, for file icon
+      },
     })
     use({ "tikhomirov/vim-glsl" })
     use({ "stevearc/vim-arduino" })
@@ -95,29 +83,28 @@ function M.setup()
     use({ "siduck76/nvim-base16.lua" })
     use({
       "kyazdani42/nvim-web-devicons",
+      opt = true,
       config = function()
         require("nvim-web-devicons").setup({ default = true })
         require("config.file-icons").setup()
       end,
     })
     use({ "lukas-reineke/indent-blankline.nvim" })
+    use({ "stevearc/dressing.nvim" })
     use({ "gruvbox-community/gruvbox" })
     use({ "tomasr/molokai" })
-    use({
-      "karb94/neoscroll.nvim",
-      config = function()
-        require("config.colorscheme").setup()
-      end,
-    })
+    use({ "karb94/neoscroll.nvim" })
+    use({ "j-hui/fidget.nvim" })
 
     use({ "glacambre/firenvim" })
+
+    -- Terminal emulator
+    -- ---------------------
+    use({ "akinsho/toggleterm.nvim" })
 
     -- Testing
     use({
       "rcarriga/vim-ultest",
-      config = function()
-        require("config.ultest").setup()
-      end,
       run = ":UpdateRemotePlugins",
       requires = { "vim-test/vim-test" },
     })
@@ -133,6 +120,8 @@ function M.setup()
         "fhill2/telescope-ultisnips.nvim",
         "nvim-telescope/telescope-symbols.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+        { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
+        { "ibhagwan/fzf-lua", requires = { "kyazdani42/nvim-web-devicons" } },
         { "nvim-telescope/telescope-project.nvim" },
         {
           "nvim-telescope/telescope-frecency.nvim",
@@ -144,9 +133,6 @@ function M.setup()
         },
         { "nvim-telescope/telescope-dap.nvim" },
       },
-      config = function()
-        require("config.telescope").setup()
-      end,
     })
 
     -- LSP config
@@ -157,11 +143,8 @@ function M.setup()
       as = "nvim-lspconfig",
       after = "nvim-treesitter",
       -- opt = true,
-      config = function()
-        require("config.lsp").setup()
-        -- require("config.dap").setup()
-      end,
     })
+    use({ "RRethy/vim-illuminate" })
 
     -- Completion
     use({
@@ -182,9 +165,6 @@ function M.setup()
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-nvim-lsp-document-symbol",
       },
-      config = function()
-        require("config.cmp").setup()
-      end,
     })
     -- use({
     --   "hrsh7th/nvim-compe",
@@ -196,12 +176,7 @@ function M.setup()
     -- Better LSP experience
     -- use({ "glepnir/lspsaga.nvim" })
     -- use({ "al3xfischer/lspsaga.nvim" })
-    use({
-      "windwp/lsp-fastaction.nvim",
-      config = function()
-        require("config.fastaction").setup()
-      end,
-    })
+    use({ "windwp/lsp-fastaction.nvim" })
     use({
       "onsails/lspkind-nvim",
       config = function()
@@ -246,13 +221,6 @@ function M.setup()
     use({
       "SirVer/ultisnips",
       requires = { { "honza/vim-snippets", rtp = "." } },
-      config = function()
-        vim.g.UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
-        vim.g.UltiSnipsJumpForwardTrigger = "<Plug>(ultisnips_jump_forward)"
-        vim.g.UltiSnipsJumpBackwardTrigger = "<Plug>(ultisnips_jump_backward)"
-        vim.g.UltiSnipsListSnippets = "<c-x><c-s>"
-        vim.g.UltiSnipsRemoveSelectModeMappings = 0
-      end,
     })
 
     -- Lua development
@@ -297,27 +265,19 @@ function M.setup()
         --end,
         --},
       },
-      config = function()
-        require("config.treesitter").setup()
-      end,
     })
     --use("~/projects/private/treesitter-boolean.nvim")
 
     -- Dashboard
     use({
-      "glepnir/dashboard-nvim",
-      config = function()
-        require("config.dashboard").setup()
-      end,
+      "goolord/alpha-nvim",
+      requires = { "kyazdani42/nvim-web-devicons" },
     })
 
     -- Status line
     use({
-      "NTBBloodbath/galaxyline.nvim", -- instead of gleipnir/galaxyline.nvim until if's fixed
-      branch = "main",
-      config = function()
-        require("statusline")
-      end,
+      "nvim-lualine/lualine.nvim",
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
 
     -- Debugging
@@ -339,9 +299,6 @@ function M.setup()
         { "nvim-lua/plenary.nvim" },
         { "nvim-treesitter/nvim-treesitter" },
       },
-      config = function()
-        require("config.refactoring").setup()
-      end,
     })
 
     -- Rust
@@ -365,23 +322,15 @@ function M.setup()
     use({
       "ThePrimeagen/harpoon",
       module = "harpoon",
-      config = function()
-        require("config.harpoon").setup()
-      end,
     })
 
-    use({
-      "iamcco/markdown-preview.nvim",
-      run = "cd app && yarn install",
-      ft = "markdown",
-      cmd = { "MarkdownPreview" },
-    })
     use({
       "plasticboy/vim-markdown",
       event = "VimEnter",
       ft = "markdown",
       requires = { "godlygeek/tabular" },
     })
+    use({ "ellisonleao/glow.nvim" })
     use({
       "vuki656/package-info.nvim",
       event = "VimEnter",
@@ -406,7 +355,6 @@ function M.setup()
     end
   end
 
-  -- pcall(require, "impatient")
   pcall(require, "packer_compiled")
   require("packer").init(conf)
   require("packer").startup(plugins)

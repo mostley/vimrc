@@ -18,13 +18,14 @@ local mode_adapters = {
   visual_mode = "v",
   visual_block_mode = "x",
   command_mode = "c",
+  text_object = "o",
 }
 
 function M.set_keymaps(mode, key, val)
   local opt = generic_opts[mode] and generic_opts[mode] or opts
   if type(val) == "table" then
-    opt = val[2]
-    val = val[1]
+    opt = val[1]
+    val = val[2]
   end
   vim.api.nvim_set_keymap(mode, key, val, opt)
 end

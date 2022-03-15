@@ -1,4 +1,12 @@
+local status_ok, telescope = pcall(require, "telescope")
+if not status_ok then
+  vim.notify("failed to load telescope", "error")
+  return
+end
+
 local actions = require("telescope.actions")
+local icons = require("icons")
+local get_telescope_keymappings = require("keymap").get_telescope_keymappings
 
 local M = {}
 
@@ -14,45 +22,19 @@ function M.setup()
     end,
   })
 
-  require("telescope").load_extension("project")
-  require("telescope").load_extension("frecency")
-  require("telescope").load_extension("emoji")
-  require("telescope").load_extension("file_browser")
-  require("telescope").load_extension("fzf")
+  telescope.load_extension("project")
+  telescope.load_extension("frecency")
+  telescope.load_extension("emoji")
+  telescope.load_extension("file_browser")
+  telescope.load_extension("fzf")
 
-  require("telescope").setup({
+  telescope.setup({
     defaults = {
-      prompt_prefix = " ",
-      selection_caret = " ",
+      prompt_prefix = icons.ui.Telescope .. " ",
+      selection_caret = " ",
       color_devicons = true,
       path_display = { "smart" },
-      mappings = {
-        i = {
-          ["<C-c>"] = false,
-          ["<C-x>"] = false,
-          ["<esc>"] = actions.close,
-          -- ["<C-t>"] = trouble.smart_open_with_trouble,
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous,
-          ["<C-h>"] = "which_key",
-          ["œ"] = actions.send_selected_to_qflist + actions.open_qflist, -- <A-q>
-          ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-          ["<C-n>"] = actions.cycle_history_next,
-          ["<C-p>"] = actions.cycle_history_prev,
-        },
-        n = {
-          ["<esc>"] = actions.close,
-          ["<C-c>"] = actions.close,
-          -- ["<C-t>"] = trouble.smart_open_with_trouble,
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous,
-          ["<C-h>"] = "which_key",
-          ["œ"] = actions.send_selected_to_qflist + actions.open_qflist, -- <A-q>
-          ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-          ["<C-n>"] = actions.cycle_history_next,
-          ["<C-p>"] = actions.cycle_history_prev,
-        },
-      },
+      mappings = get_telescope_keymappings(),
     },
 
     find_command = {
@@ -76,6 +58,13 @@ function M.setup()
         override_generic_sorter = false,
         override_file_sorter = true,
         case_mode = "smart_case",
+      },
+
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown({
+          previewer = false,
+          -- even more opts
+        }),
       },
     },
     pickers = {

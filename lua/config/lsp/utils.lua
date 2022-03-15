@@ -1,29 +1,6 @@
-local M = {}
+local lsp_keymappings = require("keymap").lsp_keymappings
 
-local lsp_keymappings = {
-  normal_mode = {
-    ["K"] = "<Cmd>lua vim.lsp.buf.hover()<CR>",
-    ["gD"] = "<Cmd>lua vim.lsp.buf.declaration()<CR>",
-    ["gd"] = "<Cmd>lua vim.lsp.buf.definition()<CR>",
-    ["gt"] = "<Cmd>lua vim.lsp.buf.type_definition()<CR>",
-    ["gi"] = "<Cmd>lua vim.lsp.buf.implementation()<CR>",
-    -- ["gr"] = "<Cmd>lua vim.lsp.buf.references()<CR>",
-    ["gr"] = "<cmd>lua require'telescope.builtin'.lsp_references()<CR>",
-    ["<C-s-k>"] = "<Cmd>lua vim.lsp.buf.signature_help()<CR>",
-    ["gp"] = "<Cmd>lua vim.diagnostic.goto_prev()<CR>",
-    ["gn"] = "<Cmd>lua vim.diagnostic.goto_next()<CR>",
-    ["<leader>rn"] = "<cmd>lua vim.lsp.buf.rename()<CR>",
-    ["<leader>gl"] = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
-    ["<leader>sl"] = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",
-    ["<leader>ac"] = '<cmd>lua require("lsp-fastaction").code_action()<CR>',
-    ["<leader>ds"] = "<cmd>lua vim.lsp.buf.document_symbol()<CR>",
-    -- ["[e"] = "<Cmd>Lspsaga diagnostic_jump_next<CR>",
-    -- ["]e"] = "<Cmd>Lspsaga diagnostic_jump_prev<CR>",
-  },
-  visual_mode = {
-    ["<leader>ac"] = "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>",
-  },
-}
+local M = {}
 
 local servers_without_formatting = {
   "tsserver",
@@ -125,9 +102,6 @@ function M.lsp_config(client, bufnr)
   end
 
   -- LSP and DAP menu
-  local whichkey = require("config.whichkey")
-  whichkey.register_lsp(client)
-
   if servers_without_formatting[client.name] then
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false

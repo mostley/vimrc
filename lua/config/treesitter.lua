@@ -1,21 +1,47 @@
+local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+  vim.notify("failed to load treesitter", "error")
+  return
+end
+
 local M = {}
 
 M.setup = function()
-  require("nvim-treesitter.configs").setup({
+  configs.setup({
     ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     highlight = {
       enable = true,
       use_languagetree = true,
       disable = { "vim" }, -- list of language that will be disabled
     },
+    sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+
     rainbow = {
       enable = true,
+      colors = {
+        "Gold",
+        "Orchid",
+        "DodgerBlue",
+        -- "Cornsilk",
+        -- "Salmon",
+        -- "LawnGreen",
+      },
+      disable = { "html" },
     },
     indent = {
       enable = true,
+      disable = { "yaml", "python", "css" },
     },
     incremental_selection = {
       enable = true,
+    },
+    autotag = {
+      enable = true,
+      disable = { "xml" },
+    },
+    context_commentstring = {
+      enable = true,
+      enable_autocmd = false,
     },
     textobjects = {
       enable = true,
