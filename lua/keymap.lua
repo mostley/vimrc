@@ -141,7 +141,7 @@ local keymappings = {
     ["<leader>nc"] = ":lua require('notify').dismiss({})<cr>",
 
     -- terminal
-    ["<C-t>"] = ":ToggleTerm direction:vertical size=80<CR>",
+    ["<C-t>"] = ":ToggleTerm<CR>",
   },
   visual_mode = {
     ["<C-c>"] = "<Esc>",

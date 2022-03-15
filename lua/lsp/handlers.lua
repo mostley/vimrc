@@ -92,75 +92,7 @@ M.on_attach = function(client, bufnr)
     end
   end
 
-  -- virtualtypes.on_attach()
-  -- Call the setup function to change the default behavior
-  require("aerial").setup({
-    backends = { "lsp", "treesitter", "markdown" },
-    close_behavior = "auto",
-    default_bindings = true,
-    default_direction = "prefer_right",
-    disable_max_lines = 10000,
-    filter_kind = {
-      "Class",
-      "Constructor",
-      "Enum",
-      "Function",
-      "Interface",
-      "Module",
-      "Method",
-      "Struct",
-    },
-
-    highlight_mode = "split_width",
-    highlight_closest = true,
-    highlight_on_jump = 300,
-    icons = {},
-    link_folds_to_tree = false,
-    link_tree_to_folds = true,
-    manage_folds = false,
-    max_width = 55,
-    min_width = 10,
-    nerd_font = "auto",
-    on_attach = nil,
-    open_automatic = false,
-    placement_editor_edge = false,
-    post_jump_cmd = "normal! zz",
-    close_on_select = false,
-    show_guides = true,
-    guides = {
-      mid_item = "├─",
-      last_item = "└─",
-      nested_top = "│ ",
-      whitespace = "  ",
-    },
-    float = {
-      border = "rounded",
-      -- row = 1,
-      -- col = 0,
-      max_height = 100,
-      min_height = 4,
-    },
-
-    lsp = {
-      -- Fetch document symbols when LSP diagnostics update.
-      -- If false, will update on buffer changes.
-      diagnostics_trigger_update = true,
-
-      -- Set to false to not update the symbols when there are LSP errors
-      update_when_errors = true,
-    },
-
-    treesitter = {
-      -- How long to wait (in ms) after a buffer change before updating
-      update_delay = 300,
-    },
-
-    markdown = {
-      -- How long to wait (in ms) after a buffer change before updating
-      update_delay = 300,
-    },
-  })
-  require("aerial").on_attach(client, bufnr)
+  require("lsp.settings.aerial").setup(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -168,6 +100,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
+  vim.notify("failed to load cmp_nvim_lsp", "error")
   return
 end
 

@@ -53,7 +53,10 @@ function M.setup()
     use({ "tpope/vim-fugitive" })
     use({ "tpope/vim-surround" })
     -- use({ "tpope/vim-commentary" })
-    use({ "numToStr/Comment.nvim" })
+    use({
+      "numToStr/Comment.nvim",
+      keys = { "gcc", "gbc" },
+    })
     use({ "tpope/vim-sleuth" })
     use({ "tpope/vim-repeat" })
     use({ "tpope/vim-abolish" })
@@ -145,6 +148,12 @@ function M.setup()
       -- opt = true,
     })
     use({ "RRethy/vim-illuminate" })
+    use({
+      "stevearc/aerial.nvim",
+      requires = {
+        "onsails/lspkind-nvim",
+      },
+    })
 
     -- Completion
     use({

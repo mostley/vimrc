@@ -31,11 +31,11 @@ M.setup = function()
 
   null_ls.setup({
     sources = sources,
-    on_attach = lsputils.lsp_attach,
-    on_exit = lsputils.lsp_exit,
-    on_init = lsputils.lsp_init,
-    capabilities = lsputils.get_capabilities(),
-    flags = { debounce_text_changes = 150 },
+--    on_attach = lsputils.lsp_attach,
+    --on_exit = lsputils.lsp_exit,
+    --on_init = lsputils.lsp_init,
+    --capabilities = lsputils.get_capabilities(),
+    --flags = { debounce_text_changes = 150 },
   })
 end
 
