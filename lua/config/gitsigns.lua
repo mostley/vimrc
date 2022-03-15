@@ -7,16 +7,18 @@ end
 local M = {}
 
 M.setup = function()
-  gitsigns.setup {
+  vim.notify("test it!!!")
+  gitsigns.setup({
     signs = {
-      add          = { hl = 'DiffAdd'   , text = '+', numhl = 'GitSignsAddNr' },
-      change       = { hl = 'DiffChange', text = '│', numhl = 'GitSignsChangeNr' },
-      delete       = { hl = 'DiffDelete', text = '_', numhl = 'GitSignsDeleteNr' },
-      topdelete    = { hl = 'DiffDelete', text = '‾', numhl = 'GitSignsDeleteNr' },
-      changedelete = { hl = 'DiffChange', text = '~', numhl = 'GitSignsChangeNr' },
+      add = { hl = "DiffAdd", text = "+", numhl = "GitSignsAddNr" },
+      change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+      delete = { hl = "DiffDelete", text = "_", numhl = "GitSignsDeleteNr" },
+      topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+      changedelete = { hl = "DiffChange", text = "~", numhl = "GitSignsChangeNr" },
     },
     sign_priority = 5,
-  }
+  })
+  vim.notify("tested")
 end
 
 return M

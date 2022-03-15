@@ -66,7 +66,11 @@ function M.setup()
     })
     use({ "wellle/targets.vim" })
     use({ "easymotion/vim-easymotion" })
-    use({ "lewis6991/gitsigns.nvim" })
+    use({
+      "lewis6991/gitsigns.nvim",
+      tag = "release",
+      requires = { "nvim-lua/plenary.nvim" },
+    })
     -- use({ "akinsho/bufferline.nvim" })
     use({ "unblevable/quick-scope" })
     use({ "mrjones2014/legendary.nvim" })
