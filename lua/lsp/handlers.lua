@@ -2,10 +2,10 @@ local M = {}
 local lsp_keymappings = require("keymap").lsp_keymappings
 
 local servers_without_formatting = {
-  "tsserver",
-  "css",
-  "vuels",
-  "html",
+  tsserver = true,
+  css = true,
+  vuels = true,
+  html = true,
 }
 
 M.setup = function()
@@ -69,11 +69,6 @@ end
 M.on_attach = function(client, bufnr)
   notify(client.name)
 
-  if servers_without_formatting[client.name] then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end
-
   require("lsp_signature").on_attach({
     bind = true,
     handler_opts = { border = "single" },
@@ -93,6 +88,11 @@ M.on_attach = function(client, bufnr)
   end
 
   require("lsp.settings.aerial").setup(client, bufnr)
+
+  if servers_without_formatting[client.name] then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
