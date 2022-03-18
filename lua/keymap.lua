@@ -39,7 +39,7 @@ local keymappings = {
     ["<leader>sl"] = ":<C-u>SessionLoad<CR>",
     ["<Leader>pd"] = ":let &runtimepath.=','.escape(expand('%:p:h'), ',')",
 
-    ["<leader>y"] = "+y",
+    ["<leader>y"] = "\"+y",
     ["<leader>Y"] = 'gg"+yG',
     ["Y"] = "y$",
 
@@ -107,8 +107,8 @@ local keymappings = {
     ["<Leader>gds"] = "<cmd>Gvdiffsplit<CR>",
     ["<Leader>ga"] = "<cmd>Git fetch --all<CR>",
     ["<Leader>grc"] = "<cmd>Git rebase --continue<CR>",
-    ["<Leader>grum"] = "<cmd>Git rebase upstream/master<CR>",
-    ["<Leader>grom"] = "<cmd>Git rebase origin/master<CR>",
+    ["<Leader>grum"] = "<cmd>Git rebase upstream/main<CR>",
+    ["<Leader>grom"] = "<cmd>Git rebase origin/main<CR>",
     ["<Leader>gdr"] = "<cmd>diffget //3<CR>",
     ["<Leader>gf"] = "<cmd>diffget //3<CR>",
     ["<Leader>gdl"] = "<cmd>diffget //2<CR>",

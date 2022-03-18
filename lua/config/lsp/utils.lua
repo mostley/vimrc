@@ -151,7 +151,7 @@ function M.get_capabilities()
     properties = { "documentation", "detail", "additionalTextEdits" },
   }
   capabilities.experimental = {}
-  capabilities.experimental.hoverActions = true
+  --capabilities.experimental.hoverActions = true
 
   return capabilities
 end
