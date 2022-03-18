@@ -52,11 +52,11 @@ function M.setup()
     use({ "tpope/vim-dispatch" })
     use({ "tpope/vim-fugitive" })
     use({ "tpope/vim-surround" })
-    -- use({ "tpope/vim-commentary" })
-    use({
-      "numToStr/Comment.nvim",
-      keys = { "gcc", "gbc" },
-    })
+    use({ "tpope/vim-commentary" })
+    -- use({
+      -- "numToStr/Comment.nvim",
+      -- keys = { "gcc", "gbc" },
+    -- })
     use({ "tpope/vim-sleuth" })
     use({ "tpope/vim-repeat" })
     use({ "tpope/vim-abolish" })
