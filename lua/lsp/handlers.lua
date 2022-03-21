@@ -6,6 +6,7 @@ local servers_without_formatting = {
   css = true,
   vuels = true,
   html = true,
+  pylsp = true,
 }
 
 M.setup = function()
