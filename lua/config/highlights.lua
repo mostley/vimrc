@@ -26,6 +26,11 @@ local function fg(group, color)
   cmd("hi " .. group .. " guifg=" .. color)
 end
 
+local function fg_nocombine(group, color)
+  cmd("hi " .. group .. " guifg=" .. color .. " gui=nocombine")
+end
+
+
 local function bg(group, color)
   cmd("hi " .. group .. " guibg=" .. color)
 end
@@ -33,6 +38,7 @@ end
 local function fg_bg(group, fgcol, bgcol)
   cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
 end
+
 
 -- blankline
 
@@ -101,3 +107,7 @@ fg("DashboardHeader", grey_fg)
 fg("DashboardCenter", grey_fg)
 fg("DashboardShortcut", grey_fg)
 fg("DashboardFooter", grey_fg)
+
+-- indent guides
+fg_nocombine("IndentBlanklineContextChar", light_grey)
+
