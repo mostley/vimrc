@@ -4,7 +4,7 @@ local lsp_keymappings = require("keymap").lsp_keymappings
 local servers_without_formatting = {
   tsserver = true,
   css = true,
-  vuels = true,
+  volar = true,
   html = true,
   pylsp = true,
 }
