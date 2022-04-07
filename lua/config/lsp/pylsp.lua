@@ -1,5 +1,3 @@
-local nvim_lsp = require("lspconfig")
-
 local M = {}
 
 function M.config(installed_server)

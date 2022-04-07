@@ -20,6 +20,7 @@ M.setup = function()
       extra_filetypes = { "toml", "tsx", "ts", "vue", "json" },
     }),
     formatting.eslint_d,
+    -- formatting.black,
     formatting.yapf,
     diagnostics.shellcheck,
     formatting.stylua,

@@ -27,6 +27,7 @@ function M.setup()
   telescope.load_extension("emoji")
   telescope.load_extension("file_browser")
   telescope.load_extension("fzf")
+  telescope.load_extension("refactoring")
 
   telescope.setup({
     defaults = {
@@ -79,13 +80,6 @@ M.search_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< VimRC >",
     cwd = "$HOME/projects/private/vimrc",
-  })
-end
-
-M.switch_projects = function()
-  require("telescope.builtin").find_files({
-    prompt_title = "< Switch Project >",
-    cwd = "$HOME/projects",
   })
 end
 

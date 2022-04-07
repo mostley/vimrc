@@ -15,8 +15,7 @@ local keymap = require("utils.keymap")
 local keymappings = {
   insert_mode = {
     ["<C-c>"] = "<Esc>",
-    ["<D-c>"] = '"+y',
-    ["<D-v>"] = '"+p',
+    ["<D-v>"] = '<C-r>+',
 
     [","] = ",<c-g>u",
     [";"] = ";<c-g>u",
@@ -30,7 +29,6 @@ local keymappings = {
   normal_mode = {
     ["<C-6>"] = "<C-^>",
 
-    ["<C-c>"] = "<Esc>",
     ["<D-c>"] = '"+y',
     ["<D-v>"] = '"+p',
 
@@ -80,7 +78,7 @@ local keymappings = {
 
     -- telescope
     ["<C-p>"] = ":lua require('config.telescope').project_files()<CR>",
-    ["<leader>pp"] = ":lua require'telescope'.extensions.project.project{ change_dir = true }<CR>",
+    ["<leader>pp"] = ":lua require'telescope'.extensions.project.project{ change_dir = true, display_type = 'full' }<CR>",
     ["<leader>fg"] = ":Telescope find_files hidden=true no_ignore=true<cr>",
     ["<leader>ag"] = ":Telescope live_grep<cr>",
     ["<leader>fb"] = ":Telescope buffers<cr>",
@@ -137,16 +135,22 @@ local keymappings = {
     ["n <leader>ghp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
     ["n <leader>ghb"] = '<cmd>lua require"gitsigns".blame_line()<CR>',
 
-    --notify
+    -- notify
     ["<leader>nc"] = ":lua require('notify').dismiss({})<cr>",
 
     -- terminal
     ["<C-t>"] = ":ToggleTerm<CR>",
+
+    -- refactoring
+    ["<leader>rc"] = ":lua require('refactoring').debug.cleanup({})<CR>",
   },
   visual_mode = {
     ["<C-c>"] = "<Esc>",
     ["<"] = "<gv",
     [">"] = ">gv",
+
+    ["<D-c>"] = '"+y',
+    ["<D-v>"] = '"+p',
 
     ["<leader>p"] = '"_dP', -- paste without
     ["<leader>d"] = '"_d', -- delete without copy
@@ -155,6 +159,15 @@ local keymappings = {
     -- move line(s) in visual mode
     ["J"] = ":m '>+1<CR>gv=gv",
     ["K"] = ":m '<-2<CR>gv=gv",
+
+    -- refactoring
+    ["<leader>ri"] = "<Cmd>lua require('refactoring').refactor('Inline Variable')<CR>",
+    ["<leader>re"] = "<Cmd>lua require('refactoring').refactor('Extract Function')<CR>",
+    ["<leader>rf"] = "<Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>",
+    ["<leader>rv"] = "<Cmd>lua require('refactoring').refactor('Extract Variable')<CR>",
+    ["<leader>rr"] = "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
+    ["<leader>rp"] = ":lua require('refactoring').debug.printf({below = false})<CR>",
+    ["<leader>rd"] = ":lua require('refactoring').debug.print_var({})<CR>",
   },
   visual_block_mode = {
     ["<leader>a"] = ":AnyJumpVisual<CR>",
@@ -169,6 +182,7 @@ local keymappings = {
   },
   command_mode = {
     ["w!!"] = "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!",
+    ["<D-v>"] = '<C-r>+',
   },
   text_object = {
     -- Text objects

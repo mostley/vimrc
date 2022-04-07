@@ -63,6 +63,7 @@ function M.setup()
 
   fg_nocombine("IndentBlanklineContextChar", colors.light_grey)
   underline("IndentBlanklineContextStart", colors.light_grey)
+  vim.g.neovide_cursor_vfx_mode = "wireframe"
 end
 
 return M
