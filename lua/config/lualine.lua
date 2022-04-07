@@ -43,14 +43,28 @@ function M.setup()
       lualine_z = { "location" },
     },
     inactive_sections = {
-      -- lualine_a = {},
-      -- lualine_b = {},
-      -- lualine_c = {},
-      -- lualine_x = {},
-      -- lualine_y = {},
-      -- lualine_z = {}
+      lualine_a = { "filename" },
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = { "progress" },
+      lualine_z = { "location" },
     },
-    tabline = {},
+    tabline = {
+      lualine_a = {
+        {
+          'filename',
+          file_status = true, 
+          path = 1,
+          shortening_target = 120,
+          symbols = {
+            modified = '*',      -- Text to show when the file is modified.
+            readonly = ' <readonly>',      -- Text to show when the file is non-modifiable or readonly.
+            unnamed = '[No Name]', -- Text to show for unnamed buffers.
+          }
+        }
+      },
+    },
     extensions = { "aerial", "fzf", "toggleterm" },
   }
 

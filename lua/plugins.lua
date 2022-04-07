@@ -71,7 +71,6 @@ function M.setup()
       tag = "release",
       requires = { "nvim-lua/plenary.nvim" },
     })
-    -- use({ "akinsho/bufferline.nvim" })
     use({ "unblevable/quick-scope" })
     use({ "mrjones2014/legendary.nvim" })
     use({ "folke/which-key.nvim" })
