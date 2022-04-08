@@ -143,6 +143,14 @@ local keymappings = {
 
     -- refactoring
     ["<leader>rc"] = ":lua require('refactoring').debug.cleanup({})<CR>",
+
+    -- ultest
+    ["<leader>tt"] = ":UltestNearest<CR>",
+    ["<leader>tf"] = ":Ultest<CR>",
+    ["<leader>ts"] = ":UltestSummary<CR>",
+    ["<leader>to"] = "<Plug>(ultest-output-jump)",
+    ["[t"] = "<Plug>(ultest-prev-fail)",
+    ["]t"] = "<Plug>(ultest-next-fail)",
   },
   visual_mode = {
     ["<C-c>"] = "<Esc>",
