@@ -10,24 +10,35 @@ local M = {}
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
+local code_actions = null_ls.builtins.code_actions
 
 local lsputils = require("config.lsp.utils")
 
 M.setup = function()
   local sources = {
+    diagnostics.eslint_d,
+    diagnostics.shellcheck,
+    diagnostics.flake8,
+    diagnostics.write_good,
+    diagnostics.alex,
+    diagnostics.gitlint,
+    --diagnostics.mypy,
+    diagnostics.tidy,
+
     formatting.prettierd.with({
       filetypes = { "html", "typescript", "yaml", "markdown" },
       extra_filetypes = { "toml", "tsx", "ts", "vue", "json" },
     }),
-    formatting.eslint_d,
     -- formatting.black,
     formatting.yapf,
-    diagnostics.shellcheck,
     formatting.stylua,
-    diagnostics.flake8,
-    null_ls.builtins.code_actions.gitsigns,
     formatting.nginx_beautifier,
-    diagnostics.write_good,
+
+    code_actions.gitsigns,
+    code_actions.eslint_d,
+    code_actions.proselint,
+    code_actions.refactoring,
+    code_actions.shellcheck,
   }
 
   null_ls.setup({
