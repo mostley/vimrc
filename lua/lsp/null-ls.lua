@@ -29,8 +29,7 @@ M.setup = function()
       filetypes = { "html", "typescript", "yaml", "markdown" },
       extra_filetypes = { "toml", "tsx", "ts", "vue", "json" },
     }),
-    -- formatting.black,
-    formatting.yapf,
+    formatting.black,
     formatting.stylua,
     formatting.nginx_beautifier,
 
