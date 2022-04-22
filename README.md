@@ -32,7 +32,7 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
 
         brew install efm-langserver write-good shellcheck
 
-## execute installs:
+## trigger installations:
 
 - :TSInstall typescript python vue lua json html css bash
 - :call firenvim#install()
