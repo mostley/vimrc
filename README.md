@@ -1,6 +1,10 @@
+# VimRC
+
+This is my vim rc for neovim, it works for me, it might not work for you but perhaps you'll find some inspiration here.
+
 # Prerequisites
 
-requires nvim 0.5.0+
+requires nvim 0.7.0+
 
 https://github.com/neovim/neovim/wiki/Installing-Neovim
 

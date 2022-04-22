@@ -18,7 +18,9 @@ M.setup = function()
   local sources = {
     diagnostics.eslint_d,
     diagnostics.shellcheck,
-    diagnostics.flake8,
+    -- diagnostics.flake8,
+    diagnostics.pyproject_flake8,
+    -- diagnostics.pylint,
     diagnostics.write_good,
     diagnostics.alex,
     diagnostics.gitlint,
@@ -47,6 +49,12 @@ M.setup = function()
     --on_init = lsputils.lsp_init,
     --capabilities = lsputils.get_capabilities(),
     --flags = { debounce_text_changes = 150 },
+    -- debug = true,
+    log = {
+        enable = true,
+        level = "warn",
+        use_console = "async",
+    },
   })
 end
 
