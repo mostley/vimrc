@@ -27,10 +27,7 @@ M.setup = function()
     --diagnostics.mypy,
     diagnostics.tidy,
 
-    formatting.prettierd.with({
-      filetypes = { "html", "typescript", "yaml", "markdown" },
-      extra_filetypes = { "toml", "tsx", "ts", "vue", "json" },
-    }),
+    formatting.prettierd,
     formatting.black,
     formatting.stylua,
     formatting.nginx_beautifier,
@@ -50,11 +47,11 @@ M.setup = function()
     --capabilities = lsputils.get_capabilities(),
     --flags = { debounce_text_changes = 150 },
     -- debug = true,
-    log = {
-        enable = true,
-        level = "warn",
-        use_console = "async",
-    },
+    -- log = {
+    --     enable = true,
+    --     level = "warn",
+    --     use_console = "async",
+    -- },
   })
 end
 

@@ -7,6 +7,9 @@ local M = {}
 
 M.setup = function()
   refactoring.setup({
+    print_var_statements = {
+      ts = 'console.log("🚀 ~ %s %%s", %s);'
+    },
     -- prompt for return type
     prompt_func_return_type = {
       go = true,
