@@ -143,6 +143,7 @@ local keymappings = {
 
     -- refactoring
     ["<leader>rc"] = ":lua require('refactoring').debug.cleanup({})<CR>",
+    ["<leader>rp"] = ":lua require('refactoring').debug.printf({below = false})<CR>",
 
     -- ultest
     ["<leader>tt"] = ":UltestNearest<CR>",
@@ -174,7 +175,6 @@ local keymappings = {
     ["<leader>rf"] = "<Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>",
     ["<leader>rv"] = "<Cmd>lua require('refactoring').refactor('Extract Variable')<CR>",
     ["<leader>rr"] = "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
-    ["<leader>rp"] = ":lua require('refactoring').debug.printf({below = false})<CR>",
     ["<leader>rd"] = ":lua require('refactoring').debug.print_var({})<CR>",
   },
   visual_block_mode = {

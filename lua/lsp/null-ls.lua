@@ -19,16 +19,22 @@ M.setup = function()
     diagnostics.eslint_d,
     diagnostics.shellcheck,
     -- diagnostics.flake8,
-    diagnostics.pyproject_flake8,
+    -- diagnostics.pyproject_flake8.with({
+    --     extra_args = { "--append-config", "~/.config/flake8" }
+    -- }),
     -- diagnostics.pylint,
     diagnostics.write_good,
     diagnostics.alex,
     diagnostics.gitlint,
-    --diagnostics.mypy,
+    diagnostics.mypy.with({
+      extra_args = { "--config", "/Users/svenhecht/.config/mypy.ini" },
+    }),
     diagnostics.tidy,
 
     formatting.prettierd,
-    formatting.black,
+    formatting.black.with({
+        extra_args = { "--config", "/Users/svenhecht/.config/black/pyproject.toml" }
+    }),
     formatting.stylua,
     formatting.nginx_beautifier,
 
