@@ -104,7 +104,7 @@ M.setup = function()
       smart_rename = {
         enable = true,
         keymaps = {
-          smart_rename = "grr",
+          smart_rename = "rrn",
         },
       },
     },

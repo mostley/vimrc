@@ -38,6 +38,7 @@ require("config.indent-blankline").setup()
 require("config.legendary").setup()
 require("config.telescope").setup()
 require("config.gitsigns").setup()
+require("dbg").setup()
 
 function setupLib(libName, params)
   local status_ok, lib = pcall(require, libName)
