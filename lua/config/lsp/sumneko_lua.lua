@@ -1,7 +1,7 @@
 local M = {}
 
-local sumneko_root_path = "/Users/svenhecht/.config/nvim/lua-language-server"
-local sumneko_binary = "/Users/svenhecht/.config/nvim/lua-language-server/bin/macOS/lua-language-server"
+local sumneko_root_path = vim.env.HOME .. "/.config/nvim/lua-language-server"
+local sumneko_binary = vim.env.HOME .. "/.config/nvim/lua-language-server/bin/macOS/lua-language-server"
 
 local lsputils = require("config.lsp.utils")
 
@@ -30,6 +30,7 @@ function M.config(_)
             preloadFileSize = 1000,
           },
           telemetry = { enable = false },
+          format = { enable = false },
         },
       },
     },

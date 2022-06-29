@@ -13,6 +13,7 @@ function M.setup()
     -- languages
     require('dbg.python')
     require('dbg.node')
+    require('dbg.rust')
 
     -- nvim-dap
     vim.fn.sign_define('DapBreakpoint',

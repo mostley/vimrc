@@ -54,8 +54,8 @@ function M.setup()
     use({ "tpope/vim-surround" })
     use({ "tpope/vim-commentary" })
     -- use({
-      -- "numToStr/Comment.nvim",
-      -- keys = { "gcc", "gbc" },
+    -- "numToStr/Comment.nvim",
+    -- keys = { "gcc", "gbc" },
     -- })
     use({ "tpope/vim-sleuth" })
     use({ "tpope/vim-repeat" })
@@ -138,8 +138,10 @@ function M.setup()
           event = "BufWinEnter",
         },
         { "nvim-telescope/telescope-dap.nvim" },
+        { "nvim-telescope/telescope-ui-select.nvim" },
       },
     })
+    use({ "nvim-telescope/telescope-ui-select.nvim" })
 
     -- LSP config
     use({ "williamboman/nvim-lsp-installer" })
@@ -314,16 +316,15 @@ function M.setup()
     })
 
     -- Rust
-    use({ "rust-lang/rust.vim", event = "VimEnter" })
+    -- use({ "rust-lang/rust.vim", event = "VimEnter" })
     use({
       "simrat39/rust-tools.nvim",
       after = "nvim-lspconfig",
-      config = function()
-        require("rust-tools").setup({})
-      end,
     })
     use({
       "Saecki/crates.nvim",
+      tag = "v0.2.1",
+      requires = { "nvim-lua/plenary.nvim" },
       event = { "BufRead Cargo.toml" },
       config = function()
         require("crates").setup()

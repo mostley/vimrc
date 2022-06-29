@@ -1,1 +1,1 @@
-require('dap-python').setup('/Users/svenhecht/.pyenv/versions/py3nvim/bin/python')
+require('dap-python').setup(vim.env.HOME .. '/.pyenv/versions/py3nvim/bin/python')

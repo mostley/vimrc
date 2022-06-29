@@ -21,7 +21,7 @@ function M.setup()
     end
 
     if server.name == "omnisharp" then
-      local omnisharp_bin = "/Users/svenhecht/omnisharp/OmniSharp"
+      local omnisharp_bin = vim.env.HOME .. "/omnisharp/OmniSharp"
       opts = vim.tbl_deep_extend("force", {
         cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
       }, opts)

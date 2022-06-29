@@ -155,6 +155,7 @@ local keymappings = {
 
     -- DAP
     [ '<leader>dct'] = '<cmd>lua require"dap".continue()<CR>',
+    [ '<leader>dxx'] = '<cmd>lua require"dap".close()<CR>',
     [ '<leader>dsv'] = '<cmd>lua require"dap".step_over()<CR>',
     [ '<leader>dsi']  ='<cmd>lua require"dap".step_into()<CR>',
     [ '<leader>dso']  ='<cmd>lua require"dap".step_out()<CR>',
@@ -269,7 +270,8 @@ M.lsp_keymappings = {
     ["<leader>rn"] = "<cmd>lua vim.lsp.buf.rename()<CR>",
     ["<leader>gl"] = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
     ["<leader>sl"] = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",
-    ["<leader>ac"] = '<cmd>lua require("lsp-fastaction").code_action()<CR>',
+    -- ["<leader>ac"] = '<cmd>lua require("lsp-fastaction").code_action()<CR>',
+    ["<leader>ac"] = '<cmd>lua vim.lsp.buf.code_action()<CR>',
     ["<leader>ds"] = "<cmd>lua vim.lsp.buf.document_symbol()<CR>",
     -- ["[e"] = "<Cmd>Lspsaga diagnostic_jump_next<CR>",
     -- ["]e"] = "<Cmd>Lspsaga diagnostic_jump_prev<CR>",

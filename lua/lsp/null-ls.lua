@@ -27,13 +27,13 @@ M.setup = function()
     diagnostics.alex,
     diagnostics.gitlint,
     diagnostics.mypy.with({
-      extra_args = { "--config", "/Users/svenhecht/.config/mypy.ini" },
+      extra_args = { "--config", vim.env.HOME .. "/.config/mypy.ini" },
     }),
     diagnostics.tidy,
 
     formatting.prettierd,
     formatting.black.with({
-        extra_args = { "--config", "/Users/svenhecht/.config/black/pyproject.toml" }
+      extra_args = { "--config", vim.env.HOME .. "/.config/black/pyproject.toml" },
     }),
     formatting.stylua,
     formatting.nginx_beautifier,
@@ -47,7 +47,7 @@ M.setup = function()
 
   null_ls.setup({
     sources = sources,
---    on_attach = lsputils.lsp_attach,
+    --    on_attach = lsputils.lsp_attach,
     --on_exit = lsputils.lsp_exit,
     --on_init = lsputils.lsp_init,
     --capabilities = lsputils.get_capabilities(),

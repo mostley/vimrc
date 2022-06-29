@@ -7,6 +7,7 @@ local servers_without_formatting = {
   volar = true,
   html = true,
   pylsp = true,
+  lua = true,
 }
 
 M.setup = function()

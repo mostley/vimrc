@@ -18,8 +18,8 @@ local g = vim.g
 local indent = 2
 
 function M.setup()
-  g.python_host_prog = "/Users/svenhecht/.pyenv/versions/py2nvim/bin/python"
-  g.python3_host_prog = "/Users/svenhecht/.pyenv/versions/py3nvim/bin/python"
+  g.python_host_prog = vim.env.HOME .. "/.pyenv/versions/py2nvim/bin/python"
+  g.python3_host_prog = vim.env.HOME .. "/.pyenv/versions/py3nvim/bin/python"
 
   -- vim.lsp.set_log_level("debug")
 
@@ -89,7 +89,7 @@ function M.setup()
     exrc = true,
     guicursor = "",
     errorbells = false,
-    undodir = "/Users/svenhecht/.config/nvim/undodir",
+    undodir = vim.env.HOME .. "/.config/nvim/undodir",
     list = true,
     listchars = "tab:░░,trail:·,nbsp:·",
     fillchars = { eob = "~" },
