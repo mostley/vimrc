@@ -15,7 +15,7 @@ local keymap = require("utils.keymap")
 local keymappings = {
   insert_mode = {
     ["<C-c>"] = "<Esc>",
-    ["<D-v>"] = '<C-r>+',
+    ["<D-v>"] = "<C-r>+",
 
     [","] = ",<c-g>u",
     [";"] = ";<c-g>u",
@@ -37,7 +37,7 @@ local keymappings = {
     ["<leader>sl"] = ":<C-u>SessionLoad<CR>",
     ["<Leader>pd"] = ":let &runtimepath.=','.escape(expand('%:p:h'), ',')",
 
-    ["<leader>y"] = "\"+y",
+    ["<leader>y"] = '"+y',
     ["<leader>Y"] = 'gg"+yG',
     ["Y"] = "y$",
 
@@ -147,6 +147,7 @@ local keymappings = {
 
     -- ultest
     ["<leader>tt"] = ":UltestNearest<CR>",
+    ["<leader>tbt"] = ":UltestDebugNearest<CR>",
     ["<leader>tf"] = ":Ultest<CR>",
     ["<leader>ts"] = ":UltestSummary<CR>",
     ["<leader>to"] = "<Plug>(ultest-output-jump)",
@@ -154,33 +155,32 @@ local keymappings = {
     ["]t"] = "<Plug>(ultest-next-fail)",
 
     -- DAP
-    [ '<leader>dct'] = '<cmd>lua require"dap".continue()<CR>',
-    [ '<leader>dxx'] = '<cmd>lua require"dap".close()<CR>',
-    [ '<leader>dsv'] = '<cmd>lua require"dap".step_over()<CR>',
-    [ '<leader>dsi']  ='<cmd>lua require"dap".step_into()<CR>',
-    [ '<leader>dso']  ='<cmd>lua require"dap".step_out()<CR>',
-    [ '<leader>dtb']  ='<cmd>lua require"dap".toggle_breakpoint()<CR>',
+    ["<leader>dct"] = '<cmd>lua require"dap".continue()<CR>',
+    ["<leader>dxx"] = '<cmd>lua require"dap".close()<CR>',
+    ["<leader>dsv"] = '<cmd>lua require"dap".step_over()<CR>',
+    ["<leader>dsi"] = '<cmd>lua require"dap".step_into()<CR>',
+    ["<leader>dso"] = '<cmd>lua require"dap".step_out()<CR>',
+    ["<leader>dtb"] = '<cmd>lua require"dap".toggle_breakpoint()<CR>',
 
-    [ '<leader>dsc']  ='<cmd>lua require"dap.ui.variables".scopes()<CR>',
-    [ '<leader>dhh']  ='<cmd>lua require"dap.ui.variables".hover()<CR>',
+    ["<leader>de"] = '<cmd>lua require("dapui").eval()<CR>',
 
-    [ '<leader>duh']  ='<cmd>lua require"dap.ui.widgets".hover()<CR>',
-    [ '<leader>duf']  ="<cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>",
+    ["<leader>duh"] = '<cmd>lua require"dap.ui.widgets".hover()<CR>',
+    ["<leader>duf"] = "<cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>",
 
-    [ '<leader>dsbr']  ='<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
-    [ '<leader>dsbm']  ='<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
-    [ '<leader>dro']  ='<cmd>lua require"dap".repl.open()<CR>',
-    [ '<leader>drl']  ='<cmd>lua require"dap".repl.run_last()<CR>',
+    ["<leader>dsbr"] = '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+    ["<leader>dsbm"] = '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+    ["<leader>dro"] = '<cmd>lua require"dap".repl.open()<CR>',
+    ["<leader>drl"] = '<cmd>lua require"dap".repl.run_last()<CR>',
 
     -- telescope-dap
-    [ '<leader>dcc']  ='<cmd>lua require"telescope".extensions.dap.commands{}<CR>',
-    [ '<leader>dco']  ='<cmd>lua require"telescope".extensions.dap.configurations{}<CR>',
-    [ '<leader>dlb']  ='<cmd>lua require"telescope".extensions.dap.list_breakpoints{}<CR>',
-    [ '<leader>dv']  ='<cmd>lua require"telescope".extensions.dap.variables{}<CR>',
-    [ '<leader>df']  ='<cmd>lua require"telescope".extensions.dap.frames{}<CR>',
+    ["<leader>dcc"] = '<cmd>lua require"telescope".extensions.dap.commands{}<CR>',
+    ["<leader>dco"] = '<cmd>lua require"telescope".extensions.dap.configurations{}<CR>',
+    ["<leader>dlb"] = '<cmd>lua require"telescope".extensions.dap.list_breakpoints{}<CR>',
+    ["<leader>dv"] = '<cmd>lua require"telescope".extensions.dap.variables{}<CR>',
+    ["<leader>df"] = '<cmd>lua require"telescope".extensions.dap.frames{}<CR>',
 
     -- nvim-dap-ui
-    [ '<leader>dui']  ='<cmd>lua require"dapui".toggle()<CR>',
+    ["<leader>dui"] = '<cmd>lua require"dapui".toggle()<CR>',
   },
   visual_mode = {
     ["<C-c>"] = "<Esc>",
@@ -207,7 +207,7 @@ local keymappings = {
     ["<leader>rd"] = ":lua require('refactoring').debug.print_var({})<CR>",
 
     -- telescope-dap
-    ['<leader>dhv']  ='<cmd>lua require"dap.ui.variables".visual_hover()<CR>',
+    ["<leader>dhv"] = '<cmd>lua require"dap.ui.variables".visual_hover()<CR>',
   },
   visual_block_mode = {
     ["<leader>a"] = ":AnyJumpVisual<CR>",
@@ -222,7 +222,7 @@ local keymappings = {
   },
   command_mode = {
     ["w!!"] = "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!",
-    ["<D-v>"] = '<C-r>+',
+    ["<D-v>"] = "<C-r>+",
   },
   text_object = {
     -- Text objects
@@ -271,7 +271,7 @@ M.lsp_keymappings = {
     ["<leader>gl"] = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
     ["<leader>sl"] = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",
     -- ["<leader>ac"] = '<cmd>lua require("lsp-fastaction").code_action()<CR>',
-    ["<leader>ac"] = '<cmd>lua vim.lsp.buf.code_action()<CR>',
+    ["<leader>ac"] = "<cmd>lua vim.lsp.buf.code_action()<CR>",
     ["<leader>ds"] = "<cmd>lua vim.lsp.buf.document_symbol()<CR>",
     -- ["[e"] = "<Cmd>Lspsaga diagnostic_jump_next<CR>",
     -- ["]e"] = "<Cmd>Lspsaga diagnostic_jump_prev<CR>",
