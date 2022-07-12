@@ -171,6 +171,8 @@ local keymappings = {
     ["<leader>dsbm"] = '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
     ["<leader>dro"] = '<cmd>lua require"dap".repl.open()<CR>',
     ["<leader>drl"] = '<cmd>lua require"dap".repl.run_last()<CR>',
+    ["<leader>dnu"] = '<cmd>lua require"dap".up()<CR>',
+    ["<leader>dnd"] = '<cmd>lua require"dap".down()<CR>',
 
     -- telescope-dap
     ["<leader>dcc"] = '<cmd>lua require"telescope".extensions.dap.commands{}<CR>',
