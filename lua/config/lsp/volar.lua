@@ -1,14 +1,14 @@
 local M = {}
 
-local lsputils = require "config.lsp.utils"
+local lsputils = require("config.lsp.utils")
 
-function M.setup(installed_server)
+function M.setup()
   local opts = {
     settings = {
       volar = {
         tsPlugin = true,
       },
-    }
+    },
   }
   return opts
 end
