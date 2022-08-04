@@ -358,6 +358,7 @@ function M.setup()
         vim.notify = require("notify")
       end,
     })
+    use({ "jbyuki/venn.nvim" })
 
     -- use({ "floobits/floobits-neovim" })
     use({ "github/copilot.vim" })
