@@ -7,7 +7,7 @@ end
 local M = {}
 
 function M.setup()
-  require("lsp.lsp-installer").setup()
+  -- require("lsp.lsp-installer").setup()
   require("lsp.handlers").setup()
   require("lsp.lsp-signature").setup()
   require("lsp.lua-dev").setup()

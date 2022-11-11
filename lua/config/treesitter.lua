@@ -16,18 +16,18 @@ M.setup = function()
     },
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 
---    rainbow = {
---    enable = true,
---    colors = {
---      "Gold",
---      "Orchid",
---      "DodgerBlue",
---      -- "Cornsilk",
---      -- "Salmon",
---      -- "LawnGreen",
---    },
---    disable = { "html" },
---  },
+    --    rainbow = {
+    --    enable = true,
+    --    colors = {
+    --      "Gold",
+    --      "Orchid",
+    --      "DodgerBlue",
+    --      -- "Cornsilk",
+    --      -- "Salmon",
+    --      -- "LawnGreen",
+    --    },
+    --    disable = { "html" },
+    --  },
     indent = {
       enable = true,
       disable = { "yaml", "python", "css" },
@@ -104,7 +104,7 @@ M.setup = function()
       smart_rename = {
         enable = true,
         keymaps = {
-          smart_rename = "rrn",
+          smart_rename = "<leader>rrn",
         },
       },
     },

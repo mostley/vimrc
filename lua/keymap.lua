@@ -183,6 +183,10 @@ local keymappings = {
 
     -- nvim-dap-ui
     ["<leader>dui"] = '<cmd>lua require"dapui".toggle()<CR>',
+
+    --package-info
+    ["<leader>ns"] = "<cmd>lua require('package-info').show()<cr>",
+    ["<leader>np"] = "<cmd>lua require('package-info').change_version()<cr>",
   },
   visual_mode = {
     ["<C-c>"] = "<Esc>",

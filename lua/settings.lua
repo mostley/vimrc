@@ -23,7 +23,7 @@ function M.setup()
 
   -- vim.lsp.set_log_level("debug")
 
-  cmd("syntax enable")
+  -- cmd("syntax enable")
   cmd("filetype plugin indent on")
 
   vim.opt.formatoptions = vim.opt.formatoptions

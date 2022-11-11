@@ -19,6 +19,7 @@ require("lsp").setup()
 require("autocommands").setup()
 
 -- configs
+require("config.mason").setup()
 require("config.cmp").setup()
 require("config.lualine").setup()
 require("config.treesitter").setup()

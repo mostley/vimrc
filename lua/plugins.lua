@@ -144,8 +144,11 @@ function M.setup()
     use({ "nvim-telescope/telescope-ui-select.nvim" })
 
     -- LSP config
-    use({ "williamboman/nvim-lsp-installer" })
+    -- use({ "williamboman/nvim-lsp-installer" })
     use({ "jose-elias-alvarez/null-ls.nvim" })
+
+    use({ "williamboman/mason.nvim" })
+    use({ "williamboman/mason-lspconfig.nvim" })
     use({
       "neovim/nvim-lspconfig",
       as = "nvim-lspconfig",
@@ -349,7 +352,7 @@ function M.setup()
       event = "VimEnter",
       requires = "MunifTanjim/nui.nvim",
       config = function()
-        require("package-info").setup()
+        require("package-info").setup({ package_manager = "npm" })
       end,
     })
     use({
