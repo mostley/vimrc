@@ -144,7 +144,6 @@ function M.setup()
     use({ "nvim-telescope/telescope-ui-select.nvim" })
 
     -- LSP config
-    -- use({ "williamboman/nvim-lsp-installer" })
     use({ "jose-elias-alvarez/null-ls.nvim" })
 
     use({ "williamboman/mason.nvim" })
