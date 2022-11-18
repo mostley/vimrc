@@ -20,6 +20,7 @@ require("autocommands").setup()
 
 -- configs
 require("config.mason").setup()
+require("config.saga").setup()
 require("config.cmp").setup()
 require("config.lualine").setup()
 require("config.treesitter").setup()

@@ -12,8 +12,6 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
-local lsputils = require("config.lsp.utils")
-
 M.setup = function()
   local sources = {
     diagnostics.eslint_d,
@@ -47,10 +45,6 @@ M.setup = function()
 
   null_ls.setup({
     sources = sources,
-    --    on_attach = lsputils.lsp_attach,
-    --on_exit = lsputils.lsp_exit,
-    --on_init = lsputils.lsp_init,
-    --capabilities = lsputils.get_capabilities(),
     --flags = { debounce_text_changes = 150 },
     -- debug = true,
     -- log = {

@@ -182,15 +182,9 @@ function M.setup()
         "hrsh7th/cmp-nvim-lsp-document-symbol",
       },
     })
-    -- use({
-    --   "hrsh7th/nvim-compe",
-    --   requires = {
-    --     { "andersevenrud/compe-tmux", branch = "compe" },
-    --   },
-    -- })
 
     -- Better LSP experience
-    -- use({ "glepnir/lspsaga.nvim" })
+    use({ "glepnir/lspsaga.nvim" })
     -- use({ "al3xfischer/lspsaga.nvim" })
     use({ "windwp/lsp-fastaction.nvim" })
     use({
