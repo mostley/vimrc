@@ -14,7 +14,7 @@ local keymap = require("utils.keymap")
 
 local keymappings = {
   insert_mode = {
-    ["<C-c>"] = "<Esc>",
+    -- ["<C-c>"] = "<Esc>",
     ["<D-v>"] = "<C-r>+",
 
     [","] = ",<c-g>u",
@@ -145,14 +145,24 @@ local keymappings = {
     ["<leader>rc"] = ":lua require('refactoring').debug.cleanup({})<CR>",
     ["<leader>rp"] = ":lua require('refactoring').debug.printf({below = false})<CR>",
 
-    -- ultest
-    ["<leader>tt"] = ":UltestNearest<CR>",
-    ["<leader>tbt"] = ":UltestDebugNearest<CR>",
-    ["<leader>tf"] = ":Ultest<CR>",
-    ["<leader>ts"] = ":UltestSummary<CR>",
-    ["<leader>to"] = "<Plug>(ultest-output-jump)",
-    ["[t"] = "<Plug>(ultest-prev-fail)",
-    ["]t"] = "<Plug>(ultest-next-fail)",
+    -- -- ultest
+    -- ["<leader>tt"] = ":UltestNearest<CR>",
+    -- ["<leader>tbt"] = ":UltestDebugNearest<CR>",
+    -- ["<leader>tf"] = ":Ultest<CR>",
+    -- ["<leader>ts"] = ":UltestSummary<CR>",
+    -- ["<leader>to"] = "<Plug>(ultest-output-jump)",
+    -- ["<leader>tj"] = "<cmd>lua require('config.ultest').javascript_runner()<CR>",
+    -- ["[t"] = "<Plug>(ultest-prev-fail)",
+    -- ["]t"] = "<Plug>(ultest-next-fail)",
+
+    -- neotest
+    ["<leader>tt"] = "<cmd>lua require('neotest').run.run()<CR>",
+    ["<leader>tbt"] = "<cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>",
+    ["<leader>tf"] = "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",
+    ["<leader>ts"] = "<cmd>lua require('neotest').summary.toggle()<CR>",
+    ["<leader>to"] = "<cmd>lua require('neotest').output.open({ enter = true })<CR>",
+    ["<leader>tj"] = "<cmd>lua require('config.neotest').javascript_runner()<CR>",
+    ["<leader>tp"] = "<cmd>lua require('config.neotest').python_runner()<CR>",
 
     -- DAP
     ["<leader>dct"] = '<cmd>lua require"dap".continue()<CR>',
@@ -189,7 +199,7 @@ local keymappings = {
     ["<leader>np"] = "<cmd>lua require('package-info').change_version()<cr>",
   },
   visual_mode = {
-    ["<C-c>"] = "<Esc>",
+    -- ["<C-c>"] = "<Esc>",
     ["<"] = "<gv",
     [">"] = ">gv",
 
@@ -265,14 +275,15 @@ M.lsp_keymappings = {
   normal_mode = {
     -- ["K"] = "<Cmd>lua vim.lsp.buf.hover()<CR>",
     ["K"] = "<Cmd>Lspsaga hover_doc<CR>",
-    ["gD"] = "<Cmd>lua vim.lsp.buf.declaration()<CR>",
-    -- ["gd"] = "<Cmd>lua vim.lsp.buf.definition()<CR>",
-    ["gd"] = "<Cmd>Lspsaga peek_definition<CR>",
+    -- ["gD"] = "<Cmd>lua vim.lsp.buf.declaration()<CR>",
+    ["gd"] = "<Cmd>lua vim.lsp.buf.definition()<CR>",
+    ["gD"] = "<Cmd>Lspsaga peek_definition<CR>",
     ["gt"] = "<Cmd>lua vim.lsp.buf.type_definition()<CR>",
     ["gi"] = "<Cmd>lua vim.lsp.buf.implementation()<CR>",
     ["gh"] = "<Cmd>Lspsaga lsp_finder<CR>",
     -- ["gr"] = "<Cmd>lua vim.lsp.buf.references()<CR>",
-    ["gr"] = "<cmd>lua require'telescope.builtin'.lsp_references()<CR>",
+    -- ["gr"] = "<cmd>lua require'telescope.builtin'.lsp_references()<CR>",
+    ["gr"] = "<Cmd>Lspsaga lsp_finder<CR>",
     ["<C-s-k>"] = "<Cmd>lua vim.lsp.buf.signature_help()<CR>",
     ["gp"] = "<Cmd>lua vim.diagnostic.goto_prev()<CR>",
     ["gn"] = "<Cmd>lua vim.diagnostic.goto_next()<CR>",
@@ -296,7 +307,7 @@ function M.get_telescope_keymappings()
   local actions = require("telescope.actions")
   return {
     i = {
-      ["<C-c>"] = actions.close,
+      -- ["<C-c>"] = actions.close,
       -- ["<C-c>"] = false,
       -- ["<C-x>"] = false,
       ["<esc>"] = actions.close,
@@ -333,7 +344,7 @@ function M.get_telescope_keymappings()
     },
     n = {
       ["<esc>"] = actions.close,
-      ["<C-c>"] = actions.close,
+      -- ["<C-c>"] = actions.close,
       -- ["<C-t>"] = trouble.smart_open_with_trouble,
       ["<C-j>"] = actions.move_selection_next,
       ["<C-k>"] = actions.move_selection_previous,

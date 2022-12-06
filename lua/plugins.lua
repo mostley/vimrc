@@ -109,10 +109,35 @@ function M.setup()
     use({ "akinsho/toggleterm.nvim" })
 
     -- Testing
+    -- use({
+    --   "rcarriga/vim-ultest",
+    --   run = ":UpdateRemotePlugins",
+    --   requires = { "vim-test/vim-test" },
+    -- })
     use({
-      "rcarriga/vim-ultest",
-      run = ":UpdateRemotePlugins",
-      requires = { "vim-test/vim-test" },
+      "nvim-neotest/neotest",
+      opt = true,
+      wants = {
+        "plenary.nvim",
+        "nvim-treesitter",
+        "neotest-python",
+        "neotest-go",
+        "neotest-plenary",
+        "neotest-jest",
+        "neotest-vitest",
+        "neotest-vim-test",
+      },
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-neotest/neotest-go",
+        "nvim-neotest/neotest-python",
+        "nvim-neotest/neotest-plenary",
+        "haydenmeade/neotest-jest",
+        "marilari88/neotest-vitest",
+        "nvim-neotest/neotest-vim-test",
+      },
+      module = { "neotest" },
     })
 
     -- Telescope

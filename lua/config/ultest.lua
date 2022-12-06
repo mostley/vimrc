@@ -4,6 +4,16 @@ vim.g.ultest_use_pty = 1
 
 local M = {}
 
+function M.javascript_runner()
+  local runners = { "jest", "vitest", "cypress" }
+  vim.ui.select(runners, { prompt = "Choose Javascript Runner" }, function(selected)
+    if selected then
+      vim.g["test#javascript#runner"] = selected
+      vim.notify("Test runner changed to " .. selected, "info")
+    end
+  end)
+end
+
 function M.setup()
     local builders = {
         python = function(cmd)

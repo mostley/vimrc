@@ -36,7 +36,7 @@ function M.setup()
     ["sumneko_lua"] = function()
       local sumneko_opts = require("lsp.settings.sumneko_lua")
       opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-      require("sumneko_lua").setup(opts)
+      require("lspconfig")["sumneko_lua"].setup(opts)
     end,
     -- ['pylsp'] = function()
     --  local pylsp_opts = require("lsp.settings.pylsp")

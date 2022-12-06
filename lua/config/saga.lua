@@ -11,6 +11,12 @@ function M.setup()
     code_action_lightbulb = {
       enable = false,
     },
+    definition_action_keys = {
+      edit = "<leader>e",
+      vsplit = "<C-v>",
+      split = "<C-i>",
+      quit = "q",
+    },
   })
 end
 
