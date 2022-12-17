@@ -53,10 +53,6 @@ function M.setup()
     use({ "tpope/vim-fugitive" })
     use({ "tpope/vim-surround" })
     use({ "tpope/vim-commentary" })
-    -- use({
-    -- "numToStr/Comment.nvim",
-    -- keys = { "gcc", "gbc" },
-    -- })
     use({ "tpope/vim-sleuth" })
     use({ "tpope/vim-repeat" })
     use({ "tpope/vim-abolish" })
@@ -68,7 +64,6 @@ function M.setup()
     use({ "easymotion/vim-easymotion" })
     use({
       "lewis6991/gitsigns.nvim",
-      tag = "release",
       requires = { "nvim-lua/plenary.nvim" },
     })
     use({ "unblevable/quick-scope" })

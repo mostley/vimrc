@@ -1,3 +1,12 @@
+local function setupLib(libName, params)
+  local status_ok, lib = pcall(require, libName)
+  if not status_ok then
+    vim.notify("failed to load " .. libName, "error")
+    return
+  end
+  lib.setup(params)
+end
+
 function _G.reload_nvim_conf()
   for name, _ in pairs(package.loaded) do
     if name:match("^core") or name:match("^lsp") or name:match("^plugins") then
@@ -11,48 +20,36 @@ end
 
 vim.cmd("command! ReloadConfig lua reload_nvim_conf()")
 
-require("settings").setup()
-require("keymap").setup()
-require("plugins").setup()
-require("visual").setup()
-require("lsp").setup()
-require("autocommands").setup()
+setupLib("settings")
+
+setupLib("keymap")
+setupLib("plugins")
+setupLib("visual")
+setupLib("lsp")
+setupLib("autocommands")
 
 -- configs
-require("config.mason").setup()
-require("config.saga").setup()
-require("config.cmp").setup()
-require("config.lualine").setup()
-require("config.treesitter").setup()
-require("config.alpha").setup()
-require("config.toggleterm").setup()
-require("config.dressing").setup()
-require("config.refactoring").setup()
-require("config.harpoon").setup()
-require("config.whichkey").setup()
-require("config.rnvimr").setup()
-require("config.neoscroll").setup()
-require("config.neotest").setup()
-require("config.fastaction").setup()
-require("config.ultisnips").setup()
-require("config.treesitter").setup()
-require("config.indent-blankline").setup()
-require("config.legendary").setup()
-require("config.telescope").setup()
-require("config.gitsigns").setup()
-require("config.venn").setup()
-require("dbg").setup()
-
-function setupLib(libName, params)
-  local status_ok, lib = pcall(require, libName)
-  if not status_ok then
-    vim.notify("failed to load " .. libName, "error")
-    return
-  end
-  lib.setup(params)
-end
-
+setupLib("config.mason")
+setupLib("config.saga")
+setupLib("config.cmp")
+setupLib("config.lualine")
+setupLib("config.treesitter")
+setupLib("config.alpha")
+setupLib("config.toggleterm")
+setupLib("config.dressing")
+setupLib("config.refactoring")
+setupLib("config.harpoon")
+setupLib("config.whichkey")
+setupLib("config.rnvimr")
+setupLib("config.neoscroll")
+setupLib("config.neotest")
+setupLib("config.fastaction")
+setupLib("config.ultisnips")
+setupLib("config.treesitter")
+setupLib("config.indent-blankline")
+setupLib("config.legendary")
+setupLib("config.telescope")
+setupLib("config.gitsigns")
+setupLib("config.venn")
+setupLib("dbg")
 setupLib("fidget")
---setupLib("Comment")
---setupLib("nvim-web-devicons", { default = true })
---       require("config.file-icons").setup()

@@ -75,6 +75,12 @@ function M.setup()
       },
     },
   })
+
+  -- workaround for file can't be opened after find_files see https://github.com/nvim-telescope/telescope.nvim/issues/699
+  vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "*" },
+    command = "normal zx",
+  })
 end
 
 M.search_dotfiles = function()

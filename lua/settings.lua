@@ -82,13 +82,20 @@ function M.setup()
     pumblend = 17,
     synmaxcol = 240,
     laststatus = 2,
-    sessionoptions = "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal",
+    sessionoptions = "blank,buffers,curdir,help,options,tabpages,winsize,resize,winpos,terminal",
 
     encoding = "utf-8",
     fileencodings = "utf-8",
     exrc = true,
     guicursor = "",
     errorbells = false,
+
+    foldmethod = "expr",
+    foldexpr = "nvim_treesitter#foldexpr()",
+    foldenable = false,
+    foldlevel = 99,
+    foldtext = [[substitute(getline(v:foldstart),'\\\\t',repeat('\\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']],
+
     undodir = vim.env.HOME .. "/.config/nvim/undodir",
     list = true,
     listchars = "tab:░░,trail:·,nbsp:·",

@@ -114,7 +114,7 @@ local keymappings = {
     ["<leader>gc"] = ":Telescope git_branches<CR>",
     ["<leader>g-"] = "<cmd>:Silent Git stash<CR>",
     ["<leader>g+"] = "<cmd>:Silent Git stash pop<CR>",
-    ["<leader>gh"] = "<cmd>0Gclog<CR>",
+    ["<leader>gl"] = "<cmd>0Gclog<CR>",
 
     -- trouble
     ["<leader>xx"] = "<cmd>TroubleToggle<cr>",
@@ -125,15 +125,15 @@ local keymappings = {
     ["gR"] = "<cmd>TroubleToggle lsp_references<cr>",
 
     -- gitsigns
-    ["n ]c"] = { { expr = true }, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'" },
-    ["n [c"] = { { expr = true }, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'" },
+    ["]c"] = { { expr = true }, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'" },
+    ["[c"] = { { expr = true }, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'" },
 
-    ["n <leader>ghs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-    ["n <leader>ghu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-    ["n <leader>ghr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-    ["n <leader>ghR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-    ["n <leader>ghp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-    ["n <leader>ghb"] = '<cmd>lua require"gitsigns".blame_line()<CR>',
+    ["<leader>ghs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+    ["<leader>ghu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+    ["<leader>ghr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+    ["<leader>ghR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+    ["<leader>ghp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+    ["<leader>ghb"] = '<cmd>lua require"gitsigns".blame_line()<CR>',
 
     -- notify
     ["<leader>nc"] = ":lua require('notify').dismiss({})<cr>",
@@ -156,13 +156,13 @@ local keymappings = {
     -- ["]t"] = "<Plug>(ultest-next-fail)",
 
     -- neotest
-    ["<leader>tt"] = "<cmd>lua require('neotest').run.run()<CR>",
+    ["<leader>tt"] = "<cmd>lua require('neotest').run.run({adapter=vim.g['test#javascript#runner']})<CR>",
     ["<leader>tbt"] = "<cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>",
     ["<leader>tf"] = "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",
     ["<leader>ts"] = "<cmd>lua require('neotest').summary.toggle()<CR>",
     ["<leader>to"] = "<cmd>lua require('neotest').output.open({ enter = true })<CR>",
     ["<leader>tj"] = "<cmd>lua require('config.neotest').javascript_runner()<CR>",
-    ["<leader>tp"] = "<cmd>lua require('config.neotest').python_runner()<CR>",
+    ["<leader>tr"] = "<cmd>lua require('config.neotest').python_runner()<CR>",
 
     -- DAP
     ["<leader>dct"] = '<cmd>lua require"dap".continue()<CR>',
@@ -289,7 +289,7 @@ M.lsp_keymappings = {
     ["gn"] = "<Cmd>lua vim.diagnostic.goto_next()<CR>",
     -- ["<leader>rn"] = "<cmd>lua vim.lsp.buf.rename()<CR>",
     ["<leader>rn"] = "<cmd>Lspsaga rename<CR>",
-    ["<leader>gl"] = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
+    ["<leader>ld"] = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
     ["<leader>sl"] = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",
     -- ["<leader>ac"] = '<cmd>lua require("lsp-fastaction").code_action()<CR>',
     -- ["<leader>ac"] = "<cmd>lua vim.lsp.buf.code_action()<CR>",

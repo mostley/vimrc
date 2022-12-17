@@ -32,7 +32,7 @@ function M.setup()
         dap = { justMyCode = false },
         runner = "pytest",
       }),
-      require("neotest-jest"),
+      -- require("neotest-jest"),
       require("neotest-vitest"),
       require("neotest-plenary"),
       require("neotest-vim-test")({

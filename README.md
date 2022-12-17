@@ -28,7 +28,7 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
         cd ../..
         ./3rd/luamake/luamake rebuild
 
-        npm install -g neovim tree-sitter-cli eslint_d diagnostic-languageserver typescript typescript-language-server pyright vls @fsouza/prettierd vscode-langservers-extracted @volar/vue-language-server bash-language-server vim-language-server nginxbeautifier
+        npm install -g neovim tree-sitter-cli eslint_d diagnostic-languageserver typescript typescript-language-server pyright vls @fsouza/prettierd vscode-langservers-extracted @volar/vue-language-server bash-language-server vim-language-server nginxbeautifier alex proselint
 
         brew install efm-langserver write-good shellcheck
 

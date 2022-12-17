@@ -8,32 +8,65 @@ local M = {}
 
 M.setup = function()
   configs.setup({
-    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    highlight = {
-      enable = true,
-      use_languagetree = true,
-      disable = { "vim" }, -- list of language that will be disabled
+    ensure_installed = { -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+      "help",
+      "javascript",
+      "typescript",
+      "python",
+      "c",
+      "lua",
+      "rust",
+      "go",
+      "html",
+      "json",
+      "arduino",
+      "bash",
+      "c_sharp",
+      "clojure",
+      "cmake",
+      "cpp",
+      "css",
+      "cuda",
+      "dart",
+      "dockerfile",
+      "git_rebase",
+      "gitattributes",
+      "gitignore",
+      "glsl",
+      "graphql",
+      "java",
+      "latex",
+      "make",
+      "query",
+      "ruby",
+      "scss",
+      "svelte",
+      "toml",
+      "tsx",
+      "vim",
+      "vue",
+      "yaml",
+      "zig",
     },
+    auto_install = true,
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 
-    --    rainbow = {
-    --    enable = true,
-    --    colors = {
-    --      "Gold",
-    --      "Orchid",
-    --      "DodgerBlue",
-    --      -- "Cornsilk",
-    --      -- "Salmon",
-    --      -- "LawnGreen",
-    --    },
-    --    disable = { "html" },
-    --  },
-    indent = {
+    highlight = {
       enable = true,
-      disable = { "yaml", "python", "css" },
+      additional_vim_regex_highlighting = false,
+    },
+
+    indent = {
+      enable = false,
     },
     incremental_selection = {
-      enable = true,
+      enable = false,
+      -- keymaps = {
+      --   init_selection = "gnn", -- set to `false` to disable one of the mappings
+      --   node_incremental = "grn",
+      --   scope_incremental = "grc",
+      --   node_decremental = "grm",
+      -- },
     },
     autotag = {
       enable = true,
@@ -70,10 +103,10 @@ M.setup = function()
       swap = {
         enable = true,
         swap_next = {
-          ["<leader>a"] = "@parameter.inner",
+          ["<leader>pn"] = "@parameter.inner",
         },
         swap_previous = {
-          ["<leader>A"] = "@parameter.inner",
+          ["<leader>pp"] = "@parameter.inner",
         },
       },
       move = {
