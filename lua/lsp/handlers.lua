@@ -1,5 +1,6 @@
 local M = {}
 local lsp_keymappings = require("keymap").lsp_keymappings
+local keymap = require("utils.keymap")
 
 local servers_without_formatting = {
   tsserver = true,
@@ -72,14 +73,8 @@ end
 M.on_attach = function(client, bufnr)
   notify(client.name)
 
-  require("lsp_signature").on_attach({
-    bind = true,
-    handler_opts = { border = "single" },
-  })
-
   lsp_highlight_document(client)
 
-  local keymap = require("utils.keymap")
   for mode, mapping in pairs(lsp_keymappings) do
     keymap.map(mode, mapping)
   end
@@ -96,6 +91,7 @@ M.on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
   end
+
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
