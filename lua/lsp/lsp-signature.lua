@@ -3,7 +3,6 @@ local M = {}
 M.setup = function()
   local icons = require("icons")
   local signs = {
-
     { name = "DiagnosticSignError", text = icons.diagnostics.Error },
     { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
     { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
@@ -15,12 +14,8 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = true,
-    signs = {
-      active = signs,
-    },
     update_in_insert = true,
-    underline = false,
+    underline = true,
     severity_sort = true,
     float = {
       focusable = true,

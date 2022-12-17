@@ -46,7 +46,10 @@ local keymappings = {
     ["Y"] = { { desc = "Yank to end of line" }, "y$" },
 
     ["cp"] = { { desc = "Duplicate paragraph" }, "yap<S-}>p" },
-    ["<leader>sw"] = { { desc = "Substitue word (search and replace)" }, ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>" },
+    ["<leader>sw"] = {
+      { desc = "Substitue word (search and replace)" },
+      ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>",
+    },
 
     -- quickfix
     ["<leader>qf"] = "<cmd>copen<CR>",

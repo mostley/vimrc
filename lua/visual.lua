@@ -47,18 +47,8 @@ function M.setup()
     set guifont=CaskaydiaCove\ Nerd\ Font:h14
   ]])
 
-  -- vim.g.vscode_style = "dark"
-  -- vim.g.vscode_italic_comment = 1
-  -- -- Disable nvim-tree background color
-  -- vim.g.vscode_disable_nvimtree_bg = true
-  -- vim.cmd[[colorscheme vscode]]
-
-  vim.g.gruvbox_undercurl = 1
   vim.g.gruvbox_contrast_dark = "hard"
   vim.g.gruvbox_invert_selection = "0"
-  vim.g.gruvbox_italicize_comments = 0
-  vim.g.gruvbox_italicize_strings = 0
-  vim.g.gruvbox_italic = 1
   vim.cmd([[colorscheme gruvbox]])
 
   fg_nocombine("IndentBlanklineContextChar", colors.light_grey)
