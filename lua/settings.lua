@@ -59,7 +59,6 @@ function M.setup()
     swapfile = false, -- creates a swapfile
     termguicolors = true, -- set term gui colors (most terminals support this)
     timeoutlen = 300, -- time to wait for a mapped sequence to complete (in milliseconds)
-    undofile = true, -- enable persistent undo
     updatetime = 300, -- faster completion (4000ms default)
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     expandtab = true, -- convert tabs to spaces
@@ -72,7 +71,7 @@ function M.setup()
     numberwidth = 4, -- set number column width to 2 {default 4}
     signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
     wrap = false, -- display lines as one long line
-    scrolloff = 8, -- is one of my fav
+    scrolloff = 8, -- always show at least 8 lines to the edge of the screen
     sidescrolloff = 8,
 
     hidden = true,
@@ -97,6 +96,8 @@ function M.setup()
     foldtext = [[substitute(getline(v:foldstart),'\\\\t',repeat('\\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']],
 
     undodir = vim.env.HOME .. "/.config/nvim/undodir",
+    undofile = true, -- enable persistent undo
+
     list = true,
     listchars = "tab:░░,trail:·,nbsp:·",
     fillchars = { eob = "~" },

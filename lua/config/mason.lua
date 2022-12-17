@@ -29,7 +29,6 @@ function M.setup()
     end,
 
     -- Next, you can provide a dedicated handler for specific servers.
-    -- For example, a handler override for the `rust_analyzer`:
     ["rust_analyzer"] = function()
       require("rust-tools").setup({})
     end,
@@ -38,11 +37,6 @@ function M.setup()
       opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
       require("lspconfig")["sumneko_lua"].setup(opts)
     end,
-    -- ['pylsp'] = function()
-    --  local pylsp_opts = require("lsp.settings.pylsp")
-    --  opts = vim.tbl_deep_extend("force", pylsp_opts, opts)
-    --  require("pylsp").setup(opts)
-    -- end
   })
 end
 

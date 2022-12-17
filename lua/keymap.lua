@@ -48,7 +48,7 @@ local keymappings = {
     ["cp"] = { { desc = "Duplicate paragraph" }, "yap<S-}>p" },
     ["<leader>sw"] = {
       { desc = "Substitue word (search and replace)" },
-      ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>",
+      ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
     },
 
     -- quickfix
