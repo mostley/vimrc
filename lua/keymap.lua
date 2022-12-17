@@ -14,7 +14,7 @@ local keymap = require("utils.keymap")
 
 local keymappings = {
   insert_mode = {
-    -- ["<C-c>"] = "<Esc>",
+
     ["<D-v>"] = "<C-r>+",
 
     [","] = ",<c-g>u",
@@ -31,25 +31,22 @@ local keymappings = {
 
     ["<D-c>"] = '"+y',
     ["<D-v>"] = '"+p',
-
-    ["<leader>pv"] = ":RnvimrToggle<CR>",
-    ["<leader>ss"] = ":<C-u>SessionSave<CR>",
-    ["<leader>sl"] = ":<C-u>SessionLoad<CR>",
-    ["<Leader>pd"] = ":let &runtimepath.=','.escape(expand('%:p:h'), ',')",
-
-    ["<leader>y"] = '"+y',
-    ["<leader>Y"] = 'gg"+yG',
-    ["Y"] = "y$",
-
     ["N"] = "Nzzzv",
     ["n"] = "nzzzv",
 
-    -- add numeric jumps to jump list
-    -- ["k"] = { { expr = true }, '(v:count > 5 ? "m\'" . v:count : "") . \'k\'' },
-    -- ["j"] = { { expr = true }, '(v:count > 5 ? "m\'" . v:count : "") . \'j\'' },
+    ["<leader>?"] = { { desc = "Find Keymaps" }, ":Legendary<CR>" },
 
-    ["cp"] = "yap<S-}>p",
-    ["<leader>s"] = ":%s/<<C-r><C-w>>/<C-r><C-w>/gI<Left><Left><Left>",
+    ["<leader>pv"] = { { desc = "Open File Explorer (Ranger)" }, ":RnvimrToggle<CR>" },
+    ["<leader>ss"] = { { desc = "Save Session" }, ":mksession<CR>" },
+    ["<leader>sl"] = { { desc = "Restore Session" }, ":so Session.vim<CR>" },
+    ["<Leader>pd"] = ":let &runtimepath.=','.escape(expand('%:p:h'), ',')<CR>",
+
+    ["<leader>y"] = { { desc = "Yank to clipboard" }, '"+y' },
+    ["<leader>Y"] = { { desc = "Yank file to clipboard" }, 'gg"+yG' },
+    ["Y"] = { { desc = "Yank to end of line" }, "y$" },
+
+    ["cp"] = { { desc = "Duplicate paragraph" }, "yap<S-}>p" },
+    ["<leader>sw"] = { { desc = "Substitue word (search and replace)" }, ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>" },
 
     -- quickfix
     ["<leader>qf"] = "<cmd>copen<CR>",
@@ -145,16 +142,6 @@ local keymappings = {
     ["<leader>rc"] = ":lua require('refactoring').debug.cleanup({})<CR>",
     ["<leader>rp"] = ":lua require('refactoring').debug.printf({below = false})<CR>",
 
-    -- -- ultest
-    -- ["<leader>tt"] = ":UltestNearest<CR>",
-    -- ["<leader>tbt"] = ":UltestDebugNearest<CR>",
-    -- ["<leader>tf"] = ":Ultest<CR>",
-    -- ["<leader>ts"] = ":UltestSummary<CR>",
-    -- ["<leader>to"] = "<Plug>(ultest-output-jump)",
-    -- ["<leader>tj"] = "<cmd>lua require('config.ultest').javascript_runner()<CR>",
-    -- ["[t"] = "<Plug>(ultest-prev-fail)",
-    -- ["]t"] = "<Plug>(ultest-next-fail)",
-
     -- neotest
     ["<leader>tt"] = "<cmd>lua require('neotest').run.run({adapter=vim.g['test#javascript#runner']})<CR>",
     ["<leader>tbt"] = "<cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>",
@@ -194,9 +181,23 @@ local keymappings = {
     -- nvim-dap-ui
     ["<leader>dui"] = '<cmd>lua require"dapui".toggle()<CR>',
 
-    --package-info
+    -- package-info
     ["<leader>ns"] = "<cmd>lua require('package-info').show()<cr>",
     ["<leader>np"] = "<cmd>lua require('package-info').change_version()<cr>",
+
+    -- harpoon
+    ["<leader>;"] = '<cmd>lua require("harpoon.mark").add_file()<CR>',
+    ["<C-h>"] = '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>',
+    ["<leader>ki"] = '<cmd>lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>',
+
+    ["<C-j>"] = '<cmd>lua require("harpoon.ui").nav_file(1)<CR>',
+    ["<C-k>"] = '<cmd>lua require("harpoon.ui").nav_file(2)<CR>',
+    ["<C-l>"] = '<cmd>lua require("harpoon.ui").nav_file(3)<CR>',
+    ["<C-;>"] = '<cmd>lua require("harpoon.ui").nav_file(4)<CR>',
+    ["<leader>kd"] = '<cmd>lua require("harpoon.term").gotoTerminal(1)<CR>',
+    ["<leader>ks"] = '<cmd>lua require("harpoon.term").gotoTerminal(2)<CR>',
+    ["<leader>id"] = '<cmd>lua require("harpoon.term").sendCommand(1, 1)<CR>',
+    ["<leader>is"] = '<cmd>lua require("harpoon.term").sendCommand(1, 2)<CR>',
   },
   visual_mode = {
     -- ["<C-c>"] = "<Esc>",
@@ -383,31 +384,6 @@ function M.get_telescope_keymappings()
 
       ["?"] = actions.which_key,
     },
-  }
-end
-
-function M.get_legendary_custom_mappings(legendary)
-  local opts = { noremap = true, silent = true }
-
-  return {
-    { "<C-b>", ":NvimTreeToggle<CR>", description = "Toggle file tree", opts = opts },
-    -- cutting and pasting lines
-    { "<C-k>", legendary.find, description = "Search key bindings" },
-    -- Document jumping since we re-bind file tree to C-b
-    { "<C-j>", "<C-f>", opts = opts, description = "Jump forward in document" },
-    { "<C-v>", "<C-b>", opts = opts, description = "Jump backward in document" },
-    -- call lazygit with control g
-    -- { '<C-g>', _lazygit_toggle, opts = opts, description = 'Toggle LazyGit terminal' },
-    { "gt", ":BufferLinCyclePrev<CR>", opts = opts, description = "Previous tab" },
-    { "gy", ":BufferLineCycleNext<CR>", opts = opts, description = "Next tab" },
-    { "<C-p>", ":Telescope git_files<CR>", opts = opts, description = "Find File" },
-    { "<leader><leader>o", ":AerialToggle right<CR>", opts = opts, description = "Browse Symbols" },
-    -- Commenting
-    { "<leader><leader>c", ":CommentToggle<CR>", mode = "v", opts = opts, description = "Toggle Comment" },
-    { "<leader><leader>c", ":CommentToggle<CR>", mode = "n", opts = opts, description = "Toggle Comment" },
-    -- folding
-    { "<C-]", "za", mode = "n", opts = opts, description = "Fold Out" },
-    { "<C-[", "zc", mode = "n", opts = opts, description = "Fold In" },
   }
 end
 
