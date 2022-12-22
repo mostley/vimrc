@@ -30,6 +30,7 @@ function M.setup()
 
     -- Next, you can provide a dedicated handler for specific servers.
     ["rust_analyzer"] = function()
+      require("lspconfig").rust_analyzer.setup(opts)
       require("rust-tools").setup({})
     end,
     ["sumneko_lua"] = function()
