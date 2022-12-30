@@ -55,7 +55,7 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentHighlightProvider then
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
       return
@@ -66,7 +66,7 @@ end
 
 local notify_status_ok, notify = pcall(require, "notify")
 if not notify_status_ok then
-  vim.notify("failed to load notify", "error")
+  vim.notify("failed to load notify", vim.log.levels.ERROR)
   return
 end
 
@@ -79,36 +79,41 @@ M.on_attach = function(client, bufnr)
     keymap.map(mode, mapping)
   end
 
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.documentFormattingProvider then
     if vim.fn.exists("#format_on_save#BufWritePre") == 0 then
       M.enable_format_on_save()
     end
   end
 
-  require("lsp.settings.aerial").setup(client, bufnr)
-
   if servers_without_formatting[client.name] then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = {
+  textDocument = {
+    completion = {
+      completionItem = {
+        snippetSupport = true,
+      },
+    },
+  },
+}
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
-  vim.notify("failed to load cmp_nvim_lsp", "error")
+  vim.notify("failed to load cmp_nvim_lsp", vim.log.levels.ERROR)
   return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 function M.enable_format_on_save()
   vim.cmd([[
     augroup format_on_save
       autocmd! 
-      autocmd BufWritePre * lua vim.lsp.buf.formatting()
+      autocmd BufWritePre * lua vim.lsp.buf.format()
     augroup end
   ]])
   vim.notify("Enabled format on save")

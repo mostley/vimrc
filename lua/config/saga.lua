@@ -1,6 +1,6 @@
 local status_ok, saga = pcall(require, "lspsaga")
 if not status_ok then
-  vim.notify("failed to load lspsaga", "error")
+  vim.notify("failed to load lspsaga", vim.log.levels.ERROR)
   return
 end
 

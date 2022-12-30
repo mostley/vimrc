@@ -3,3 +3,4 @@ undodir/
 lua-language-server
 .pytest_cache
 myVim.log
+.luarc.json

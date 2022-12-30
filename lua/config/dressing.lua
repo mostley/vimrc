@@ -1,6 +1,6 @@
 local status_ok, dressing = pcall(require, "dressing")
 if not status_ok then
-  vim.notify("failed to load dressing", "error")
+  vim.notify("failed to load dressing", vim.log.levels.ERROR)
   return
 end
 

@@ -1,6 +1,6 @@
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
-  vim.notify("failed to load lualine", "error")
+  vim.notify("failed to load lualine", vim.log.levels.ERROR)
   return
 end
 
@@ -53,16 +53,16 @@ function M.setup()
     tabline = {
       lualine_a = {
         {
-          'filename',
-          file_status = true, 
+          "filename",
+          file_status = true,
           path = 1,
           shortening_target = 120,
           symbols = {
-            modified = '*',      -- Text to show when the file is modified.
-            readonly = ' <readonly>',      -- Text to show when the file is non-modifiable or readonly.
-            unnamed = '[No Name]', -- Text to show for unnamed buffers.
-          }
-        }
+            modified = "*", -- Text to show when the file is modified.
+            readonly = " <readonly>", -- Text to show when the file is non-modifiable or readonly.
+            unnamed = "[No Name]", -- Text to show for unnamed buffers.
+          },
+        },
       },
     },
     extensions = { "aerial", "fzf", "toggleterm" },

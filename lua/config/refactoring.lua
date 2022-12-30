@@ -1,6 +1,6 @@
 local status_ok, refactoring = pcall(require, "refactoring")
 if not status_ok then
-  vim.notify("failed to load refactoring", "error")
+  vim.notify("failed to load refactoring", vim.log.levels.ERROR)
   return
 end
 local M = {}
@@ -8,7 +8,7 @@ local M = {}
 M.setup = function()
   refactoring.setup({
     print_var_statements = {
-      ts = 'console.log("🚀 ~ %s %%s", %s);'
+      ts = 'console.log("🚀 ~ %s %%s", %s);',
     },
     -- prompt for return type
     prompt_func_return_type = {

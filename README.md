@@ -4,7 +4,7 @@ This is my vim rc for neovim, it works for me, it might not work for you but per
 
 # Prerequisites
 
-requires nvim 0.7.0+
+requires nvim 0.8.0+
 
 https://github.com/neovim/neovim/wiki/Installing-Neovim
 

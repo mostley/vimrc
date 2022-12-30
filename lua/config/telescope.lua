@@ -1,6 +1,6 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-  vim.notify("failed to load telescope", "error")
+  vim.notify("failed to load telescope", vim.log.levels.ERROR)
   return
 end
 
@@ -13,14 +13,14 @@ local M = {}
 function M.setup()
   -- local trouble = require("trouble.providers.telescope")
 
-  require("telescope-emoji").setup({
-    action = function(emoji)
-      -- argument emoji is a table.
-      -- {name="", value="", cagegory="", description=""}
-      vim.fn.setreg('"', emoji.value)
-      print([[Press p or "*p to paste this emoji]] .. emoji.value)
-    end,
-  })
+  -- require("telescope-emoji").setup({
+  --   action = function(emoji)
+  --     -- argument emoji is a table.
+  --     -- {name="", value="", cagegory="", description=""}
+  --     vim.fn.setreg('"', emoji.value)
+  --     print([[Press p or "*p to paste this emoji]] .. emoji.value)
+  --   end,
+  -- })
 
   telescope.load_extension("project")
   telescope.load_extension("frecency")

@@ -101,7 +101,13 @@ function M.setup()
 
     -- Terminal emulator
     -- ---------------------
-    use({ "akinsho/toggleterm.nvim" })
+    use({
+      "akinsho/toggleterm.nvim",
+      tag = "*",
+      config = function()
+        require("toggleterm").setup()
+      end,
+    })
 
     -- Testing
     -- use({
@@ -146,7 +152,6 @@ function M.setup()
         "fhill2/telescope-ultisnips.nvim",
         "nvim-telescope/telescope-symbols.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-        { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
         { "ibhagwan/fzf-lua", requires = { "kyazdani42/nvim-web-devicons" } },
         { "nvim-telescope/telescope-project.nvim" },
         {
@@ -180,6 +185,9 @@ function M.setup()
       requires = {
         "onsails/lspkind-nvim",
       },
+      config = function()
+        require("aerial").setup()
+      end,
     })
 
     -- Completion
@@ -254,7 +262,7 @@ function M.setup()
     })
 
     -- Lua development
-    use({ "folke/lua-dev.nvim" })
+    use({ "folke/neodev.nvim" })
     use({ "simrat39/symbols-outline.nvim" })
 
     -- Better syntax
@@ -284,7 +292,7 @@ function M.setup()
         {
           "romgrk/nvim-treesitter-context",
           config = function()
-            require("treesitter-context.config").setup({ enable = true })
+            require("treesitter-context").setup({ enable = true })
           end,
         },
         -- {

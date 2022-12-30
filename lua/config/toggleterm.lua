@@ -1,6 +1,6 @@
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
-  vim.notify("failed to load toggleterm", "error")
+  vim.notify("failed to load toggleterm", vim.log.levels.ERROR)
   return
 end
 

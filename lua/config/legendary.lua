@@ -1,6 +1,6 @@
 local status_ok, legendary = pcall(require, "legendary")
 if not status_ok then
-  vim.notify("failed to load legendary", "error")
+  vim.notify("failed to load legendary", vim.log.levels.ERROR)
   return
 end
 

@@ -1,12 +1,12 @@
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
-  vim.notify("failed to load mason", "error")
+  vim.notify("failed to load mason", vim.log.levels.ERROR)
   return
 end
 
 local status_ok_2, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok_2 then
-  vim.notify("failed to load mason-lspconfig", "error")
+  vim.notify("failed to load mason-lspconfig", vim.log.levels.ERROR)
   return
 end
 
@@ -35,8 +35,13 @@ function M.setup()
     end,
     ["sumneko_lua"] = function()
       local sumneko_opts = require("lsp.settings.sumneko_lua")
-      opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-      require("lspconfig")["sumneko_lua"].setup(opts)
+      sumneko_opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+      require("lspconfig")["sumneko_lua"].setup(sumneko_opts)
+    end,
+    ["pylsp"] = function()
+      local pylsp_opts = require("lsp.settings.pylsp")
+      pylsp_opts = vim.tbl_deep_extend("force", pylsp_opts, opts)
+      require("lspconfig")["pylsp"].setup(pylsp_opts)
     end,
   })
 end
