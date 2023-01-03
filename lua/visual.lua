@@ -43,14 +43,15 @@ function M.setup()
     return
   end
 
-  vim.cmd([[
-    set guifont=CaskaydiaCove\ Nerd\ Font:h14
-  ]])
+  vim.cmd([[ set guifont=CaskaydiaCove\ Nerd\ Font:h14 ]])
 
   vim.g.gruvbox_contrast_dark = "hard"
   vim.g.gruvbox_invert_selection = "0"
-  vim.cmd([[colorscheme gruvbox]])
+  vim.g.gruvbox_italic = "1"
+  vim.g.gruvbox_italicize_comments = "1"
+  vim.cmd([[ colorscheme gruvbox ]])
 
+  bg("Normal", "black")
   fg_nocombine("IndentBlanklineContextChar", colors.light_grey)
   underline("IndentBlanklineContextStart", colors.light_grey)
   vim.g.neovide_cursor_vfx_mode = "wireframe"
