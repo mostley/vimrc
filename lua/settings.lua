@@ -150,6 +150,9 @@ function M.setup()
   for key, value in pairs(settings) do
     vim.opt[key] = value
   end
+
+  -- convert getter to computed in composition api (vue3)
+  vim.fn.setreg("g", "^ciwconstea = computed(f{i=> l%a);jj")
 end
 
 return M

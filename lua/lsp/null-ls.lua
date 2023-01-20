@@ -53,6 +53,12 @@ M.setup = function()
     --     use_console = "async",
     -- },
   })
+
+  vim.api.nvim_create_user_command("RestartEslint", function()
+    vim.cmd("!eslint_d restart")
+  end, {
+    desc = "Restart eslint_d",
+  })
 end
 
 return M
