@@ -27,8 +27,10 @@ M.setup = function()
     diagnostics.mypy.with({
       extra_args = { "--config", vim.env.HOME .. "/.config/mypy.ini" },
     }),
+    diagnostics.ruff,
     diagnostics.tidy,
 
+    formatting.markdownlint,
     formatting.prettier,
     formatting.black.with({
       extra_args = { "--config", vim.env.HOME .. "/.config/black/pyproject.toml" },
