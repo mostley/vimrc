@@ -28,9 +28,7 @@ setupLib("autocommands")
 
 -- configs
 setupLib("config.mason")
-setupLib("config.saga")
 setupLib("config.cmp")
-setupLib("config.lualine")
 setupLib("config.treesitter")
 setupLib("config.alpha")
 setupLib("config.toggleterm")

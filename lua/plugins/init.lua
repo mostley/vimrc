@@ -117,17 +117,6 @@ return {
       require("aerial").setup()
     end,
   },
-  -- Better LSP experience
-  {
-    "glepnir/lspsaga.nvim",
-    event = "BufRead",
-    dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
-      --Please make sure you install markdown and markdown_inline parser
-      { "nvim-treesitter/nvim-treesitter" },
-    },
-  },
-  -- "al3xfischer/lspsaga.nvim",
   "windwp/lsp-fastaction.nvim",
   {
     "onsails/lspkind-nvim",
@@ -246,11 +235,6 @@ return {
   -- Dashboard
   {
     "goolord/alpha-nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  -- Status line
-  {
-    "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   -- Debugging
