@@ -27,16 +27,15 @@ function M.setup()
     function(server_name) -- default handler (optional)
       require("lspconfig")[server_name].setup(opts)
     end,
-
     -- Next, you can provide a dedicated handler for specific servers.
     ["rust_analyzer"] = function()
       require("lspconfig").rust_analyzer.setup(opts)
       require("rust-tools").setup({})
     end,
-    ["sumneko_lua"] = function()
-      local sumneko_opts = require("lsp.settings.sumneko_lua")
-      sumneko_opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-      require("lspconfig")["sumneko_lua"].setup(sumneko_opts)
+    ["lua_ls"] = function()
+      local lua_opts = require("lsp.settings.lua_ls")
+      lua_opts = vim.tbl_deep_extend("force", lua_opts, opts)
+      require("lspconfig")["lua_ls"].setup(lua_opts)
     end,
     ["pylsp"] = function()
       local pylsp_opts = require("lsp.settings.pylsp")

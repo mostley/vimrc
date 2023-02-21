@@ -16,9 +16,9 @@ M.setup = function()
   local icons = require("icons")
   local signs = {
     { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-    { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-    { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-    { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+    { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
+    { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+    { name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
   }
 
   for _, sign in ipairs(signs) do
@@ -112,8 +112,8 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 function M.enable_format_on_save()
   vim.cmd([[
     augroup format_on_save
-      autocmd! 
-      autocmd BufWritePre * lua vim.lsp.buf.format({ async=true })
+      autocmd!
+      autocmd BufWritePre * lua vim.lsp.buf.format({ async=false })
     augroup end
   ]])
   vim.notify("Enabled format on save")

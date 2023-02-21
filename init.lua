@@ -21,7 +21,7 @@ end
 vim.cmd("command! ReloadConfig lua reload_nvim_conf()")
 
 setupLib("settings")
-setupLib("plugins")
+setupLib("pluginmanager")
 setupLib("visual")
 setupLib("lsp")
 setupLib("autocommands")

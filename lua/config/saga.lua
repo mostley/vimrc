@@ -7,7 +7,7 @@ end
 local M = {}
 
 function M.setup()
-  saga.init_lsp_saga({
+  saga.setup({
     code_action_lightbulb = {
       enable = false,
     },
