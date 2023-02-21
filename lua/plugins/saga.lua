@@ -7,7 +7,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
   },
-  config = {
+  opts = {
     code_action_lightbulb = {
       enable = false,
     },

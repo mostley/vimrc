@@ -28,7 +28,6 @@ setupLib("autocommands")
 
 -- configs
 setupLib("config.mason")
-setupLib("config.cmp")
 setupLib("config.treesitter")
 setupLib("config.alpha")
 setupLib("config.toggleterm")
