@@ -93,55 +93,55 @@ end
 M.git_branches = function()
   require("telescope.builtin").git_branches({
     attach_mappings = function(_, map)
-      -- map("i", "<c-d>", actions.git_delete_branch)
-      -- map("n", "<c-d>", actions.git_delete_branch)
-      map("i", "<c-d>", M.delete_git_branches)
-      map("n", "<c-d>", M.delete_git_branches)
+      map("i", "<c-d>", actions.git_delete_branch)
+      map("n", "<c-d>", actions.git_delete_branch)
+      -- map("i", "<c-d>", M.delete_git_branches)
+      -- map("n", "<c-d>", M.delete_git_branches)
       return true
     end,
   })
 end
 
-M.delete_git_branches = function()
-  local prompt_bufnr = nil
-  for k, v in pairs(TelescopeGlobalState) do
-    if v["picker"] ~= nil and v["picker"]["preview_title"] == "Git Branch Preview" then
-      prompt_bufnr = k
-    end
-  end
-  if prompt_bufnr == nil then
-    print("No git branches prompt found")
-    return
-  end
+-- M.delete_git_branches = function()
+--   local prompt_bufnr = nil
+--   for k, v in pairs(TelescopeGlobalState) do
+--     if v["picker"] ~= nil and v["picker"]["preview_title"] == "Git Branch Preview" then
+--       prompt_bufnr = k
+--     end
+--   end
+--   if prompt_bufnr == nil then
+--     print("No git branches prompt found")
+--     return
+--   end
 
-  local action_state = require("telescope.actions.state")
-  local utils = require("telescope.utils")
-  local action_name = "actions.git_delete_selected_branch"
+--   local action_state = require("telescope.actions.state")
+--   local utils = require("telescope.utils")
+--   local action_name = "actions.git_delete_selected_branch"
 
-  local confirmation = vim.fn.input("Do you really want to delete the selected branches? [Y/n] ")
-  if confirmation ~= "" and string.lower(confirmation) ~= "y" then
-    return
-  end
+--   local confirmation = vim.fn.input("Do you really want to delete the selected branches? [Y/n] ")
+--   if confirmation ~= "" and string.lower(confirmation) ~= "y" then
+--     return
+--   end
 
-  local picker = action_state.get_current_picker(prompt_bufnr)
-  picker:delete_selection(function(selection)
-    local branch = selection.value
-    print("Deleting branch " .. branch)
-    local _, ret, stderr = utils.get_os_command_output({ "git", "branch", "-D", branch }, picker.cwd)
-    if ret == 0 then
-      utils.notify(action_name, {
-        msg = string.format("Deleted branch: %s", branch),
-        level = "INFO",
-      })
-    else
-      utils.notify(action_name, {
-        msg = string.format("Error when deleting branch: %s. Git returned: '%s'", branch, table.concat(stderr, " ")),
-        level = "ERROR",
-      })
-    end
-    return ret == 0
-  end)
-end
+--   local picker = action_state.get_current_picker(prompt_bufnr)
+--   picker:delete_selection(function(selection)
+--     local branch = selection.value
+--     print("Deleting branch " .. branch)
+--     local _, ret, stderr = utils.get_os_command_output({ "git", "branch", "-D", branch }, picker.cwd)
+--     if ret == 0 then
+--       utils.notify(action_name, {
+--         msg = string.format("Deleted branch: %s", branch),
+--         level = "INFO",
+--       })
+--     else
+--       utils.notify(action_name, {
+--         msg = string.format("Error when deleting branch: %s. Git returned: '%s'", branch, table.concat(stderr, " ")),
+--         level = "ERROR",
+--       })
+--     end
+--     return ret == 0
+--   end)
+-- end
 
 M.project_files = function()
   local opts = {} -- define here if you want to define something
