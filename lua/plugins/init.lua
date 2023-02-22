@@ -30,7 +30,6 @@ return {
       require("which-key").setup({})
     end,
   },
-  "kevinhwang91/rnvimr",
   "tikhomirov/vim-glsl",
   "stevearc/vim-arduino",
   -- Color scheme

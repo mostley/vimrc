@@ -28,8 +28,6 @@ setupLib("autocommands")
 
 -- configs
 setupLib("config.mason")
-setupLib("config.legendary")
-setupLib("config.rnvimr")
 setupLib("config.neoscroll")
 setupLib("config.neotest")
 setupLib("config.fastaction")
