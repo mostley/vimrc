@@ -24,7 +24,6 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   "unblevable/quick-scope",
-  "mrjones2014/legendary.nvim",
   {
     "folke/which-key.nvim",
     config = function()
