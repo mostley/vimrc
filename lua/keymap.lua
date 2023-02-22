@@ -82,6 +82,7 @@ local keymappings = {
     ["<leader>fg"] = ":Telescope find_files hidden=true no_ignore=true<cr>",
     ["<leader>ag"] = ":Telescope live_grep<cr>",
     ["<leader>fb"] = ":Telescope buffers<cr>",
+    ["<leader>fm"] = ":Telescope marks<cr>",
     ["<leader>ft"] = ":Telescope help_tags<cr>",
     ["<leader>ff"] = ":Telescope file_browser<cr>",
     ["<leader>fp"] = ":Telescope project<CR>",
