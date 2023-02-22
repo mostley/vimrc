@@ -28,7 +28,6 @@ setupLib("autocommands")
 
 -- configs
 setupLib("config.mason")
-setupLib("config.gitsigns")
 setupLib("config.venn")
 setupLib("dbg")
 setupLib("fidget")

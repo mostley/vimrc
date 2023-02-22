@@ -19,10 +19,6 @@ return {
   },
   "wellle/targets.vim",
   "easymotion/vim-easymotion",
-  {
-    "lewis6991/gitsigns.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
   "unblevable/quick-scope",
   {
     "folke/which-key.nvim",
