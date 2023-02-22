@@ -90,7 +90,6 @@ return {
       require("aerial").setup()
     end,
   },
-  "windwp/lsp-fastaction.nvim",
   {
     "onsails/lspkind-nvim",
     config = function()
