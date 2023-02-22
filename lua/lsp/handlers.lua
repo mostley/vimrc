@@ -16,9 +16,9 @@ M.setup = function()
   local icons = require("icons")
   local signs = {
     { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-    { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
-    { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
-    { name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
+    { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+    { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+    { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
   }
 
   for _, sign in ipairs(signs) do
@@ -64,14 +64,8 @@ local function lsp_highlight_document(client)
   end
 end
 
-local notify_status_ok, notify = pcall(require, "notify")
-if not notify_status_ok then
-  vim.notify("failed to load notify", vim.log.levels.ERROR)
-  return
-end
-
 M.on_attach = function(client, bufnr)
-  notify(client.name)
+  vim.notify(client.name)
 
   lsp_highlight_document(client)
 

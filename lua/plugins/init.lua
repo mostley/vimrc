@@ -43,12 +43,6 @@ return {
   "j-hui/fidget.nvim",
   -- LSP config
   "jose-elias-alvarez/null-ls.nvim",
-  {
-    "williamboman/mason.nvim",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-    },
-  },
   "RRethy/vim-illuminate",
   {
     "stevearc/aerial.nvim",

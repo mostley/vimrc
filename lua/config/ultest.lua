@@ -9,7 +9,7 @@ function M.javascript_runner()
   vim.ui.select(runners, { prompt = "Choose Javascript Runner" }, function(selected)
     if selected then
       vim.g["test#javascript#runner"] = selected
-      vim.notify("Test runner changed to " .. selected, "info")
+      vim.notify("Test runner changed to " .. selected, vim.log.levels.INFO)
     end
   end)
 end
