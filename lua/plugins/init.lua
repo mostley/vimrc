@@ -146,7 +146,6 @@ return {
       vim.notify = require("notify")
     end,
   },
-  "jbyuki/venn.nvim",
   -- "floobits/floobits-neovim",
   "github/copilot.vim",
 }
