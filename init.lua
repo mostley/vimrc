@@ -28,7 +28,6 @@ setupLib("autocommands")
 
 -- configs
 setupLib("config.mason")
-setupLib("config.neotest")
 setupLib("config.fastaction")
 setupLib("config.ultisnips")
 setupLib("config.indent-blankline")

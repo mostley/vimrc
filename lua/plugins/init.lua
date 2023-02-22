@@ -46,26 +46,6 @@ return {
   "gruvbox-eommunity/gruvbox",
   "tomasr/molokai",
   "j-hui/fidget.nvim",
-  -- Testing
-  -- {
-  --   "rcarriga/vim-ultest",
-  --   build = ":UpdateRemotePlugins",
-  --   dependencies = { "vim-test/vim-test" },
-  -- },
-  {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-neotest/neotest-go",
-      "nvim-neotest/neotest-python",
-      "nvim-neotest/neotest-plenary",
-      "haydenmeade/neotest-jest",
-      "marilari88/neotest-vitest",
-      "nvim-neotest/neotest-vim-test",
-    },
-    module = { "neotest" },
-  },
   -- Telescope
   "nvim-lua/plenary.nvim",
   "nvim-lua/popup.nvim",

@@ -151,8 +151,8 @@ local keymappings = {
     ["<leader>tf"] = "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",
     ["<leader>ts"] = "<cmd>lua require('neotest').summary.toggle()<CR>",
     ["<leader>to"] = "<cmd>lua require('neotest').output.open({ enter = true })<CR>",
-    ["<leader>tj"] = "<cmd>lua require('config.neotest').javascript_runner()<CR>",
-    ["<leader>tr"] = "<cmd>lua require('config.neotest').python_runner()<CR>",
+    ["<leader>tj"] = "<cmd>lua require('plugins.neotest').javascript_runner()<CR>",
+    ["<leader>tr"] = "<cmd>lua require('plugins.neotest').python_runner()<CR>",
 
     -- DAP
     ["<leader>dct"] = '<cmd>lua require"dap".continue()<CR>',
