@@ -59,19 +59,18 @@ return {
       -- "                                   ▒█▓",
     }
     dashboard.section.buttons.val = {
-      dashboard.button("f", "   Find file", ":Telescope find_files <CR>"),
-      dashboard.button("e", icons.ui.NewFile .. "  New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button(
-        "p",
-        icons.git.Repo .. "  Find project",
-        ":lua require'telescope'.extensions.project.project{}<CR>"
+        "f",
+        "   Find file                  <leader>fg",
+        ":Telescope find_files hidden=true no_ignore=true <CR>"
       ),
-      dashboard.button("r", "   Recent files", ":Telescope oldfiles <CR>"),
-      dashboard.button("t", "   Find text", ":Telescope live_grep <CR>"),
-      dashboard.button("s", "   Find Session", ":Telescope sessions save_current=false <CR>"),
-      dashboard.button("b", "   Bookmarks", ":Telescope marks<CR>"),
-      dashboard.button("c", icons.ui.Gear .. "  Config", ":e ~/.config/nvim/init.lua <CR>"),
-      dashboard.button("q", icons.diagnostics.Error .. "  Quit", ":qa<CR>"),
+      dashboard.button("e", icons.ui.NewFile .. "   New file", ":ene <BAR> startinsert <CR>"),
+      dashboard.button("p", icons.git.Repo .. "   Find project               <leader>fp", ":Telescope project<CR>"),
+      dashboard.button("r", "   Recent files               <leader>fr", ":Telescope frecency <CR>"),
+      dashboard.button("t", "   Find text                  <leader>ag", ":Telescope live_grep <CR>"),
+      dashboard.button("b", "   Bookmarks                  <leader>fm", ":Telescope marks<CR>"),
+      dashboard.button("c", icons.ui.Gear .. "   Config", ":e ~/.config/nvim/init.lua <CR>"),
+      dashboard.button("q", icons.diagnostics.Error .. "   Quit", ":qa<CR>"),
     }
     local function footer()
       -- NOTE: requires the fortune-mod package to work
