@@ -45,7 +45,6 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   "gruvbox-eommunity/gruvbox",
   "tomasr/molokai",
-  "karb94/neoscroll.nvim",
   "j-hui/fidget.nvim",
   -- Testing
   -- {
