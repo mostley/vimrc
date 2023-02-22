@@ -132,10 +132,6 @@ return {
     end,
   },
   "folke/lsp-colors.nvim",
-  {
-    "SirVer/ultisnips",
-    dependencies = { { "honza/vim-snippets" } },
-  },
   -- Lua development
   "folke/neodev.nvim",
   "simrat39/symbols-outline.nvim",

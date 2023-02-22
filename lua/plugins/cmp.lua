@@ -5,7 +5,13 @@ return {
     "onsails/lspkind-nvim",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-nvim-lsp",
-    "quangnguyen30192/cmp-nvim-ultisnips",
+    {
+      "quangnguyen30192/cmp-nvim-ultisnips",
+      dependencies = {
+        "SirVer/ultisnips",
+        "nvim-treesitter/nvim-treesitter",
+      },
+    },
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-path",
     "f3fora/cmp-spell",
@@ -42,6 +48,7 @@ return {
       return vim.api.nvim_replace_termcodes(str, true, true, true)
     end
 
+    local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
     cmp.setup({
       snipet = {
         expand = function(args)
@@ -71,6 +78,18 @@ return {
         }),
       },
       mapping = {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+        end, {
+          "i",
+          "s", --[[ "c" (to enable the mapping in command mode) ]]
+        }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          cmp_ultisnips_mappings.jump_backwards(fallback)
+        end, {
+          "i",
+          "s", --[[ "c" (to enable the mapping in command mode) ]]
+        }),
         ["<C-n>"] = cmp.mapping({
           c = function()
             if cmp.visible() then
@@ -151,6 +170,8 @@ return {
       },
       completion = { completeopt = "menu,menuone,noselect,noinsert", keyword_length = 1 },
     })
+    require("cmp_git").setup()
+    require("cmp_nvim_ultisnips").setup({})
 
     -- Use cmdline & path source for ':'.
     cmp.setup.cmdline(":", {
@@ -172,7 +193,6 @@ return {
       }),
     })
 
-    require("cmp_git").setup()
     cmp.setup.filetype("gitcommit", {
       sources = cmp.config.sources({
         { name = "git" },
