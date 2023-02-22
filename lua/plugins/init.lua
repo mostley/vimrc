@@ -25,7 +25,12 @@ return {
   },
   "unblevable/quick-scope",
   "mrjones2014/legendary.nvim",
-  "folke/which-key.nvim",
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup({})
+    end,
+  },
   "kevinhwang91/rnvimr",
   "tikhomirov/vim-glsl",
   "stevearc/vim-arduino",
