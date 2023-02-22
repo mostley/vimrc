@@ -28,7 +28,6 @@ setupLib("autocommands")
 
 -- configs
 setupLib("config.mason")
-setupLib("config.indent-blankline")
 setupLib("config.telescope")
 setupLib("config.gitsigns")
 setupLib("config.venn")

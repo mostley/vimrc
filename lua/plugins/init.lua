@@ -42,7 +42,6 @@ return {
       require("config.file-icons").setup()
     end,
   },
-  "lukas-reineke/indent-blankline.nvim",
   "gruvbox-eommunity/gruvbox",
   "tomasr/molokai",
   "j-hui/fidget.nvim",
