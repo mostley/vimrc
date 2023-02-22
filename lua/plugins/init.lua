@@ -31,13 +31,6 @@ return {
   -- Color scheme
   "norcalli/nvim-colorizer.lua",
   "siduck76/nvim-base16.lua",
-  {
-    "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup({ default = true })
-      require("config.file-icons").setup()
-    end,
-  },
   "gruvbox-eommunity/gruvbox",
   "tomasr/molokai",
   "j-hui/fidget.nvim",
