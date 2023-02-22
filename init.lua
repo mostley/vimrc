@@ -28,11 +28,6 @@ setupLib("autocommands")
 
 -- configs
 setupLib("config.mason")
-setupLib("config.treesitter")
-setupLib("config.alpha")
-setupLib("config.toggleterm")
-setupLib("config.dressing")
-setupLib("config.refactoring")
 setupLib("config.harpoon")
 setupLib("config.whichkey")
 setupLib("config.legendary")

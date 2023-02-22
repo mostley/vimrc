@@ -40,19 +40,10 @@ return {
     end,
   },
   "lukas-reineke/indent-blankline.nvim",
-  "stevearc/dressing.nvim",
-  "gruvbox-community/gruvbox",
+  "gruvbox-eommunity/gruvbox",
   "tomasr/molokai",
   "karb94/neoscroll.nvim",
   "j-hui/fidget.nvim",
-  -- Terminal emulator
-  -- ---------------------
-  {
-    "akinsho/toggleterm.nvim",
-    config = function()
-      require("toggleterm").setup()
-    end,
-  },
   -- Testing
   -- {
   --   "rcarriga/vim-ultest",
@@ -167,57 +158,6 @@ return {
   -- Lua development
   "folke/neodev.nvim",
   "simrat39/symbols-outline.nvim",
-  -- Better syntax
-  {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "jose-elias-alvarez/nvim-lsp-ts-utils",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      {
-        "nvim-treesitter/playground",
-        cmd = "TSHighlightCapturesUnderCursor",
-      },
-      "nvim-treesitter/nvim-treesitter-refactor",
-      {
-        "nvim-treesitter/completion-treesitter",
-        build = function()
-          vim.cmd([[TSUpdate]])
-        end,
-      },
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      {
-        "windwp/nvim-ts-autotag",
-        config = function()
-          require("nvim-ts-autotag").setup({ enable = true })
-        end,
-      },
-      {
-        "romgrk/nvim-treesitter-context",
-        config = function()
-          require("treesitter-context").setup({ enable = true })
-        end,
-      },
-      -- {
-      --  "mfussenegger/nvim-ts-hint-textobject",
-      --config = function()
-      --vim.cmd [[omap     <silent> m :<C-U>lua require('tsht').nodes()<CR>]]
-      --vim.cmd [[vnoremap <silent> m :lua require('tsht').nodes()<CR>]]
-      --end,
-      --},
-      "simrat39/rust-tools.nvim",
-      {
-        "neovim/nvim-lspconfig",
-        name = "nvim-lspconfig",
-      },
-    },
-  },
-  --use("~/projects/private/treesitter-boolean.nvim")
-
-  -- Dashboard
-  {
-    "goolord/alpha-nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
   -- Debugging
   "puremourning/vimspector",
   -- DAP
@@ -228,13 +168,6 @@ return {
   "Pocco81/DAPInstall.nvim",
   -- Project
   "airblade/vim-rooter",
-  {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-treesitter/nvim-treesitter" },
-    },
-  },
   -- Rust
   {
     "Saecki/crates.nvim",
