@@ -77,7 +77,7 @@ local keymappings = {
     ["<leader>aj"] = ":AnyJump<CR>",
 
     -- telescope
-    ["<C-p>"] = ":lua require('config.telescope').project_files()<CR>",
+    ["<C-p>"] = ":lua require('plugins.telescope').project_files()<CR>",
     ["<leader>pp"] = ":lua require'telescope'.extensions.project.project{ change_dir = true, display_type = 'full' }<CR>",
     ["<leader>fg"] = ":Telescope find_files hidden=true no_ignore=true<cr>",
     ["<leader>ag"] = ":Telescope live_grep<cr>",
@@ -93,8 +93,8 @@ local keymappings = {
     ["<leader>fr"] = ":Telescope frecency<CR>",
     ["<leader>fy"] = ":Telescope symbols<CR>",
     ["<leader>fe"] = ":Telescope emoji<CR>",
-    ["<leader>fd"] = ":lua require('config.telescope').search_dotfiles()<CR>",
-    ["<leader>fx"] = ":lua require('config.telescope').switch_projects()<CR>",
+    ["<leader>fd"] = ":lua require('plugins.telescope').search_dotfiles()<CR>",
+    ["<leader>fx"] = ":lua require('plugins.telescope').switch_projects()<CR>",
 
     ["<leader>so"] = "<cmd>Telescope lsp_document_symbols<CR>",
     ["<leader>tqf"] = "<cmd>Telescope quickfix<CR>",

@@ -45,32 +45,6 @@ return {
   "gruvbox-eommunity/gruvbox",
   "tomasr/molokai",
   "j-hui/fidget.nvim",
-  -- Telescope
-  "nvim-lua/plenary.nvim",
-  "nvim-lua/popup.nvim",
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-file-browser.nvim",
-      "xiyaowong/telescope-emoji.nvim",
-      "fhill2/telescope-ultisnips.nvim",
-      "nvim-telescope/telescope-symbols.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      { "ibhagwan/fzf-lua",                         dependencies = { "nvim-tree/nvim-web-devicons" } },
-      { "nvim-telescope/telescope-project.nvim" },
-      {
-        "nvim-telescope/telescope-frecency.nvim",
-        dependencies = { "tami5/sql.nvim" },
-      },
-      {
-        "nvim-telescope/telescope-vimspector.nvim",
-        event = "BufWinEnter",
-      },
-      { "nvim-telescope/telescope-dap.nvim" },
-      { "nvim-telescope/telescope-ui-select.nvim" },
-    },
-  },
-  "nvim-telescope/telescope-ui-select.nvim",
   -- LSP config
   "jose-elias-alvarez/null-ls.nvim",
   {
