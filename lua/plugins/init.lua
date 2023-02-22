@@ -180,10 +180,6 @@ return {
   },
   "b0o/schemastore.nvim",
   {
-    "ThePrimeagen/harpoon",
-    module = "harpoon",
-  },
-  {
     "plasticboy/vim-markdown",
     event = "VimEnter",
     ft = "markdown",

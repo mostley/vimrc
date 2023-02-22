@@ -7,7 +7,6 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "quangnguyen30192/cmp-nvim-ultisnips",
     "hrsh7th/cmp-nvim-lua",
-    "octaltree/cmp-look",
     "hrsh7th/cmp-path",
     "f3fora/cmp-spell",
     "hrsh7th/cmp-emoji",
@@ -63,7 +62,6 @@ return {
             vsnip = "[vSnip]",
             git = "[Git]",
             treesitter = "[treesitter]",
-            look = "[Look]",
             path = "[Path]",
             spell = "[Spell]",
             calc = "[Calc]",
@@ -147,8 +145,8 @@ return {
         { name = "buffer",     keyword_length = 5, max_item_count = 5 },
         { name = "path" },
         { name = "treesitter", max_item_count = 10 },
-        { name = "crates" },
         { name = "emoji" },
+        { name = "spell" },
         { name = "git" },
       },
       completion = { completeopt = "menu,menuone,noselect,noinsert", keyword_length = 1 },
@@ -174,14 +172,13 @@ return {
       }),
     })
 
+    require("cmp_git").setup()
     cmp.setup.filetype("gitcommit", {
       sources = cmp.config.sources({
-        { name = "cmp_git" },
+        { name = "git" },
       }, {
         { name = "buffer" },
       }),
     })
-
-    require("cmp_git").setup()
   end,
 }
