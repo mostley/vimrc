@@ -31,7 +31,7 @@ M.setup = function()
     diagnostics.tidy,
 
     formatting.markdownlint,
-    formatting.prettier,
+    formatting.prettierd,
     formatting.black.with({
       extra_args = { "--config", vim.env.HOME .. "/.config/black/pyproject.toml" },
     }),
