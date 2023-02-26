@@ -31,7 +31,7 @@ return {
   -- Color scheme
   "norcalli/nvim-colorizer.lua",
   "siduck76/nvim-base16.lua",
-  "gruvbox-eommunity/gruvbox",
+  "gruvbox-community/gruvbox",
   "tomasr/molokai",
   "j-hui/fidget.nvim",
   -- LSP config
@@ -134,5 +134,4 @@ return {
     end,
   },
   -- "floobits/floobits-neovim",
-  "github/copilot.vim",
 }

@@ -78,18 +78,18 @@ return {
         }),
       },
       mapping = {
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-        end, {
-          "i",
-          "s", --[[ "c" (to enable the mapping in command mode) ]]
-        }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          cmp_ultisnips_mappings.jump_backwards(fallback)
-        end, {
-          "i",
-          "s", --[[ "c" (to enable the mapping in command mode) ]]
-        }),
+        -- ["<Tab>"] = cmp.mapping(function(fallback)
+        --   cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+        -- end, {
+        --   "i",
+        --   "s", --[[ "c" (to enable the mapping in command mode) ]]
+        -- }),
+        -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+        --   cmp_ultisnips_mappings.jump_backwards(fallback)
+        -- end, {
+        --   "i",
+        --   "s", --[[ "c" (to enable the mapping in command mode) ]]
+        -- }),
         ["<C-n>"] = cmp.mapping({
           c = function()
             if cmp.visible() then
@@ -124,7 +124,7 @@ return {
         }),
         ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
         ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs( -4), { "i", "c" }),
+        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
         ["<C-e>"] = cmp.mapping.close(),
         ["<C-y>"] = cmp.mapping.confirm({
@@ -158,10 +158,10 @@ return {
         }),
       },
       sources = {
-        { name = "nvim_lsp",   max_item_count = 10 },
-        { name = "nvim_lua",   max_item_count = 5 },
-        { name = "ultisnips",  max_item_count = 5 },
-        { name = "buffer",     keyword_length = 5, max_item_count = 5 },
+        { name = "nvim_lsp", max_item_count = 10 },
+        { name = "nvim_lua", max_item_count = 5 },
+        { name = "ultisnips", max_item_count = 5 },
+        { name = "buffer", keyword_length = 5, max_item_count = 5 },
         { name = "path" },
         { name = "treesitter", max_item_count = 10 },
         { name = "emoji" },

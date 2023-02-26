@@ -66,7 +66,7 @@ return {
       ),
       dashboard.button("e", icons.ui.NewFile .. "   New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("p", icons.git.Repo .. "   Find project               <leader>fp", ":Telescope project<CR>"),
-      dashboard.button("r", "   Recent files               <leader>fr", ":Telescope frecency <CR>"),
+      dashboard.button("r", "   Recent files               <leader>fo", ":Telescope oldfiles <CR>"),
       dashboard.button("t", "   Find text                  <leader>ag", ":Telescope live_grep <CR>"),
       dashboard.button("b", "   Bookmarks                  <leader>fm", ":Telescope marks<CR>"),
       dashboard.button("c", icons.ui.Gear .. "   Config", ":e ~/.config/nvim/init.lua <CR>"),
