@@ -21,12 +21,12 @@ return {
 
     local config = {
       options = {
-        icons_enabled = true,
+        -- icons_enabled = true,
         theme = "auto",
-        component_separators = { left = "|", right = "|" },
-        section_separators = { left = "", right = "" },
-        disabled_filetypes = {},
-        always_divide_middle = true,
+        -- component_separators = { left = "|", right = "|" },
+        -- section_separators = { left = "", right = "" },
+        -- disabled_filetypes = {},
+        -- always_divide_middle = true,
       },
       sections = {
         lualine_a = { "mode" },
@@ -52,9 +52,9 @@ return {
             path = 1,
             shortening_target = 120,
             symbols = {
-              modified = "*", -- Text to show when the file is modified.
+              modified = "*",           -- Text to show when the file is modified.
               readonly = " <readonly>", -- Text to show when the file is non-modifiable or readonly.
-              unnamed = "[No Name]", -- Text to show for unnamed buffers.
+              unnamed = "[No Name]",    -- Text to show for unnamed buffers.
             },
           },
         },
