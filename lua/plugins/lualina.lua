@@ -3,6 +3,8 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
+    local wpm = require("wpm")
+
     local function lsp_server_name()
       local msg = "No Active Lsp"
       local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
@@ -32,7 +34,7 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { { lsp_server_name, icons_enabled = true, icon = " LSP:" }, "filename" },
-        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_x = { wpm.wpm, wpm.historic_graph, "encoding", "fileformat", "filetype" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
@@ -52,9 +54,9 @@ return {
             path = 1,
             shortening_target = 120,
             symbols = {
-              modified = "*",           -- Text to show when the file is modified.
+              modified = "*", -- Text to show when the file is modified.
               readonly = " <readonly>", -- Text to show when the file is non-modifiable or readonly.
-              unnamed = "[No Name]",    -- Text to show for unnamed buffers.
+              unnamed = "[No Name]", -- Text to show for unnamed buffers.
             },
           },
         },

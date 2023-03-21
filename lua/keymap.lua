@@ -83,6 +83,7 @@ local keymappings = {
         ["<leader>tqf"] = "<cmd>Telescope quickfix<CR>",
         ["<Leader>gs"] = "<cmd>Git<CR>",
         ["<Leader>gps"] = "<cmd>:Git push<CR>",
+        ["<Leader>gpu"] = "<cmd>:Git push -u<CR>",
         ["<Leader>gpl"] = "<cmd>:Git pull<CR>",
         ["<Leader>gds"] = "<cmd>Gvdiffsplit<CR>",
         ["<Leader>ga"] = "<cmd>Git fetch --all<CR>",
