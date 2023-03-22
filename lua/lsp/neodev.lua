@@ -20,7 +20,8 @@ function M.setup()
     library = {
       -- plugins = true, -- installed opt or start plugins in packpath
       -- you can also specify the list of plugins to make available as a workspace library
-      plugins = { "plenary.nvim" },
+      plugins = { "neotest", "plenary.nvim" },
+      types = true,
     },
     lspconfig = opts,
   }

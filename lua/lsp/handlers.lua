@@ -64,8 +64,8 @@ local function lsp_highlight_document(client)
   end
 end
 
-M.on_attach = function(client, bufnr)
-  vim.notify(client.name)
+M.on_attach = function(client)
+  -- vim.notify(client.name)
 
   lsp_highlight_document(client)
 

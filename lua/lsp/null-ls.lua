@@ -27,7 +27,9 @@ M.setup = function()
     diagnostics.mypy.with({
       extra_args = { "--config", vim.env.HOME .. "/.config/mypy.ini" },
     }),
-    diagnostics.ruff,
+    diagnostics.ruff.with({
+      extra_args = { "--config", vim.env.HOME .. "/.config/ruff/pyproject.toml" },
+    }),
     diagnostics.tidy,
 
     formatting.markdownlint,
@@ -48,12 +50,12 @@ M.setup = function()
   null_ls.setup({
     sources = sources,
     --flags = { debounce_text_changes = 150 },
-    -- debug = true,
-    -- log = {
-    --     enable = true,
-    --     level = "warn",
-    --     use_console = "async",
-    -- },
+    debug = true,
+    log = {
+      enable = true,
+      level = "warn",
+      use_console = "async",
+    },
   })
 
   vim.api.nvim_create_user_command("RestartEslint", function()
