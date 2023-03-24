@@ -134,4 +134,5 @@ return {
     end,
   },
   -- "floobits/floobits-neovim",
+  "eandrju/cellular-automaton.nvim",
 }

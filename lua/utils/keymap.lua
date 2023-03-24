@@ -27,7 +27,7 @@ function M.set_keymaps(mode, key, val)
     opt = val[1]
     val = val[2]
   end
-  vim.api.nvim_set_keymap(mode, key, val, opt)
+  vim.keymap.set(mode, key, val, opt)
 end
 
 function M.map(mode, keymaps)
