@@ -21,6 +21,7 @@ M.setup = function()
     --     extra_args = { "--append-config", "~/.config/flake8" }
     -- }),
     -- diagnostics.pylint,
+    -- diagnostics.tsc,
     diagnostics.write_good,
     diagnostics.alex,
     diagnostics.gitlint,
@@ -50,18 +51,24 @@ M.setup = function()
   null_ls.setup({
     sources = sources,
     --flags = { debounce_text_changes = 150 },
-    debug = true,
-    log = {
-      enable = true,
-      level = "warn",
-      use_console = "async",
-    },
+    -- debug = true,
+    -- log = {
+    --   enable = true,
+    --   level = "warn",
+    --   use_console = "async",
+    -- },
   })
 
   vim.api.nvim_create_user_command("RestartEslint", function()
     vim.cmd("!eslint_d restart")
   end, {
     desc = "Restart eslint_d",
+  })
+
+  vim.api.nvim_create_user_command("RestartPrettier", function()
+    vim.cmd("!prettierd restart")
+  end, {
+    desc = "Restart prettierd",
   })
 end
 

@@ -8,7 +8,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   opts = {
-    code_action_lightbulb = {
+    lightbulb = {
       enable = false,
     },
     definition_action_keys = {

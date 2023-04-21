@@ -49,6 +49,7 @@ return {
 
     configs.setup({
       ensure_installed = { -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+        "regex",
         "help",
         "javascript",
         "typescript",
@@ -118,10 +119,8 @@ return {
         enable = true,
         select = {
           enable = true,
-
           -- Automatically jump forward to textobj, similar to targets.vim
           lookahead = true,
-
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
             ["ai"] = "@conditional.outer",

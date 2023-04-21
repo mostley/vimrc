@@ -73,31 +73,26 @@ function M.setup()
     wrap = false, -- display lines as one long line
     scrolloff = 8, -- always show at least 8 lines to the edge of the screen
     sidescrolloff = 8,
-
     hidden = true,
     history = 100,
     inccommand = "split",
-    lazyredraw = true,
+    -- lazyredraw = true,
     pumblend = 17,
     synmaxcol = 240,
     laststatus = 2,
     sessionoptions = "blank,buffers,curdir,help,options,tabpages,winsize,resize,winpos,terminal",
-
     encoding = "utf-8",
     fileencodings = "utf-8",
     exrc = true,
     guicursor = "",
     errorbells = false,
-
     foldmethod = "expr",
     foldexpr = "nvim_treesitter#foldexpr()",
     foldenable = false,
     foldlevel = 99,
     foldtext = [[substitute(getline(v:foldstart),'\\\\t',repeat('\\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']],
-
     undodir = vim.env.HOME .. "/.config/nvim/undodir",
     undofile = true, -- enable persistent undo
-
     list = true,
     listchars = "tab:░░,trail:·,nbsp:·",
     fillchars = { eob = "~" },

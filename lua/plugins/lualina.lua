@@ -1,4 +1,12 @@
 -- Status line
+local function fg(name)
+  return function()
+    ---@type {foreground?:number}?
+    local hl = vim.api.nvim_get_hl_by_name(name, true)
+    return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
+  end
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -34,7 +42,31 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { { lsp_server_name, icons_enabled = true, icon = " LSP:" }, "filename" },
-        lualine_x = { wpm.wpm, wpm.historic_graph, "encoding", "fileformat", "filetype" },
+        lualine_x = {
+          -- {
+          --   function()
+          --     return require("noice").api.status.command.get()
+          --   end,
+          --   cond = function()
+          --     return package.loaded["noice"] and require("noice").api.status.command.has()
+          --   end,
+          --   color = fg("Statement"),
+          -- },
+          -- {
+          --   function()
+          --     return require("noice").api.status.mode.get()
+          --   end,
+          --   cond = function()
+          --     return package.loaded["noice"] and require("noice").api.status.mode.has()
+          --   end,
+          --   color = fg("Constant"),
+          -- },
+          wpm.wpm,
+          wpm.historic_graph,
+          "encoding",
+          "fileformat",
+          "filetype",
+        },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },

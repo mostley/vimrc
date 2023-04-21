@@ -7,7 +7,15 @@ return {
   },
   -- Development
   "tpope/vim-dispatch",
-  "tpope/vim-fugitive",
+  {
+    "tpope/vim-fugitive",
+    config = function()
+      -- vim.api.nvim_create_autocmd("User", {
+      --   pattern = "FugitiveCommit",
+      --   command = ":Gsplit -",
+      -- })
+    end,
+  },
   "tpope/vim-surround",
   "tpope/vim-commentary",
   "tpope/vim-sleuth",
@@ -118,6 +126,7 @@ return {
     ft = "markdown",
     dependencies = { "godlygeek/tabular" },
   },
+  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   "ellisonleao/glow.nvim",
   {
     "vuki656/package-info.nvim",
@@ -130,9 +139,19 @@ return {
   {
     "rcarriga/nvim-notify",
     config = function()
+      require("notify").setup({
+        background_colour = "#000000",
+      })
+
       vim.notify = require("notify")
     end,
   },
   -- "floobits/floobits-neovim",
   "eandrju/cellular-automaton.nvim",
+  { "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" },
+  {
+    "chrisgrieser/nvim-early-retirement",
+    config = true,
+    event = "VeryLazy",
+  },
 }

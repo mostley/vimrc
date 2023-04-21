@@ -2,6 +2,8 @@
 
 This is my vim rc for neovim, it works for me, it might not work for you but perhaps you'll find some inspiration here.
 
+https://dotfyle.com/mostley/vimrc
+
 # Prerequisites
 
 requires nvim 0.8.0+
