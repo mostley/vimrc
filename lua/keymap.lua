@@ -63,6 +63,7 @@ local keymappings = {
     ["<leader>pp"] = "<cmd>lua require'telescope'.extensions.project.project{ change_dir = true, display_type = 'full' }<CR>",
     ["<leader>fg"] = "<cmd>Telescope find_files hidden=true no_ignore=true<cr>",
     ["<leader>ag"] = "<cmd>Telescope live_grep<cr>",
+    ["<leader>aw"] = "<cmd>Telescope grep_string<cr>",
     ["<leader>fb"] = "<cmd>Telescope buffers<cr>",
     ["<leader>fm"] = "<cmd>Telescope marks<cr>",
     ["<leader>ft"] = "<cmd>Telescope help_tags<cr>",

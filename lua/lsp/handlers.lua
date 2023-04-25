@@ -132,10 +132,43 @@ function M.remove_augroup(name)
   end
 end
 
+function M.rename_file()
+  local source_file = vim.api.nvim_buf_get_name(0)
+
+  vim.ui.input({ prompt = "Rename To> ", default = source_file }, function(input)
+    if input == nil then
+      vim.notify("[lsp] aborted rename", "warn", { render = "minimal" })
+      return
+    end
+
+    local target_file = input
+
+    local params = {
+      command = "_typescript.applyRenameFile",
+      arguments = {
+        {
+          sourceUri = source_file,
+          targetUri = target_file,
+        },
+      },
+      title = "",
+    }
+
+    vim.lsp.util.rename(source_file, target_file)
+    vim.lsp.buf.execute_command(params)
+  end)
+end
+
 vim.api.nvim_create_user_command("LspToggleAutoFormat", function()
   require("lsp.handlers").toggle_format_on_save()
 end, {
   desc = "Toggle the format on save functionality",
+})
+
+vim.api.nvim_create_user_command("LspRename", function()
+  require("lsp.handlers").rename_file()
+end, {
+  desc = "Rename file using LSP",
 })
 
 return M
