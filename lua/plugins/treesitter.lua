@@ -3,10 +3,6 @@ return {
   dependencies = {
     "jose-elias-alvarez/nvim-lsp-ts-utils",
     "JoosepAlviste/nvim-ts-context-commentstring",
-    {
-      "nvim-treesitter/playground",
-      cmd = "TSHighlightCapturesUnderCursor",
-    },
     "nvim-treesitter/nvim-treesitter-refactor",
     {
       "nvim-treesitter/completion-treesitter",
