@@ -6,7 +6,7 @@ https://dotfyle.com/mostley/vimrc
 
 # Prerequisites
 
-requires nvim 0.8.0+
+requires nvim 0.9.0+
 
 https://github.com/neovim/neovim/wiki/Installing-Neovim
 
@@ -34,7 +34,10 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
 
         brew install efm-langserver write-good shellcheck
 
+## other needed things
+
+        brew install ranger
+
 ## trigger installations:
 
 - :TSInstall typescript python vue lua json html css bash
-- :call firenvim#install()
