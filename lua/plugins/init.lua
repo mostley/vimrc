@@ -30,6 +30,7 @@ return {
   "unblevable/quick-scope",
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     config = function()
       require("which-key").setup({})
     end,
@@ -126,7 +127,7 @@ return {
     ft = "markdown",
     dependencies = { "godlygeek/tabular" },
   },
-  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+  { "ellisonleao/glow.nvim",         config = true,                         cmd = "Glow" },
   "ellisonleao/glow.nvim",
   {
     "vuki656/package-info.nvim",

@@ -31,7 +31,6 @@ local keymappings = {
     ["N"] = "Nzzzv",
     ["n"] = "nzzzv",
     ["<leader>?"] = { { desc = "Find Keymaps" }, ":Legendary<CR>" },
-    -- ["<leader>pv"] = { { desc = "Open File Explorer (Ranger)" }, ":RnvimrToggle<CR>" },
     ["<leader>pv"] = { { desc = "Open File Explorer (Ranger)" }, ":lua require('ranger-nvim').open(true)<CR>" },
     ["<leader>ss"] = { { desc = "Save Session" }, ":mksession<CR>" },
     ["<leader>sl"] = { { desc = "Restore Session" }, ":so Session.vim<CR>" },
@@ -185,6 +184,10 @@ local keymappings = {
     ["<leader><leader>j"] = '<cmd>lua require("smart-splits").swap_buf_down()<CR>',
     ["<leader><leader>k"] = '<cmd>lua require("smart-splits").swap_buf_up()<CR>',
     ["<leader><leader>l"] = '<cmd>lua require("smart-splits").swap_buf_right()<CR>',
+    -- color picker
+    ["<leader>zp"] = "<cmd>CccPick<cr>",
+    ["<leader>zc"] = "<cmd>CccConvert<cr>",
+    ["<leader>zh"] = "<cmd>CccHighlighterToggle<cr>",
   },
   visual_mode = {
     -- ["<C-c>"] = "<Esc>",
@@ -193,7 +196,7 @@ local keymappings = {
     ["<D-c>"] = '"+y',
     ["<D-v>"] = '"+p',
     ["<leader>p"] = '"_dP', -- paste without
-    ["<leader>d"] = '"_d', -- delete without copy
+    ["<leader>d"] = '"_d',  -- delete without copy
     ["<leader>y"] = '"+y',
     -- move line(s) in visual mode
     ["J"] = "<cmd>m '>+1<CR>gv=gv",
