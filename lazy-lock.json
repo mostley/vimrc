@@ -78,6 +78,7 @@
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
   "quick-scope": { "branch": "master", "commit": "428e8698347f254d24b248af9f656194a80081e5" },
   "ranger.nvim": { "branch": "main", "commit": "6270cff1d1b25035f648ffe9e19a11ca4cdd85de" },
+  "rayso.nvim": { "branch": "main", "commit": "d6a45c3c6a7b1da97646a5bc3ae7eab7e5f4f292" },
   "refactoring.nvim": { "branch": "master", "commit": "e7c40818b2995016ede93c5620055206b1aba44f" },
   "rust-tools.nvim": { "branch": "master", "commit": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f" },
   "schemastore.nvim": { "branch": "main", "commit": "6f2ffb8420422db9a6c43dbce7227f0fdb9fcf75" },
