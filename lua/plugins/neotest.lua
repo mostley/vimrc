@@ -30,6 +30,7 @@ return {
     "haydenmeade/neotest-jest",
     "marilari88/neotest-vitest",
     "nvim-neotest/neotest-vim-test",
+    "thenbe/neotest-playwright",
   },
   module = { "neotest" },
   config = function()
@@ -49,6 +50,12 @@ return {
         require("neotest-plenary"),
         require("neotest-vim-test")({
           ignore_file_types = { "python", "vim", "lua" },
+        }),
+        require("neotest-playwright").adapter({
+          options = {
+            persist_project_selection = true,
+            enable_dynamic_test_discovery = true,
+          },
         }),
       },
     })
