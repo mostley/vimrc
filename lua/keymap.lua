@@ -207,7 +207,7 @@ local keymappings = {
     ["<leader>rf"] = "<Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>",
     ["<leader>rv"] = "<Cmd>lua require('refactoring').refactor('Extract Variable')<CR>",
     ["<leader>rr"] = "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
-    ["<leader>rd"] = "<cmd>lua require('refactoring').debug.print_var({})<CR>",
+    ["<leader>rp"] = "<cmd>lua require('refactoring').debug.print_var({})<CR>",
     -- telescope-dap
     ["<leader>dhv"] = '<cmd>lua require"dap.ui.variables".visual_hover()<CR>',
   },

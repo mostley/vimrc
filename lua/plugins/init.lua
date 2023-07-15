@@ -127,7 +127,7 @@ return {
     ft = "markdown",
     dependencies = { "godlygeek/tabular" },
   },
-  { "ellisonleao/glow.nvim",         config = true,                         cmd = "Glow" },
+  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   "ellisonleao/glow.nvim",
   {
     "vuki656/package-info.nvim",
@@ -144,7 +144,10 @@ return {
         background_colour = "#000000",
       })
 
-      vim.notify = require("notify")
+      local notify = require("notify")
+      vim.notify = function(message, level, opts)
+        return notify(message, level, opts) -- <-- Important to return the value from `nvim-notify`
+      end
     end,
   },
   -- "floobits/floobits-neovim",
