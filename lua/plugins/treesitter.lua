@@ -46,7 +46,6 @@ return {
     configs.setup({
       ensure_installed = { -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         "regex",
-        "help",
         "javascript",
         "typescript",
         "python",

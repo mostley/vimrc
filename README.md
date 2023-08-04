@@ -17,26 +17,16 @@ https://github.com/neovim/neovim/wiki/Installing-Neovim
 
 ## requires the following language server options
 
-        pip install --upgrade python-lsp-server[all] rope pylsp-rope pylsp-mypy pyls-memestra
+        python3 -m pip install --user --upgrade pynvim
+        pip install --upgrade python-lsp-server[all] rope pylsp-rope pylsp-mypy pyls-memestra gitlint proselint
 
-        lua language server (https://www.chrisatmachine.com/Neovim/28-neovim-lua-development/):
-        brew install ninja
-        cd .config/nvim
-        git clone https://github.com/sumneko/lua-language-server
-        cd lua-language-server
-        git submodule update --init --recursive
-        cd 3rd/luamake
-        ninja -f ninja/macos.ninja
-        cd ../..
-        ./3rd/luamake/luamake rebuild
-
-        npm install -g neovim tree-sitter-cli eslint_d diagnostic-languageserver typescript typescript-language-server pyright vls @fsouza/prettierd vscode-langservers-extracted @volar/vue-language-server bash-language-server vim-language-server nginxbeautifier alex proselint
+        npm install -g neovim tree-sitter-cli eslint_d diagnostic-languageserver typescript typescript-language-server pyright vls @fsouza/prettierd vscode-langservers-extracted @volar/vue-language-server bash-language-server vim-language-server nginxbeautifier alex proselint markdownlint
 
         brew install efm-langserver write-good shellcheck
 
 ## other needed things
 
-        brew install ranger
+        brew install ranger rg fd
 
 ## trigger installations:
 
